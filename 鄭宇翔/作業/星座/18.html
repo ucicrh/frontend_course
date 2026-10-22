@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = prompt('請輸入你的姓名')
+        const month = Number(prompt('請輸入你的出生月份'))
+        const day = Number(prompt('請輸入你的出生日期'))
+
+        let starSing = month * 100 + day
+        if (starSing >= 321 && starSing <= 419) {
+            starSing = '牡羊座'
+        } else if (starSing >= 420 && starSing <= 520) {
+            starSing = '金牛座'
+        } else if (starSing >= 521 && starSing <= 620) {
+            starSing = '雙子座'
+        } else if (starSing >= 621 && starSing <= 722) {
+            starSing = '巨蟹座'
+        } else if (starSing >= 723 && starSing <= 822) {
+            starSing = '獅子座'
+        } else if (starSing >= 823 && starSing <= 922) {
+            starSing = '處女座'
+        } else if (starSing >= 923 && starSing <= 1022) {
+            starSing = '天秤座'
+        } else if (starSing >= 1023 && starSing <= 1121) {
+            starSing = '天蠍座'
+        } else if (starSing >= 1122 && starSing <= 1221) {
+            starSing = '射手座'
+        } else if ((starSing >= 1222 && starSing <= 1231) || (starSing >= 101 && starSing <= 119)) {
+            starSing = '摩羯座'
+        } else if (starSing >= 120 && starSing <= 218) {
+            starSing = '水瓶座'
+        } else if (starSing >= 219 && starSing <= 320) {
+            starSing = '雙魚座'
+        }
+
+        document.write('您好' + name + '，您是' + starSing)
+    </script>
+</body>
+
+</html>

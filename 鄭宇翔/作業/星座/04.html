@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04作業03</title>
+</head>
+<body>
+    <script>
+var name = prompt("請輸入姓名：");
+
+var birthdayM = prompt("請輸入生日月份(1-12)：");
+
+var birthdayD = prompt("請輸入生日日期(1-31)：");
+
+if ((birthdayM == 1 && birthdayD >= 20) || (birthdayM == 2 && birthdayD <= 18)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是水瓶座");
+} else if ((birthdayM == 2 && birthdayD >= 19) || (birthdayM == 3 && birthdayD <= 20)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是雙魚座");
+} else if ((birthdayM == 3 && birthdayD >= 21) || (birthdayM == 4 && birthdayD <= 19)) {
+    document.write("姓名：" + name + "<br>"+"，您的星座是牡羊座");
+} else if ((birthdayM == 4 && birthdayD >= 20) || (birthdayM == 5 && birthdayD <= 20)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是金牛座");
+} else if ((birthdayM == 5 && birthdayD >= 21) || (birthdayM == 6 && birthdayD <= 20)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是雙子座");
+} else if ((birthdayM == 6 && birthdayD >= 21) || (birthdayM == 7 && birthdayD <= 22)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是巨蟹座");
+} else if ((birthdayM == 7 && birthdayD >= 23) || (birthdayM == 8 && birthdayD <= 22)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是獅子座");
+} else if ((birthdayM == 8 && birthdayD >= 23) || (birthdayM == 9 && birthdayD <= 22)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是處女座");
+} else if ((birthdayM == 9 && birthdayD >= 23) || (birthdayM == 10 && birthdayD <= 22)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是天秤座");
+} else if ((birthdayM == 10 && birthdayD >= 23) || (birthdayM == 11 && birthdayD <= 21)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是天蠍座");
+} else if ((birthdayM == 11 && birthdayD >= 22) || (birthdayM == 12 && birthdayD <= 21)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是射手座");
+} else if ((birthdayM == 12 && birthdayD >= 22) || (birthdayM == 1 && birthdayD <= 19)) {
+    document.write("姓名：" + name + "<br>"+"您的星座是摩羯座");
+} 
+
+
+    </script>
+</body>
+</html>

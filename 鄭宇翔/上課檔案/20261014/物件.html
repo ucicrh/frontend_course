@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const person = {
+      firstName: 'aaa',
+      lastName: 'AAA',
+      fullName: function () {
+        // this 代表目前的物件本身
+        return this.firstName + this.lastName
+      },
+      hi () {
+        return 'hi, i am ' + this.fullName()
+      },
+      bye: () => {
+        // 箭頭的 this 其實是指 Window
+        // 詳細看講義 BOM
+        console.log(this)
+        return this.firstName
+      }
+    }
+
+    console.log(person.fullName())
+    console.log(person.hi())
+    console.log(person.bye())
+
+    class Person {
+      firstName = ''
+      lastName = ''
+      // 當物件被實際建立時執行的動作
+      constructor (firstName, lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+      }
+      fullName () {
+        return this.firstName + this.lastName
+      }
+    }
+    const p1 = new Person('aaa', 'AAA')
+    console.log(p1.fullName())
+    const p2 = new Person('bbb', 'BBB')
+    console.log(p2.fullName())
+  </script>
+</body>
+</html>

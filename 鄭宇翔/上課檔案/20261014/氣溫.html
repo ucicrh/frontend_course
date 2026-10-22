@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const data = [
+      [18.2, 17.3, 15.0, 13.4],
+      [23.8, 25.1, 20.6, 17.8],
+      [20.6, 21.5, 18.4, 15.7]
+    ]
+
+    // 表格
+    // i = 時段，j = 星期
+    document.write('<table border="1">')
+    for (let i = 0; i < data.length; i++) {
+      document.write('<tr>')
+      for (let j = 0; j < data[i].length; j++) {
+        document.write(`<td>${data[i][j]}</td>`)
+      }
+      document.write('</tr>')
+    }
+    document.write('</table>')
+
+    // 每天平均
+    // 一個一個算
+    /*
+    let sum = 0
+    for (let i = 0; i < 3; i++) {
+      sum += data[i][0]
+    }
+    sum /= 3
+    document.write(`<p>星期一平均: ${sum}</p>`)
+
+    sum = 0
+    for (let i = 0; i < 3; i++) {
+      sum += data[i][1]
+    }
+    sum /= 3
+    document.write(`<p>星期二平均: ${sum}</p>`)
+    */
+    // 迴圈一次算
+    for (let j = 0; j < 4; j++) {
+      let sum = 0
+      for (let i = 0; i < 3; i++) {
+        sum += data[i][j]
+      }
+      sum /= 3
+      document.write(`<p>星期${j+1}平均: ${sum}</p>`)
+    }
+
+    // 時段
+    // 一個一個算
+    /*
+    let sum = 0
+    for (let j = 0; j < 4; j++) {
+      sum += data[0][j]
+    }
+    sum /= 4
+    document.write(`<p>時段一平均: ${sum}</p>`)
+    
+    sum = 0
+    for (let j = 0; j < 4; j++) {
+      sum += data[1][j]
+    }
+    sum /= 4
+    document.write(`<p>時段二平均: ${sum}</p>`)
+    */
+
+    for (let i = 0; i < 3; i++) {
+      let sum = 0
+      for (let j = 0; j < 4; j++) {
+        sum += data[i][j]
+      }
+      sum /= 4
+      document.write(`<p>時段${i+1}平均: ${sum}</p>`)
+    }
+
+    // 最高溫最低溫
+    const max = { time: 0, day: 0 }
+    const min = { time: 0, day: 0 }
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 4; j++) {
+        if (data[i][j] > data[max.time][max.day]) {
+          max.time = i
+          max.day = j
+        }
+        if (data[i][j] < data[min.time][min.day]) {
+          min.time = i
+          min.day = j
+        }
+      }
+    }
+    document.write(`<p>最高:${data[max.time][max.day]}，星期${max.day+1}，時段${max.time+1}</p>`)
+    document.write(`<p>最低:${data[min.time][min.day]}，星期${min.day+1}，時段${min.time+1}</p>`)
+  </script>
+</body>
+</html>

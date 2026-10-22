@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const products = [
+      { id: 1, name: '無線滑鼠', price: 590, category: '周邊', stock: 12 },
+      { id: 2, name: '機械鍵盤', price: 2490, category: '周邊', stock: 0 },
+      { id: 3, name: '27 吋螢幕', price: 6990, category: '螢幕', stock: 5 },
+      { id: 4, name: 'USB 隨身碟', price: 350, category: '儲存', stock: 30 },
+      { id: 5, name: '外接硬碟', price: 1990, category: '儲存', stock: 0 },
+      { id: 6, name: '網路攝影機', price: 1290, category: '周邊', stock: 8 }
+    ]
+
+    const inStock = products.filter(value => value.stock > 0).map(value => value.name).join(', ')
+    document.write(`<p>${inStock}</p>`)
+
+    const id3 = products.find(value => value.id === 3)
+    document.write(`<p>${id3.name}</p>`)
+
+    const sorted = products.toSorted((a, b) => a.price - b.price).map(value => value.name).join(', ')
+    document.write(`<p>${sorted}</p>`)
+
+    const totalPrice = products.reduce((total, value) => total += (value.price * value.stock), 0)
+    document.write(`<p>${totalPrice}</p>`)
+
+    const discount = products.map(value => value.price * 0.8).join(', ')
+    document.write(`<p>${discount}</p>`)
+
+    console.log(products)
+  </script>
+</body>
+</html>

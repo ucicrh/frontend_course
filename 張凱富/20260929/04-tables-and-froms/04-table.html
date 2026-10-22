@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表格</title>
+</head>
+
+<body>
+  <h1>表格</h1>
+
+  <h2>範例一：一個完整的表格（包含 thead、tbody、tfoot）</h2>
+  <table border="1" width="600">
+    <!-- 大標題 -->
+    <caption>成績表</caption>
+
+    <!-- 表格的頭 -->
+    <thead>
+      <!-- tr：table row（列） -->
+      <!-- th：table head -->
+      <tr>
+        <th>學號</th>
+        <th>姓名</th>
+        <th>HTML</th>
+        <th>CSS</th>
+      </tr>
+    </thead>
+
+    <!-- 表格的身體 -->
+    <tbody>
+      <!-- 用 emmet 快速輸入結構 -->
+      <!-- tr>td*4 -->
+      <tr>
+        <td>A001</td>
+        <td>小明</td>
+        <td>100</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>A002</td>
+        <td>小華</td>
+        <td>100</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>A003</td>
+        <td>大寶</td>
+        <td>100</td>
+        <td>100</td>
+      </tr>
+    </tbody>
+
+    <!-- 表格的腳 -->
+    <tfoot>
+      <tr>
+        <td></td>
+        <td>全班平均成績</td>
+        <td>100</td>
+        <td>100</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2>範例二：表格合併</h2>
+  <!-- 6 * 6 表格 -->
+  <!-- table>tr*6>td*6 -->
+  <!-- table>tr*6>td{$}*6 -->
+  <!-- cellspacing 儲存格之間的距離 -->
+  <!-- cellpadding 儲存格的內距 -->
+  <p>colspan（欄合併）：左吃右，右消失，colspan="吃幾個+自己"</p>
+  <p>rowspan（列合併）：上吃下，下消失，rowspan="吃幾個+自己"</p>
+  <table border="1" width="600" align="center" cellspacing="5" cellpadding="5">
+    <tr align="center">
+      <td colspan="3">1</td>
+      <td>4</td>
+      <td colspan="2">5</td>
+    </tr>
+    <tr align="center">
+      <td rowspan="3">1</td>
+      <td colspan="4">2</td>
+      <td rowspan="5">6</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr align="center">
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr align="center">
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <p>
+    <a href="../03-links-and-images/03-links-and-images.html">上一單元：模組 03：超連結與圖片</a>
+    |
+    <a href="./05-form.html">下一單元：表單</a>
+  </p>
+</body>
+
+</html>

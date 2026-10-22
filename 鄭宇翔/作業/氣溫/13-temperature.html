@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+        // =======================================
+        document.write('<table border="1">')
+        // data表格呈現
+        for (let i = 0; i < 3; i++) {
+            document.write(`</tr>`)
+            for (let j = 0; j < 4; j++) {
+                document.write(`<td>${data[i][j]}</td>`)
+            }
+        }
+        document.write('</tr>')
+        document.write('</table>')
+        document.write('<hr>')
+
+        // =========================================每日平均溫度
+
+        let monday = 0
+        let Tuesday = 0
+        let wednesday = 0
+        let Thursday = 0
+
+        document.write('<table border="1">')
+        for (let i = 0; i < 3; i++) {
+            document.write(`</tr>`)
+            monday += (data[i][0])
+            Tuesday += (data[i][1])
+            wednesday += (data[i][2])
+            Thursday += (data[i][3])
+
+
+        }
+        document.write(`<td>星期一平均溫度${monday / 3}</td>`)
+        document.write(`<td>星期二平均溫度${Tuesday / 3}</td>`)
+        document.write(`<td>星期三平均溫度${wednesday / 3}</td>`)
+        document.write(`<td>星期四平均溫度${Thursday / 3}</td>`)
+
+        document.write('</tr>')
+        document.write('</table>')
+        document.write('<br>')
+
+        // ====================================時段平均溫度
+
+        let one = 0
+        let two = 0
+        let three = 0
+
+        document.write('<table border="1">')
+        for (let i = 0; i < 4; i++) {
+            document.write(`</tr>`)
+            one += (data[0][i])
+            two += (data[1][i])
+            three += (data[2][i])
+        }
+        document.write(`<td>時段一平均溫度${one / 4}</td>`)
+        document.write(`<td>時段二平均溫度${two / 4}</td>`)
+        document.write(`<td>時段三平均溫度${three / 4}</td>`)
+        document.write('</tr>')
+        document.write('</table>')
+        document.write('<br>')
+
+        // =========================================最高溫、最低溫
+        const days = ['星期一', '星期二', '星期三', '星期四']
+        const time = ['時段一', '時段二', '時段三']
+
+        let max = data[0][0]
+        let min = data[0][0]
+        for (let i = 1; i < 3; i++) {
+            for (let j = 1; j < 4; j++) {
+                if (data[i][j] > max) {
+                    max = data[i][j]
+                    maxday = j
+                    maxtime = i
+                }
+                if (data[i][j] < min) {
+                    min = data[i][j]
+                    minday = j
+                    mintime = i
+                }
+            }
+        }
+
+        document.write(`最高溫度${max}，在${days[maxday]}的${time[maxtime]}`)
+        document.write('<br>')
+        document.write(`最低溫度${min}，在${days[minday]}的${time[mintime]}`)
+
+    </script>
+</body>
+
+</html>

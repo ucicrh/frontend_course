@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const numbers = [100, 200, 300, 400, 500, 100]
+
+    const includes = numbers.includes(100)
+    console.log('includes', includes)
+
+    const indexOf = numbers.indexOf(100)
+    console.log('indexOf', indexOf)
+
+    numbers.forEach((value, index, array) => {
+      console.log('forEach', value, index)
+    })
+
+    const some = numbers.some((value, index, array) => {
+      return value > 300
+    })
+    console.log('some', some)
+
+    const every = numbers.every((value, index, array) => {
+      return value > 300
+    })
+    console.log('every', every)
+
+    const find = numbers.find((value, index, array) => {
+      return value > 300
+    })
+    console.log('find', find)
+
+    const findIndex = numbers.findIndex((value, index, array) => {
+      return value > 300
+    })
+    console.log('findIndex', findIndex)
+
+    const filter = numbers.filter((value, index, array) => {
+      return value > 300
+    })
+    console.log('filter', filter)
+
+    // ---
+    const data = [
+      { text: 'aaa' },
+      { text: 'bbb' }
+    ]
+    console.log(data.includes({ text: 'aaa' })) // false，因為是不同物件
+
+    const someText = data.some(value => {
+      return value.text === 'aaa'
+    })
+    console.log(someText) // true
+  </script>
+</body>
+</html>

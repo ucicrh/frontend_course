@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>太極</title>
+  <style>
+    /* 父相(relative)子絕(absolute) */
+    .taichi {
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(90deg, white 50%, black 50%);
+      border-radius: 50%;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* 太極大白圓 */
+    .taichi::before {
+      content: "";
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: white;
+      /* 自動轉型成 block */
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+    }
+
+    /* 太極大黑圓 */
+    .taichi::after {
+      content: "";
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: black;
+
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .yinyang {
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      /* width: 100%; */
+      /* height: 100%; */
+      /* background: red; */
+    }
+
+    .yinyang::before {
+      content: "";
+      width: 75px;
+      height: 75px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 25%;
+      transform: translateY(-50%);
+      margin: auto;
+    }
+
+
+    .yinyang::after {
+      content: "";
+      width: 75px;
+      height: 75px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 25%;
+      transform: translateY(50%);
+      margin: auto;
+
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+  大圓：正方形->圓形->定位水平置中->畫漸層
+  大白(taichi before)：正方形->圓形->定位
+  大黑(taichi after)：正方形->圓形->定位
+  小黑(yinyang before)：正方形->圓形->定位
+  小白(yinyang after)：正方形->圓形->定位
+  -->
+  <div class="taichi">
+    <div class="yinyang"></div>
+  </div>
+</body>
+
+</html>

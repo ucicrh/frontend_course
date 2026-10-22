@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bear {
+        width: 300px;
+        height: 300px;
+        background-color: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+
+
+    }
+
+    .bear1 {
+        width: 300px;
+        height: 300px;
+        /* background-color: #000; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        /* z-index: 1; */
+
+    }
+
+    .bear::before {
+        content: "";
+        width: 80px;
+        height: 80px;
+        background-color: red;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        top: 100px;
+        left: -5%;
+
+    }
+
+    .bear::after {
+        content: "33";
+        width: 80px;
+        height: 80px;
+        background-color: red;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        top: 100px;
+        right: -5%;
+
+    }
+
+
+    .mouth {
+        width: 150px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .mouth::before {
+        content: "";
+        width: 30px;
+        height: 30px;
+        background-color: #000;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        border-radius: 50%;
+        transform: translatex(-50%);
+        z-index: 4;
+    }
+
+    .mouth::after {
+        content: "";
+        width: 80px;
+        height: 30px;
+        background-color: #000;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        border-radius: 50%;
+        transform: translatex(-50%);
+        z-index: 4;
+    }
+
+    .eyes {
+        width: 100%;
+        height: 100%;
+        /* background-color: #0f0; */
+        position: absolute;
+        z-index: 4;
+    }
+
+    .eyes::before {
+        content: "";
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        background-image: radial-gradient(#000 0%, #000 50%, #fff 50%, #fff 100%);
+        z-index: 6;
+    }
+
+    .eyes::after {
+        content: "";
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute;
+        top: 25%;
+        right: 10%;
+        transform: translate(-50%, -50%);
+        background-image: radial-gradient(#000 0%, #000 50%, #fff 50%, #fff 100%);
+        z-index: 6;
+    }
+
+    .ears {
+        width: 100%;
+        height: 100%;
+        /* background-color: green; */
+        position: absolute;
+    }
+
+    .ears::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: lightcoral;
+        background-image: radial-gradient(#fff 0%, #fff 50%, #000 50%, #000 100%);
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        z-index: 6;
+    }
+
+    .ears::after {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: lightcoral;
+        background-image: radial-gradient(#fff 0%, #fff 50%, #000 50%, #000 100%);
+        position: absolute;
+        top: 0px;
+        right: 20px;
+        z-index: 6;
+    }
+
+    .chest {
+        width: 100%;
+        height: 100%;
+        /* background-color: gray; */
+        position: absolute;
+    }
+
+    .chest::before {
+        content: "";
+        width: 40px;
+        height: 50px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform-origin: right bottom;
+        transform: translatex(-50%) skew(45deg, 0deg);
+        z-index: 8;
+    }
+
+    .chest::after {
+        content: "";
+        width: 40px;
+        height: 50px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 30px;
+        right: 50%;
+        transform-origin: left bottom;
+        transform: translatex(50%) skew(-45deg, 0);
+        z-index: 8;
+    }
+</style>
+
+<body>
+    <div class="bear">
+        <!-- <div class="bearN"></div> -->
+        <div class="mouth"></div>
+        <div class="eyes"></div>
+        <div class="ears"></div>
+        <div class="chest"></div>
+    </div>
+
+</body>
+
+</html>

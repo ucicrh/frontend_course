@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // data[][]
+    // 第一個 [] 代表銷售員
+    // 第二個 [] 代表商品
+    const data = [
+      [33, 32, 56, 45, 33],
+      [77, 33, 68, 45, 23],
+      [43, 55, 43, 67, 65]
+    ]
+    // 商品價格，索引是商品編號
+    const prices = [12, 16, 10, 14, 15]
+
+    // 銷售員 1
+    let total = 0
+    for (let i = 0; i < 5; i++) {
+      total += data[0][i] * prices[i]
+    }
+    document.write(`<p>銷售員 1: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 5; i++) {
+      total += data[1][i] * prices[i]
+    }
+    document.write(`<p>銷售員 2: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 5; i++) {
+      total += data[2][i] * prices[i]
+    }
+    document.write(`<p>銷售員 3: ${total}</p>`)
+    
+    // 商品 A
+    total = 0
+    for (let i = 0; i < 3; i++) {
+      total += data[i][0] * prices[0]
+    }
+    document.write(`<p>商品 A: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 3; i++) {
+      total += data[i][1] * prices[1]
+    }
+    document.write(`<p>商品 B: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 3; i++) {
+      total += data[i][2] * prices[2]
+    }
+    document.write(`<p>商品 C: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 3; i++) {
+      total += data[i][3] * prices[3]
+    }
+    document.write(`<p>商品 D: ${total}</p>`)
+
+    total = 0
+    for (let i = 0; i < 3; i++) {
+      total += data[i][4] * prices[4]
+    }
+    document.write(`<p>商品 E: ${total}</p>`)
+  </script>
+</body>
+</html>

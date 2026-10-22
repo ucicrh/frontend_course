@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星座判斷器</title>
+</head>
+
+<body>
+  <script>
+    /* 練習：製作一個星座判斷器，進入網頁時出現三個輸入視窗，分別是姓名、出生月份和出生日期。輸入完成後跳出訊息，格式為 OOO 你好，你的星座是 OOO 座 */
+
+    // 取得使用者資料
+    let name = prompt("您的姓名：")
+    let month = prompt("出生月份：")
+    let day = prompt("出生日期：")
+
+    // 判斷星座
+    let constellation
+
+    if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) {
+      constellation = "牡羊"
+    } else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) {
+      constellation = "金牛"
+    } else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) {
+      constellation = "雙子"
+    } else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) {
+      constellation = "巨蟹"
+    } else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) {
+      constellation = "獅子"
+    } else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) {
+      constellation = "處女"
+    } else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) {
+      constellation = "天秤"
+    } else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) {
+      constellation = "天蠍"
+    } else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) {
+      constellation = "射手"
+    } else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) {
+      constellation = "摩羯"
+    } else if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) {
+      constellation = "水瓶"
+    } else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) {
+      constellation = "雙魚"
+    }
+
+    document.write(`${name} 你好，你的星座是${constellation}座`)
+  </script>
+</body>
+
+</html>

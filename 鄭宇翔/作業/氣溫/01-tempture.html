@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>氣溫</title>
+    <!-- 
+    
+    練習二維陣列
+下表為某地星期一到星期四的時段一、時段二與時段三的氣溫
+
+       星期一	星期二	星期三	星期四
+時段一	18.2	17.3	15.0	13.4
+時段二	23.8	25.1	20.6	17.8
+時段三	20.6	21.5	18.4	15.7
+    
+    
+     請將上表的內容設定成二維陣列，並依序完成下列各題
+       將陣列內容印出成表格
+       每日的平均溫度
+       時段一、時段二、時段三的平均氣溫
+       溫度最高的日子與時段
+       溫度最低的日子與時段 
+       const data = [
+     [18.2, 17.3, 15.0, 13.4],
+     [23.8, 25.1, 20.6, 17.8],
+     [20.6, 21.5, 18.4, 15.7]  
+     ]
+     -->
+</head>
+
+<body>
+
+    <script>
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ];
+
+        let sumOfP1 = 0;
+        let sumOfP2 = 0;
+        let sumOfP3 = 0;
+        let sumOfD1 = 0;
+        let sumOfD2 = 0;
+        let sumOfD3 = 0;
+        let sumOfD4 = 0;
+        let d1Array = [];
+        let d2Array = [];
+        let d3Array = [];
+        let d4Array = [];
+        let p1Array = [];
+        let p2Array = [];
+        let p3Array = [];
+        let max = [0, 0, data[0][0]];
+        let min = [0, 0, data[0][0]];
+        document.write('<table border>');
+        for (i = 0; i < data.length; i++) {
+            document.write('<tr>');
+            for (j = 0; j < data[i].length; j++) {
+                document.write(`<td>${data[i][j]} </td>`);
+            }
+            document.write('</tr>');
+        } document.write('</table>');
+        document.write('<hr>');
+        for (i = 0; i < data.length; i++) {
+            // document.write(data[i] + '<br><hr>');
+            for (j = 0; j < data[i].length; j++) {
+
+                let tempture = data[i][j];
+
+                if (tempture > max[2]) {
+                    max = [i, j, tempture];
+                }
+                if (tempture < min[2]) {
+                    min = [i, j, tempture];
+                }
+                if (i == 0) {
+                    if (j == 0) {
+                        sumOfD1 += tempture;
+                        sumOfP1 += tempture;
+                    } else if (j == 1) {
+                        sumOfD2 += tempture;
+                        sumOfP1 += tempture;
+                    } else if (j == 2) {
+                        sumOfD3 += tempture;
+                        sumOfP1 += tempture;
+                    } else if (j == 3) {
+                        sumOfD4 += tempture;
+                        sumOfP1 += tempture;
+                    }
+                } else if (i == 1) {
+                    if (j == 0) {
+                        sumOfD1 += tempture;
+                        sumOfP2 += tempture;
+                    } else if (j == 1) {
+                        sumOfD2 += tempture;
+                        sumOfP2 += tempture;
+                    } else if (j == 2) {
+                        sumOfD3 += tempture;
+                        sumOfP2 += tempture;
+                    } else if (j == 3) {
+                        sumOfD4 += tempture;
+                        sumOfP2 += tempture;
+                    }
+                } else if (i == 2) {
+                    if (j == 0) {
+                        sumOfD1 += tempture;
+                        sumOfP3 += tempture;
+                    } else if (j == 1) {
+                        sumOfD2 += tempture;
+                        sumOfP3 += tempture;
+                    } else if (j == 2) {
+                        sumOfD3 += tempture;
+                        sumOfP3 += tempture;
+                    } else if (j == 3) {
+                        sumOfD4 += tempture;
+                        sumOfP3 += tempture;
+                    }
+                }
+            }
+        }
+
+
+        document.write(`星期一平均：${sumOfD1 / 3} <br>`);
+        document.write(`星期二平均：${sumOfD2 / 3} <br>`);
+        document.write(`星期三平均：${sumOfD3 / 3} <br>`);
+        document.write(`星期四平均：${sumOfD4 / 3} <br>`);
+        document.write(` <hr>`);
+        document.write(`時段一平均：${sumOfP1 / 4} <br>`);
+        document.write(`時段二平均：${sumOfP2 / 4} <br>`);
+        document.write(`時段三平均：${sumOfP3 / 4} <br>`);
+        document.write(` <hr>`);
+        document.write(`最高：星期${max[1] + 1}，時段${max[0] + 1} ${max[2]}  <br>`);
+        document.write(`最低：星期${min[1] + 1}，時段${min[0] + 1} ${min[2]} <br>`);
+
+
+
+        // document.write(periodArray + '<br>');
+    </script>
+
+</body>
+
+</html>

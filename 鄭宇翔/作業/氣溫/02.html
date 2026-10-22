@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 練習二維陣列
+      // 下表為某地星期一到星期四的時段一、時段二與時段三的氣溫
+
+      //       星期一  星期二  星期三  星期四
+      // 時段一 18.2    17.3    15.0    13.4
+      // 時段二	23.8	25.1	20.6	17.8
+      // 時段三	20.6	21.5	18.4	15.7
+      // 請將上表的內容設定成二維陣列，並依序完成下列各題
+
+      const data = [
+        [18.2, 17.3, 15.0, 13.4],
+        [23.8, 25.1, 20.6, 17.8],
+        [20.6, 21.5, 18.4, 15.7],
+      ];
+
+      // 將陣列內容印出成表格
+      document.write('<table border="1">');
+      for (let i = 0; i < data.length; i++) {
+        document.write("<tr>");
+        for (const temp in data[i]) {
+          document.write(`<td>${data[i][temp]}</td>`);
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+
+      // 每日的平均溫度
+      for (let i = 0; i < data[0].length; i++) {
+        let total = 0;
+        for (let j = 0; j < data.length; j++) {
+          total += data[j][i];
+        }
+        let avg = total / data.length;
+        document.write(`<p>星期${i + 1}的平均溫度：${avg}</p>`);
+      }
+
+      // 時段一、時段二、時段三的平均氣溫
+      for (let i = 0; i < data.length; i++) {
+        let total = 0;
+        for (let j = 0; j < data[0].length; j++) {
+          total += data[i][j];
+        }
+        let avg = total / data[0].length;
+        document.write(`<p>時段${i + 1}的平均氣溫：${avg}</p>`);
+      }
+
+      // 溫度最高的日子與時段
+      let max = data[0][0];
+      let maxDay = 0;
+      let maxPeriod = 0;
+
+      for (i = 0; i < data.length; i++) {
+        for (j = 0; j < data[0].length; j++) {
+          if (data[i][j] > max) {
+            max = data[i][j];
+            maxPeriod = i;
+            maxDay = j;
+          }
+        }
+      }
+
+      document.write(
+        `<p>溫度最高：${max}度，星期${maxDay + 1}，時段：${maxPeriod + 1}</p>`,
+      );
+
+      // 溫度最低的日子與時段
+      let min = data[0][0];
+      let minDay = 0;
+      let minPeriod = 0;
+
+      for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[0].length; j++) {
+          if (data[i][j] < min) {
+            min = data[i][j];
+            minPeriod = i;
+            minDay = j;
+          }
+        }
+      }
+
+      document.write(
+        `<p>溫度最低：${min}度，星期${minDay + 1}，時段：${minPeriod + 1}</p>`,
+      );
+    </script>
+  </body>
+</html>

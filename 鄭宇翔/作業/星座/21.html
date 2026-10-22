@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const name = prompt('請輸入姓名')
+
+
+        
+        const month = Number(prompt('請輸入月份'))
+        const day = Number(prompt('日期'))
+        let zodiac = ''
+
+
+        if (month == 3 && day <= 19 ){
+            console.log(`${name}，你是雙魚座`)
+            zodiac = '雙魚座'
+            alert(`${name}，你是雙魚座`)
+        } else if (month === 3 && day >= 20 || month === 4 && day <= 19) {
+            console.log(`${name}，你是牡羊座`)
+            zodiac = '牡羊座'
+            alert(`${name}，你是牡羊座`)
+        } else if (month === 4 && day >= 20 || month === 5 && day <= 20) {
+            console.log(`${name}，你是金牛座`)
+            zodiac = '金牛座'
+            alert(`${name}，你是金牛座`)
+        } else if (month === 5 && day >= 21 || month === 6 && day <= 20) {
+            console.log(`${name}，你是雙子座`)
+            zodiac = '雙子座'
+            alert(`${name}，你是雙子座`)
+        } else if (month === 6 && day >= 21 || month === 7 && day <= 22) {
+            console.log(`${name}，你是巨蟹座`)
+            zodiac = '巨蟹座'
+            alert(`${name}，你是巨蟹座`)
+        } else if (month === 7 && day >= 23 || month === 8 && day <= 22) {
+            console.log(`${name}，你是獅子座`)
+            zodiac = '獅子座'
+            alert(`${name}，你是獅子座`)
+        } else if (month === 8 && day >= 23 || month === 9 && day <= 22) {
+            console.log(`${name}，你是處女座`)
+            zodiac = '處女座'
+            alert(`${name}，你是處女座`)
+        } else if (month === 9 && day >= 23 || month == 10 && day <= 22) {
+            console.log(`${name}，你是天秤座`)
+            zodiac = '天秤座'
+            alert(`${name}，你是天秤座`)
+        } else if (month === 10 && day >= 23 || month === 11 && day <= 21) {
+            console.log(`${name}，你是天蠍座`)
+            zodiac = '天蠍座'
+            alert(`${name}，你是天蠍座`)
+        } else if (month === 11 && day >= 22 || month === 12 && day <= 21) {
+            console.log(`${name}，你是射手座`)
+            zodiac = '射手座'
+            alert(`${name}，你是射手座`)
+        } else if (month === 12 && day >= 22 || month === 1 && day <= 19) {
+            console.log(`${name}，你是摩羯座`)
+            zodiac = '摩羯座'
+            alert(`${name}，你是摩羯座`)
+        } else if (month === 1 && day >=20 || month ===2 && day <=18) {
+            console.log(`${name}，你是水瓶座`)
+            zodiac = '水瓶座'
+            alert(`${name}，你是水瓶座`)
+        } else if (month ===2 && day >=19 || month===3 &&day<=20){
+            console.log(`${name}，你是雙魚座`)
+            zodiac = '雙魚座'
+            alert(`${name}，你是雙魚座`)
+        }
+
+        document.write(`<h1>${name}，你是${month}月${day}日出生的星座是：${zodiac}</h1>`)
+
+    </script>
+
+
+
+
+</body>
+</html>

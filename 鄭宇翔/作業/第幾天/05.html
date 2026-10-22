@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Counter</title>
+</head>
+
+<body>
+
+    <script>
+        const year = prompt('請輸入年')
+        const month = prompt('請輸入月')
+        const day = prompt('請輸入日')
+
+        // 今年的第幾天 = (當月份 - 1個月) * 完整天數 + 當月份目前的天數
+
+        let counter = 0
+
+        for (let i = 1; i <= (month - 1); i++) {
+            if (i === 2) {
+                if (year % 100 === 0 && year % 400 === 0) {
+                    counter += 29
+                } else {
+                    counter += 28
+                }
+            } else {
+                if ((i <= 7 && i % 2 === 0) || (i >= 8 && i <= 12 && i % 2 !== 0)) {
+                    counter += 30
+                } else {
+                    counter += 31
+                }
+            }
+        }
+
+        counter += parseInt(day)
+        document.write(`<h1>您輸入的日期是該年度的第 ${counter} 天</h1>`)
+    </script>
+</body>
+
+</html>

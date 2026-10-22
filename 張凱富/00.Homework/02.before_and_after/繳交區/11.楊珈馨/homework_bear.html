@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .face {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #000;
+            position: relative;
+        }
+
+        .face::before {
+            content: "";
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #fff;
+            border: 10px solid #000;
+            position: absolute;
+            top: -10px;
+            left: 30px;
+        }
+
+        .face::after {
+            content: "";
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #fff;
+            border: 10px solid #000;
+            position: absolute;
+            top: -10px;
+            right: 30px;
+        }
+
+        .eyes {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #000;
+            border: 10px solid #fff;
+            position: relative;
+            top: 60px;
+            left: 60px;
+            z-index: 3;
+        }
+
+        .eyes::before {
+            content: "";
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #000;
+            border: 10px solid #fff;
+            position: absolute;
+            top: -10px;
+            right: -120px;
+            z-index: 3;
+        }
+
+        .nose {
+            width: 120px;
+            height: 90px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 125px;
+            right: 92px;
+        }
+
+        .nose::before {
+            content: "";
+            width: 35px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 10%;
+            margin: 0 auto;
+        }
+
+        .nose::after {
+            content: "";
+            width: 80px;
+            height: 30px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20%;
+            margin: 0 auto;
+        }
+
+        .blush {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            transform: translateX(-50%);
+            left: -64px;
+            top: -11px;
+            z-index: 3;
+        }
+
+        .blush::before {
+            content: "";
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            transform: translateX(50%);
+            left: 210px;
+            top: 0;
+            z-index: 3;
+        }
+
+
+        .feature {
+            width: 0;
+            height: 30px;
+            top: 230px;
+            left: 50%;
+            position: absolute;
+            z-index: 4;
+        }
+
+        .feature::before,
+        .feature::after {
+            content: "";
+            width: 30px;
+            height: 30px;
+            background: #FFF;
+            position: absolute;
+            top: 0;
+        }
+
+        .feature::before {
+            left: -41px;
+            transform: skewX(60deg);
+        }
+
+        .feature::after {
+            left: 11px;
+            transform: skewX(-60deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="face">
+        <div class="eyes"></div>
+        <div class="nose">
+            <div class="blush"></div>
+        </div>
+        <div class="feature"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>輸入年月日，計算是該年的第幾天</title>
+</head>
+
+<body>
+    <script>
+        let MonthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        let year = parseInt(prompt('請輸入年份'));
+        let month = parseInt(prompt('請輸入月份'));
+        let date = parseInt(prompt('請輸入日期'));
+
+        let days = 0;   //  計算天數
+        // 判斷是否為閨年
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            MonthDays[1] = 29;  //  閨年二月為29天
+        }
+        for (let i = 0; i < month - 1; i++) {
+            days += MonthDays[i];
+        }
+        days += date;
+        document.write(`${year}年${month}月${date}日是該年的第 ${days} 天`);
+    </script>
+</body>
+
+</html>

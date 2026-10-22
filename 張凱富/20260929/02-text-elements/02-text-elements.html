@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模組 02：文字標籤與階層語意</title>
+</head>
+
+<body>
+  <h1>前端學習筆記</h1>
+  <h2>一、核心技能地圖</h2>
+  <p>
+    學習前端開發，必須循序漸進，<b>觀念建立</b>與 <strong>反覆動手實作</strong>。
+  </p>
+
+  <h3>基礎核心</h3>
+  <!-- order list 有序清單-->
+  <ol>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ol>
+
+  <!-- unorder list 無序清單 -->
+  <h3>進階框架</h3>
+  <ul>
+    <li>Bootstrap</li>
+    <li>Vue</li>
+    <li>Node.js</li>
+  </ul>
+
+  <hr>
+
+  <h2>二、經典名言錄</h2>
+  <!-- q 短引言、blockquote 長引言 -->
+  <p>
+    傑洛齊貝林所說：<q>繞遠路才是最短路徑</q>
+  </p>
+  <blockquote>
+    學習前端開發，必須循序漸進，<b>觀念建立</b>與 <strong>反覆動手實作</strong>。
+  </blockquote>
+
+  <!-- br 換行，i、em 是斜體 -->
+  <p>
+    解決問題的步驟：<br>
+    理解問題，<br>
+    抽象本質，<br>
+    建立模型，<br>
+    <i>一步一步，訓練工程師的思維，</i>
+    <em>建立扎實的基礎。</em>
+  </p>
+
+  <s>刪除線</s>
+  <del>刪除線</del>
+  <br>
+  <u>底線</u>
+  <ins>底線</ins>
+
+  <hr>
+
+  <h2>三、pre、code 與跳脫字元</h2>
+  <!-- 存檔格式化後只會保留一個半型空白 -->
+  <p>這 裡 有 很 多 空 白</p>
+  <!-- pre 保留所有空白、縮排與換行 -->
+  <pre>這     裡      有 很 多 空      白</pre>
+
+  <!-- pre 與 code 一起常用於表現程式碼區塊 -->
+  <pre>
+    <code>
+      function syHello(){
+        console.log('哈囉，世界！')
+      }
+    </code>
+  </pre>
+
+  <!-- 跳脫(HTML 特殊)字元 -->
+  <!-- lt(less than) -->
+  <!-- gt(great than) -->
+  <pre>
+    <code>
+      &lt;p&gt;這是一個段落&lt;/p&gt;
+      版權所有 &copy;2026 泰山職訓前端網頁班
+    </code>
+  </pre>
+
+  <hr>
+
+  <p>
+    <a href="../01-web-concepts/01-structure.html">上一單元：模組 01：HTML5 的結構</a>
+    |
+    <a href="../03-links-and-images/03-links-and-images.html">下一單元：模組 03：超連結與圖片</a>
+  </p>
+</body>
+
+</html>

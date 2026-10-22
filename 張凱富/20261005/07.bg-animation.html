@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CSS Aurora Animation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+    }
+
+    /* =========================
+       星空背景
+       ========================= */
+
+    .aurora {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+
+      background:
+        radial-gradient(circle at 50% 100%,
+          #123b35 0%,
+          #071b20 35%,
+          #020611 75%,
+          #000 100%);
+    }
+
+
+    /* =========================
+       極光共同設定
+       ========================= */
+
+    .light {
+      position: absolute;
+
+      width: 120%;
+      height: 70%;
+
+      left: -10%;
+      top: -10%;
+
+      filter: blur(35px);
+
+      opacity: 0.7;
+
+      transform-origin: center;
+
+      mix-blend-mode: screen;
+    }
+
+
+    /* =========================
+       第一條極光
+       ========================= */
+
+    .light-1 {
+      background:
+        linear-gradient(110deg,
+          transparent 20%,
+          rgba(0, 255, 180, 0.15) 35%,
+          rgba(0, 255, 180, 0.8) 48%,
+          rgba(80, 255, 220, 0.2) 60%,
+          transparent 75%);
+
+      animation:
+        aurora1 12s ease-in-out infinite alternate;
+    }
+
+
+    /* =========================
+       第二條極光
+       ========================= */
+
+    .light-2 {
+      top: 10%;
+
+      background:
+        linear-gradient(100deg,
+          transparent 15%,
+          rgba(40, 255, 150, 0.1) 30%,
+          rgba(80, 255, 180, 0.6) 45%,
+          rgba(100, 180, 255, 0.5) 58%,
+          transparent 75%);
+
+      animation:
+        aurora2 16s ease-in-out infinite alternate;
+    }
+
+
+    /* =========================
+       第三條極光
+       ========================= */
+
+    .light-3 {
+      top: 20%;
+
+      background:
+        linear-gradient(120deg,
+          transparent 25%,
+          rgba(100, 255, 220, 0.2) 40%,
+          rgba(80, 150, 255, 0.7) 50%,
+          rgba(180, 80, 255, 0.4) 60%,
+          transparent 75%);
+
+      animation:
+        aurora3 20s ease-in-out infinite alternate;
+    }
+
+
+    /* =========================
+       極光動畫 1
+       ========================= */
+
+    @keyframes aurora1 {
+
+      0% {
+        transform:
+          translateX(-15%) translateY(10%) rotate(-8deg) scale(1);
+      }
+
+      50% {
+        transform:
+          translateX(10%) translateY(-5%) rotate(5deg) scale(1.15);
+      }
+
+      100% {
+        transform:
+          translateX(25%) translateY(10%) rotate(10deg) scale(1.2);
+      }
+    }
+
+
+    /* =========================
+       極光動畫 2
+       ========================= */
+
+    @keyframes aurora2 {
+
+      0% {
+        transform:
+          translateX(20%) translateY(-10%) rotate(8deg) scale(1.1);
+      }
+
+      50% {
+        transform:
+          translateX(-10%) translateY(15%) rotate(-5deg) scale(1.25);
+      }
+
+      100% {
+        transform:
+          translateX(-25%) translateY(0%) rotate(-12deg) scale(1.1);
+      }
+    }
+
+
+    /* =========================
+       極光動畫 3
+       ========================= */
+
+    @keyframes aurora3 {
+
+      0% {
+        transform:
+          translateX(10%) translateY(10%) rotate(-5deg) scale(1);
+      }
+
+      50% {
+        transform:
+          translateX(-20%) translateY(-5%) rotate(10deg) scale(1.2);
+      }
+
+      100% {
+        transform:
+          translateX(20%) translateY(10%) rotate(15deg) scale(1.15);
+      }
+    }
+
+
+    /* =========================
+       星星
+       ========================= */
+
+    .stars {
+      position: absolute;
+
+      inset: 0;
+
+      background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, white 1px, transparent 1px);
+
+      background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px;
+
+      background-position:
+        20px 30px,
+        80px 100px,
+        150px 40px;
+
+      opacity: 0.35;
+
+      animation: starsMove 30s linear infinite;
+    }
+
+    @keyframes starsMove {
+
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(40px);
+      }
+    }
+
+
+    /* =========================
+       文字
+       ========================= */
+
+    .content {
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+      color: white;
+
+      text-align: center;
+
+      z-index: 10;
+    }
+
+    .content h1 {
+      margin: 0;
+
+      font-size: clamp(48px, 8vw, 100px);
+
+      letter-spacing: 10px;
+
+      text-shadow:
+        0 0 20px rgba(100, 255, 220, 0.8),
+        0 0 50px rgba(100, 200, 255, 0.5);
+    }
+
+    .content p {
+      margin-top: 20px;
+
+      font-size: 20px;
+
+      opacity: 0.75;
+
+      letter-spacing: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="aurora">
+
+    <!-- 星星 -->
+    <div class="stars"></div>
+
+    <!-- 極光 -->
+    <div class="light light-1"></div>
+    <div class="light light-2"></div>
+    <div class="light light-3"></div>
+
+    <!-- 內容 -->
+    <div class="content">
+      <h1>AURORA</h1>
+      <p>CSS Gradient Animation</p>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

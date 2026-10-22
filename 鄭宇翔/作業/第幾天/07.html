@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const year = prompt('年')
+        const month = prompt('月份')
+        const date = prompt('日期')
+        //至前一月份為止天數
+        let day = 0
+
+
+        // 閏年(Y)或是平年(N)
+        let isLeapYear = true
+
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            isLeapYear = true
+        } else {
+            isLeapYear = false
+        }
+
+
+
+
+        //開始計算月
+        if (month == 2) {
+            day = 31
+        } else if (month == 3) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年的2月 29 天
+                day = 60
+            } else {
+                //平年的2月 28 天
+                day = 59
+            }
+        } else if (month == 4) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 91
+            } else {
+                //平年
+                day = 90
+            }
+        } else if (month == 5) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 121
+            } else {
+                //平年
+                day = 120
+            }
+        } else if (month == 6) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 152
+            } else {
+                //平年
+                day = 151
+            }
+        } else if (month == 7) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 182
+            } else {
+                //平年
+                day = 181
+            }
+        } else if (month == 8) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 213
+            } else {
+                //平年
+                day = 212
+            }
+        } else if (month == 9) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 244
+            } else {
+                //平年
+                day = 243
+            }
+        } else if (month == 10) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 274
+            } else {
+                //平年
+                day = 273
+            }
+        } else if (month == 11) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 305
+            } else {
+                //平年
+                day = 304
+            }
+        } else if (month == 12) {
+
+            // 判斷是否為閏年
+            if (isLeapYear == true) {
+                //閏年
+                day = 335
+            } else {
+                //平年
+                day = 334
+            }
+        }
+
+        document.write(`今天為 ${year} 年的第 ${day + parseInt(date)} 天`)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre style="display: none;">
+        作業
+
+    使用者可以輸入西元年、月、日，三個 prompt()
+    顯示使用者輸入的是該年的第幾天
+
+    以 3/5 為例，將前兩個月的天數加起來，再加上 5 天即可
+    需考慮閏年 +1
+    某些月份的天數是 30，某些月份的天數是 31
+    parseInt(變數或是數字的文字) 可以把文字轉數字
+    </pre>
+    <hr>
+    <script>
+        const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const year = Number(prompt('請輸入西元年份'));
+        const month = Number(prompt('請輸入月份'));
+        const date = Number(prompt('請輸入日期'));
+        let dayOnYear = 0;
+        let passedMoth = month - 1;
+        let leapYear = 0;
+        let febDay = 28;
+
+        // document.write(monthDays[month - 1]);
+        // document.write('<br>');
+        // document.write(year + 1);
+        // document.write('<br>');
+        // document.write(year + 1);
+        // document.write('<br>');
+        // document.write(year + 1);
+        // document.write('<br>');
+        if (month > 12 || month<1) {
+            document.write("月份輸入錯誤，只能輸入1-12！！");
+            throw 99;
+        }
+        if (year % 4 == 0) {
+            leapYear = 1;
+            document.write(`${year}年 為潤年<br>`)
+            // 2月為29日
+            monthDays[1] = 29;
+        } else {
+            leapYear = 0;
+            document.write(`${year}年 為平年<br>`)
+        }
+        let mdays=monthDays[month];
+        if (date <1 || date > monthDays[month-1]){
+            document.write(`${month} 月 ${date}日 非合法的日期！！` );
+            throw 99;
+        }
+        document.write(`${year} 年${month} 月${date} 日<br>`)
+        for (let i = 0; i < passedMoth; i++) {
+            // if (leapYear == 1 && i == 1) {
+            //     dayOnYear = dayOnYear + 1;
+            // }
+            dayOnYear = dayOnYear + monthDays[i];
+            // document.write(`${monthDays[i]}<br>`);
+
+        }
+        dayOnYear = dayOnYear + date;
+        document.write(`本年第  ${dayOnYear} 天`);
+    </script>
+    <hr>
+
+
+</body>
+
+</html>

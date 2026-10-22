@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.font_and_text</title>
+  <!-- google fonts 的雲端字型連結，這邊用三個字型 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 引入的第一個字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <!-- 引入的第二個字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  <!-- 引入的第三個字型 -->
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 網頁預設字型大小 16px */
+    html {
+      font-size: 16px;
+    }
+
+    /* 根元素等於 html */
+    :root {
+      font-size: 16px;
+    }
+
+    body {
+      /* 第一個字型使用的位置 */
+      font-family: "Orbitron", sans-serif;
+      padding-bottom: 300px;
+    }
+
+    .font-style {
+      /* css 的單位 px、rem、em... */
+      /* 大小 */
+      font-size: 20px;
+      /* 斜體 */
+      font-style: italic;
+      /* 粗體 100 ~ 900、bold、bolder */
+      font-weight: bold;
+      /* 字形家族 */
+      font-family: '微軟正黑體', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+
+    /* @font-face 要定義 font-family（自訂義名稱） 和 src（字型來源） */
+    @font-face {
+      font-family: 'kaifu';
+      src: url('./Adine\ Kirnberg.ttf'),
+        url('./waltograph42.otf'),
+        url('./Antro_Vectra_Bolder.otf'),
+        url('./Ace\ Records.ttf');
+    }
+
+    .font-set {
+      font-family: 'kaifu';
+      font-size: 50px;
+    }
+
+    .google-font {
+      /* 第二個字型使用的位置 */
+      font-family: "Caveat", cursive;
+      font-size: 50px;
+    }
+
+    .google-font2 {
+      /* 第三個字型使用的位置 */
+      font-family: "Silkscreen", sans-serif;
+    }
+
+    .text-style {
+      /* 對齊方式 left、center、right */
+      text-align: left;
+      /* 文字裝飾 none、underline、overline、line-through */
+      text-decoration: underline;
+      /* 首行縮排，兩個字元 */
+      text-indent: 2rem;
+      /* 陰影 */
+      /* x偏移、y偏移、模糊半徑、顏色 */
+      text-shadow: 3px 3px 5px rgba(0, 255, 0, 0.5);
+      /* 英文字母或中文字間隔 */
+      letter-spacing: 0px;
+      /* 單字間隔，一定要空格，所以通常用於英文，中文沒有空格很難被影響 */
+      word-spacing: 50px;
+      /* 行高 */
+      /* 可以設定符合 CSS 單位，一般是用 px、rem、% */
+      /* 如果使用無單位，表示相對於字體大小的倍數 */
+      line-height: 32px;
+      line-height: 2;
+    }
+
+    /* LVHA，LoVe HAte */
+    /* 連結預設狀態的樣式 */
+    /* a {
+      color: green;
+      font-size: 30px;
+      text-decoration: none;
+    } */
+
+    /* : 是偽類（虛擬類別）家族 Pseudo-classes */
+    a:link {
+      color: green;
+      font-size: 30px;
+      text-decoration: none;
+    }
+
+    /* 已拜訪過狀態的樣式 */
+    a:visited {
+      color: lightgray;
+    }
+
+    /* 滑鼠移上狀態的樣式 */
+    a:hover {
+      color: darkorange;
+      text-decoration: underline;
+    }
+
+    /* 滑鼠點擊狀態的樣式 */
+    a:active {
+      color: red;
+    }
+
+    /* 預設樣式 */
+    .box {
+      width: 100px;
+      height: 100px;
+      background: black;
+      transition: 0.5s;
+    }
+
+    /* 滑鼠移入變成另一組樣式 */
+    .box:hover {
+      background: darkmagenta;
+      width: 200px;
+      height: 200px;
+      transform: rotate(360deg);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>1.Font 樣式設定</h1>
+  <p class="font-style">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolorum rerum sint accusantium nulla assumenda! Nobis a, mollitia, minus facilis, sunt labore debitis tempora sapiente esse tempore excepturi ab laudantium?</p>
+
+  <hr>
+
+  <h2>自訂字型</h2>
+  <p class="font-set">Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt vel quisquam officia quo nulla cum mollitia saepe a adipisci dolores nostrum, sint molestiae nam eaque maiores, ut voluptatum repellendus maxime.</p>
+
+  <hr>
+
+  <h2>Google Fonts</h2>
+  <p class="google-font">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore impedit recusandae inventore ea maiores dignissimos odit repellendus quae ipsam, earum obcaecati pariatur maxime fugiat, exercitationem ipsum deleniti, harum asperiores velit.
+  </p>
+
+  <p class="google-font2">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad maxime vel nesciunt consequatur. Nam corporis tempore possimus explicabo quod laudantium, enim dolorem ad autem hic, repellendus odit deleniti, quibusdam eius.
+  </p>
+
+  <h1>2.Text 樣式設定</h1>
+  <p class="text-style">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam temporibus magni sunt sed illum quo dolorem labore aperiam, repellendus saepe sapiente ab ex, enim cumque dolore quod at, dignissimos eveniet.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, veritatis?
+    顧客環境讀者更好環境，望着諮詢考生不必並沒有參考學歷不願迅速出售苗栗原本，數量某個楠雅添加意大利開始校園女子熱情對你主要一會兒出發走到，窗口是從郵件法律生成台北原來回覆早就如同獲取當中不斷，保留地圖照片三人僅供點擊新技術，漫畫歡迎部落格查找再度，下載次數。
+  </p>
+
+  <hr>
+
+  <h1>3.連結變化</h1>
+  <a href="#">Google</a>
+  <div class="box"></div>
+
+  <hr>
+
+  <h1>4.REM 與 EM</h1>
+  <p>REM 為 root 預設 font-size 的倍數，預設為 16px</p>
+  <div style="font-size:1rem;">
+    font
+    <div style="font-size:2rem;">
+      font
+      <div style="font-size:3rem;">font</div>
+    </div>
+  </div>
+
+  <p>EM 可能為父層或祖先層級 font-size 的倍數。</p>
+  <!-- 16px -->
+  <div style="font-size:1em;">
+    font
+    <!-- 32px -->
+    <div style="font-size:2em;">
+      font
+      <!-- 96px -->
+      <div style="font-size:3em;">font</div>
+    </div>
+  </div>
+
+</body>
+
+</html>

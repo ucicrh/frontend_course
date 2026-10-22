@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transform</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* 抓到視窗的高度 */
+    html,
+    body {
+      height: 100%;
+    }
+
+    section {
+      /* 繼承 body 的高度 */
+      height: 100%;
+      /* 彈性盒，水平垂直居中 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: lightblue;
+    }
+
+    section:nth-child(even) {
+      background: lightgreen;
+    }
+
+    h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .dashed {
+      display: inline-block;
+      border: 5px dashed #000;
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    /*
+      1. transform 必須作用在塊級元素(block、inline-block、flex...)
+      與置換元素（replaced elements，如 <img>、<input>、<video> 等）
+      2. 行內元素(inline)不能使用 transform
+    */
+
+    /* 移動 */
+    .translate {
+      /* F12 去調動參數了解移動方向 */
+      /* 若使用 %，則是相對於元素自身尺寸的比例，例如 width 300px => 50%(150px)  */
+      /* 水平、垂直移動 */
+      transform: translate(50px, 50px);
+      /* 單一方向 */
+      transform: translateX(50px);
+      transform: translateY(50px);
+
+      /* transform-origin 對 translate 沒有作用 */
+    }
+
+    /* 縮放 */
+    .scale {
+      /* 倍數，不用加上單位 */
+      transform: scale(2);
+      /* 可以負數 */
+      transform: scale(-2);
+
+      /* 改變原點（除了 translate，其他三種都可以設定 transform-origin） */
+      /* 預設原點 center(50%)、center(50%)，如果省略一個會用 center(50%) 代替 */
+      /* 值還可以設定 left、right、top、bottom，還可以設定 %、px、em、rem */
+      transform-origin: left top;
+    }
+
+    /* 旋轉 */
+    .rotate {
+      transform: rotate(0deg);
+      /* 單一方向 */
+      transform: rotateY(0deg);
+      /* transform: rotateY(45deg); */
+      /* transform-origin: bottom right; */
+      transform-origin: center;
+    }
+
+    /* 傾斜 */
+    .skew {
+      transform: skew(45deg, 0deg);
+      /* transform: skewX(0deg); */
+      /* transform: skewY(0deg); */
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    html5 語意標籤 有哪些?
+    <header>、<nav>、<main>、<section>、<article>、<aside>、<footer>
+  -->
+
+  <!-- transform 會有四個動作 translate(移動) rotate(旋轉) scale(縮放) skew(傾斜) -->
+  <section>
+    <h1>translate(移動)</h1>
+    <div class="dashed">
+      <div class="box translate">translate(移動)</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>scale(縮放)</h1>
+    <div class="dashed">
+      <div class="box scale">scale(縮放)</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>rotate(旋轉)</h1>
+    <div class="dashed">
+      <div class="box rotate">rotate(旋轉)</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>skew(傾斜)</h1>
+    <div class="dashed">
+      <div class="box skew">skew(傾斜)</div>
+    </div>
+  </section>
+</body>
+
+</html>

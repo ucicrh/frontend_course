@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // prompt(顯示的訊息文字, 輸入欄位的預設值)
+    // 出現文字輸入對話框，如果使用者按取消會得到 null，收到的資料型態是文字
+    const lunch = prompt('中午吃什麼?', '排骨飯')
+    console.log(lunch)
+
+    // 在文件上寫文字
+    document.write('<h1>今天中午吃' + lunch + '</h1>')
+    document.write(`<h1>今天中午吃${lunch}</h1>`)
+  </script>
+</body>
+</html>

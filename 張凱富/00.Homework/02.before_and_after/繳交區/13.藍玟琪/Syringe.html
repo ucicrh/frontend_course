@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .Sbody {
+            width: 500px;
+            height: 100px;
+            background-image: linear-gradient(90deg, white 50%, rgb(243, 255, 71)50%);
+            border: 1px solid #999;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .Sbody::before {
+            content: "";
+            width: 500px;
+            height: 100px;
+            background-image: linear-gradient(rgba(255, 255, 253, 0.5), rgba(197, 197, 197, 0.5), rgba(255, 255, 255, 0.5));
+            position: absolute;
+            right: 0%;
+            transform: translate(00%, 0%);
+        }
+
+        .Sbody::after {
+            content: "";
+            width: 50px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+
+        .cc {
+            color: #999;
+            font-family: "Helvetica";
+            position: absolute;
+            bottom: 0%;
+            left: 0%;
+        }
+
+        .cc::before {
+            content: "";
+            width: 500px;
+            height: 15px;
+            background-image: repeating-linear-gradient(90deg, black 10px, rgba(255, 255, 255, 0)11px, rgba(255, 255, 255, 0)30px);
+            position: absolute;
+            top: -460%;
+            left: 0%;
+
+        }
+
+        .Shead {
+            width: 600px;
+            height: 70px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            background-image: linear-gradient(rgba(255, 255, 253, 0.5), rgba(197, 197, 197, 0.5), rgba(255, 255, 255, 0.5));
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .Shead::before {
+            content: "";
+            width: 40px;
+            height: 100px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            background-image: linear-gradient(rgb(255, 255, 255), rgb(224, 224, 224), rgba(255, 255, 255));
+            position: absolute;
+            top: -25%;
+            left: -40px;
+
+        }
+
+        .Shead::after {
+            content: "";
+            width: 70px;
+            height: 1px;
+            border: 1px solid #999;
+            position: absolute;
+            top: 50%;
+            right: -73px;
+            transform: translate(0%, -50%);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Shead"></div>
+    <div class="Sbody">
+        <div class="cc">Made in Taiwan</div>
+    </div>
+
+
+</body>
+
+</html>

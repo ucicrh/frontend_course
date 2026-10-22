@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      記帳本
+      使用 prompt() 連續輸入花費金額，直到輸入 0 或按取消為止
+      將輸入的金額變成算式輸出
+      輸入: 100, 50, 30, 0
+      輸出: 100 + 50 + 30 = 180
+    */
+
+    // 記錄使用者輸入的金額
+    const costs = []
+    // 建立一個不會停止的迴圈
+    while (true) {
+      // 每次都跳輸入框
+      const input = prompt()
+      // 符合取消條件就停止迴圈
+      if (input === null || input === '0') {
+        break
+      }
+      // 不符合取消條件，就轉成文字記錄在陣列裡面
+      costs.push(input * 1)
+    }
+    
+    // 計算總金額
+    let sum = 0
+    costs.forEach(value => {
+      sum += value
+    })
+    document.write(costs.join(' + ') + ' = ' + sum)
+  </script>
+</body>
+</html>

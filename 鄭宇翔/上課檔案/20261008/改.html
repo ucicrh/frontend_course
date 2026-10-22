@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const alphabets = ['a', 'b', 'c', 'd']
+    // const 陣列和物件不能用 = 直接換掉，但是可以修改裡面的值
+    // alphabets = ['aa', 'b', 'c', 'd']
+    alphabets[0] = 'aa'
+    console.log(alphabets)
+    
+    const f2e = {
+      name: '前端',
+      year: 115,
+      semester: 2,
+      classroom: 1114
+    }
+    f2e.name = '前端AI'
+    console.log(f2e)
+
+    //==========================================
+
+    // Pass by reference
+    const a = [1, 2, 3]
+    const b = a
+    a[0] += 10
+    // a: [11 , 2, 3]  b: [11 , 2, 3]
+    // a === b 結果是 true，因為是電腦記憶體中同一個地方
+    console.log(a, b, a === b)
+
+    const c = [1, 2, 3]
+    const d = [1, 2, 3]
+    // c === d 結果是 false，因為是不同的陣列
+    console.log(c === d)
+
+    const e = { num: 1 }
+    const f = e
+    f.num = 100
+    // e: 100, f: 100
+    console.log(e, f)
+
+    //==========================================
+
+    // Pass by value
+    let g = 1
+    let h = g
+    g += 10
+    // g: 11, h: 1
+    console.log(g, h)
+
+    //==========================================
+
+    const i = {
+      text: 'abc',
+      numbers: [1, 2, 3]
+    }
+    const j = {
+      text: i.text,
+      numbers: i.numbers
+    }
+    j.text = 'abcdef'
+    j.numbers[0] = 100
+    // i = {
+    //   text: 'abc',
+    //   numbers: [100, 2, 3]
+    // }
+    // j = {
+    //   text: 'abcdef',
+    //   numbers: [100, 2, 3]
+    // }
+    console.log(i, j)
+  </script>
+</body>
+</html>

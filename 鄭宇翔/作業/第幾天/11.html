@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 使用者可以輸入西元年、月、日，三個 prompt()
+顯示使用者輸入的是該年的第幾天
+
+以 3/5 為例，將前兩個月的天數加起來，再加上 5 天即可
+需考慮閏年 +1
+某些月份的天數是 30，某些月份的天數是 31
+parseInt(變數或是數字的文字) 可以把文字轉數字 -->
+
+    <script>
+        const year = parseInt(prompt('西元年'))
+        const month = parseInt(prompt('月'))
+        const day = parseInt(prompt('日'))
+
+        const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+
+        let totalDays = 0
+        for (let i = 0; i < month - 1; i++) {
+            totalDays += daysInMonth[i]
+        }
+        totalDays += day
+
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    isLeapyear = true;
+                } else {
+                    isLeapyear = false;
+                }
+            } else {
+                isLeapyear = true;
+            }
+        } else {
+            isLeapyear = false;
+        }
+
+        if (isLeapyear && month > 2) {
+            totalDays += 1
+        }
+        document.write(`這是該年的第${totalDays}天`)
+    </script>
+
+</body>
+
+</html>

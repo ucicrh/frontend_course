@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .inside {
+            width: 465px;
+            height: 60px;
+            border-radius: 5px;
+            border: 1px solid black;
+            background: linear-gradient(white, lightgrey, white);
+            position: fixed;
+        }
+
+        .inside::before,
+        .inside::after {
+            content: '';
+            position: absolute;
+            border: 1px solid black;
+            background: linear-gradient(white, lightgrey, white);
+        }
+
+        .inside::before {
+            width: 40px;
+            height: 100px;
+            border-radius: 5px;
+            top: -20px;
+            left: -5px;
+        }
+
+        .inside::after {
+            width: 70px;
+            height: 0px;
+            top: 30px;
+            right: -72px;
+        }
+
+        .outside {
+            width: 150px;
+            height: 100px;
+            border: 1px solid black;
+            top: -20px;
+            left: 80px;
+            background: linear-gradient(white, lightgrey, white);
+            position: absolute;
+        }
+
+        .outside::before,
+        .outside::after {
+            content: '';
+            position: absolute;
+            border: 1px solid black;
+            top: -1px;
+        }
+
+        .outside::before {
+            width: 40px;
+            height: 100px;
+            left: 150px;
+            background-color: black;
+        }
+
+        .outside::after {
+            width: 150px;
+            height: 100px;
+            right: -190px;
+            background: linear-gradient(rgb(255, 255, 170), rgb(204, 204, 136), rgb(255, 255, 170));
+        }
+
+        .marking {
+            z-index: 3;
+            width: 150px;
+            height: 100px;
+            border: 1px solid black;
+            top: -20px;
+            left: 80px;
+            position: absolute;
+        }
+
+        .marking::before,
+        .marking::after {
+            content: '';
+            position: absolute;
+            border: 1px solid black;
+            top: -1px;
+        }
+
+        .marking::before {
+            width: 40px;
+            height: 100px;
+            left: 150px;
+            background-color: black;
+        }
+
+        .marking::after {
+            width: 150px;
+            height: 100px;
+            right: -190px;
+            background: linear-gradient(rgb(255, 255, 170), rgb(204, 204, 136), rgb(255, 255, 170));
+        }
+
+        .marking span {
+            position: absolute;
+            bottom: 0px;
+            color: #777;
+            font: 0.9em sans-serif;
+        }
+
+        .marks {
+            /* reset 掉 ul 的預設屬性 */
+            /* list-style: none; */
+            padding: 0;
+            /* 有設定寬度，加上 margin:0 auto; 可以水平居中  */
+            /* margin: 0 auto; */
+            width: 800px;
+            /* 處理幽靈空白先在頂層設定 font-size:0; */
+            font-size: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .marks li {
+            /* 轉型 inline-block 讓 li 水平排列，並可以設定 box-model 屬性 */
+            display: inline-block;
+            width: 10px;
+            font-size: 0.8rem;
+            box-sizing: border-box;
+        }
+
+        .marks li+li {
+            border-left: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inside">
+        <div class="outside"></div>
+        <div class="marking">
+            <ul class="marks">
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p> </p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+            </ul>
+            <span>Made in Taiwan</span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04hw01</title>
+    <style>
+        body {
+
+            background-color: #ffffff;
+            margin: 0 auto;
+        }
+
+        /* 1. 熊頭 */
+        .kumamon {
+            width: 200px;
+            height: 200px;
+            background-color: #000000;
+            border-radius: 50%;
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+
+        /* 2. 耳朵  */
+
+        .ears::before {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border: 6px solid #000000;
+            border-radius: 50%;
+            top: 2px;
+            z-index: 1;
+            left: 10px;
+        }
+
+        .ears::after {
+            content: "";
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border: 6px solid #000000;
+            border-radius: 50%;
+            top: 2px;
+            z-index: 1;
+            right: 10px;
+        }
+
+        /* 3. 腮紅 */
+
+        .cheeks::before {
+            content: "";
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            top: 70px;
+            z-index: 2;
+            left: -12px;
+        }
+
+        .cheeks::after {
+            content: "";
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            top: 70px;
+            z-index: 2;
+            right: -12px;
+        }
+
+        /* 4. 眼睛框 */
+
+        .eyes::before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            top: 45px;
+            z-index: 3;
+            left: 42px;
+        }
+
+        .eyes::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            top: 45px;
+            z-index: 3;
+            right: 42px;
+        }
+
+        /* 5. 眼珠*/
+
+        .pupils::before {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #000000;
+            border-radius: 50%;
+            top: 53px;
+            z-index: 4;
+            left: 50px;
+        }
+
+        .pupils::after {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #000000;
+            border-radius: 50%;
+            top: 53px;
+            z-index: 4;
+            right: 50px;
+        }
+
+        /* 6. 鼻子白底 */
+        .snout {
+            position: absolute;
+            width: 80px;
+            height: 55px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            top: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        /* 鼻子 (before) 與 嘴巴 (after) */
+        .snout::before {
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 14px;
+            background-color: #000000;
+            border-radius: 50%;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .snout::after {
+            content: "";
+            position: absolute;
+            width: 44px;
+            height: 22px;
+            background-color: #000000;
+            border-radius: 10px 10px 22px 22px;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 7. 胸V  */
+        .v-mark::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background: white;
+            bottom: 25px;
+            left: 42%;
+            transform: translateX(-50%) skew(45deg);
+            z-index: 3;
+        }
+
+        .v-mark::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background: white;
+            bottom: 25px;
+            right: 38%;
+            transform: translateX(-50%) skew(-45deg);
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="kumamon">
+        <div class="ears"></div>
+        <div class="cheeks"></div>
+        <div class="eyes"></div>
+        <div class="pupils"></div>
+        <div class="snout"></div>
+        <div class="v-mark"></div>
+    </div>
+
+</body>
+
+</html>

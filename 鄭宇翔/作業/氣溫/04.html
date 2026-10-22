@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cweek = ['一', '二', '三', '四', '五', '六', '日']
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+        document.write('<table border=1>')
+        for (let i = 0; i < 3; i++) {
+            document.write('<tr>')
+            for (let j = 0; j < 4; j++) {
+                document.write('<td>')
+                document.write(data[i][j])
+                document.write('</td>')
+            }
+            document.write('</tr>')
+        }
+        document.write('</table><hr>')
+
+        let dave = 0
+        for (let i = 0; i < 4; i++) {
+            for (let j = 0; j < 3; j++) {
+                dave += data[j][i]
+            }
+            document.write(dave / 3 + '<br>')
+            dave = 0
+        }
+        document.write('<hr>')
+
+
+        let temp = 0
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 4; j++) {
+                temp += data[i][j]
+            }
+            document.write('時段' + (i + 1) + '平均溫度' + parseInt(temp) / 4 + '<br>')
+            temp = 0
+        }
+        document.write('<hr>')
+        let min = 100
+        let nweek = ''
+        let ntime = ''
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 4; j++) {
+
+                if (min > data[i][j]) {
+                    min = data[i][j]
+                    nweek = j
+                    ntime = i + 1
+
+                }
+            }
+        }
+
+        nweek = cweek[nweek]
+
+
+        document.write('最低溫為禮拜' + nweek + '<br>時段:' + ntime + '<br>溫度:' + min + '<hr>')
+        let max = 0
+        let xweek = ''
+        let xtime = ''
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 4; j++) {
+
+                if (max < data[i][j]) {
+                    max = data[i][j]
+                    xweek = j
+                    xtime = i + 1
+
+                }
+            }
+        }
+        xweek = cweek[xweek]
+        document.write('最高溫為禮拜' + xweek + '<br>時段:' + xtime + '<br>溫度:' + max + '<hr>')
+    </script>
+    <table></table>
+</body>
+
+</html>

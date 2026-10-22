@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bear {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear::before {
+            content: "";
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgb(255, 0, 0);
+
+            position: absolute;
+            top: 50%;
+            left: -3%;
+            transform: translate(0%, -50%);
+        }
+
+        .bear::after {
+            content: "";
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgb(255, 0, 0);
+
+            position: absolute;
+            top: 50%;
+            right: -3%;
+            transform: translate(0%, -50%);
+        }
+
+        .nose {
+            width: 200px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nose::before {
+            content: "";
+            width: 40px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .nose::after {
+            content: "";
+            width: 120px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .eye-R {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+
+            position: absolute;
+            top: 30%;
+            left: 60%;
+            transform: translate(0%, -50%);
+        }
+
+        .eye-R::before {
+            content: "";
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .eye-R::after {
+            content: "";
+            width: 80px;
+            height: 80px;
+            background: #FFF;
+            position: absolute;
+            top: 250%;
+            right: 50%;
+            transform: skew(-45deg, 0deg);
+        }
+
+
+        .eye-L {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+
+            position: absolute;
+            top: 30%;
+            right: 60%;
+            transform: translate(0%, -50%);
+        }
+
+        .eye-L::before {
+            content: "";
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto; */
+        }
+
+        .eye-L::after {
+            content: "";
+            width: 80px;
+            height: 80px;
+            background: #FFF;
+            position: absolute;
+            top: 250%;
+            left: 50%;
+            transform: skew(45deg, 0deg);
+        }
+
+
+        .ear-L {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            transform: translate(0%, -50%);
+        }
+
+        .ear-L::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+
+            position: absolute;
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+        .ear-R {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            transform: translate(0%, -50%);
+        }
+
+        .ear-R::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgb(255, 255, 255);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bear">
+        <div class="nose"></div>
+        <div class="eye-L"></div>
+        <div class="eye-R"></div>
+        <div class="ear-L"></div>
+        <div class="ear-R"></div>
+    </div>
+
+
+</body>
+
+</html>

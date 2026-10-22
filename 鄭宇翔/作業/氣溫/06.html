@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業</title>
+</head>
+
+<body>
+    <script>
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+
+        const avgTemperature = [0, 0, 0, 0];    //  每日平均溫度
+        const periodTemperature = [0, 0, 0];    //  每個時段的平均溫度
+        const TemperatureMax = [0, 0, 0];       //  溫度最高的日子與時段 ([2]是為了暫存溫度用)
+        const TemperatureMin = [0, 0, 0];       //  溫度最低的日子與時段 ([2]是為了暫存溫度用)
+        document.write('<table border="1">')
+        for (let i = 0; i < data.length; i++) {
+            document.write('<tr>')
+            for (let j = 0; j < data[i].length; j++) {
+                document.write(`<td>${data[i][j]}</td>`)
+                avgTemperature[j] += parseFloat(data[i][j]);
+                periodTemperature[i] += parseFloat(data[i][j]);
+            }
+            document.write('</tr>')
+        }
+        document.write('</table>')
+
+        for (const i in avgTemperature) {
+            avgTemperature[i] /= data.length;
+        }
+        document.write(`<p>每日平均溫度: ${avgTemperature}`);
+
+        for (const i in periodTemperature) {
+            periodTemperature[i] /= data[0].length;
+        }
+        document.write(`<p>每個時段平均溫度: ${periodTemperature}`);
+
+        // =======================================================================================
+        // 找出最高及最低溫度的日子與時段
+        // =======================================================================================
+        TemperatureMax[2] = data[0][0];
+        TemperatureMin[2] = data[0][0];
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[0].length; j++) {
+                if (data[i][j] > TemperatureMax[2]) {
+                    TemperatureMax[0] = j;              //  哪一天
+                    TemperatureMax[1] = i;              //  哪個時段
+                    TemperatureMax[2] = data[i][j];     //  溫度
+                }
+                if (data[i][j] < TemperatureMin[2]) {
+                    TemperatureMin[0] = j;              //  哪一天
+                    TemperatureMin[1] = i;              //  哪個時段
+                    TemperatureMin[2] = data[i][j];     //  溫度
+                }
+            }
+        }
+        document.write(`<p>溫度最高是星期${TemperatureMax[0] + 1}  時段${TemperatureMax[1] + 1}  溫度:${TemperatureMax[2]}</p>`);
+        document.write(`<p>溫度最低是星期${TemperatureMin[0] + 1}  時段${TemperatureMin[1] + 1}  溫度:${TemperatureMin[2]}</p>`);
+
+    </script>
+</body>
+
+</html>

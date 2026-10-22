@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+        let total = 0
+        document.write('<table border="1">')
+        for (let i = 0; i < 3; i++) {
+            document.write(`<tr>`)
+            for (let g = 0; g < 4; g++) {
+                document.write(`<td> ${data[i][g]}</td>`)
+            }
+            document.write(`</tr>`)
+        }
+        document.write('</table>')
+
+        document.write('<hr>')
+
+        total = 0
+        for (let i = 0; i < 3; i++) {
+            total += data[i][0] / 3
+        }
+        document.write(`<p>星期一平均溫度: ${total}度</p>`)
+
+        total = 0
+        for (let i = 0; i < 3; i++) {
+            total += data[i][1] / 3
+        }
+        document.write(`<p>星期二平均溫度: ${total}度</p>`)
+
+        total = 0
+        for (let i = 0; i < 3; i++) {
+            total += data[i][2] / 3
+        }
+        document.write(`<p>星期三平均溫度: ${total}度</p>`)
+        total = 0
+        for (let i = 0; i < 3; i++) {
+            total += data[i][3] / 3
+        }
+        document.write(`<p>星期四平均溫度: ${total}度</p>`)
+
+        document.write('<hr>')
+
+        total = 0
+        for (let i = 0; i < 4; i++) {
+            total += data[0][i] / 4
+        }
+        document.write(`<p>時段一平均溫度: ${total}度</p>`)
+        total = 0
+        for (let i = 0; i < 4; i++) {
+            total += data[1][i] / 4
+        }
+        document.write(`<p>時段二平均溫度: ${total}度</p>`)
+        total = 0
+        for (let i = 0; i < 4; i++) {
+            total += data[2][i] / 4
+        }
+        document.write(`<p>時段三平均溫度: ${total}度</p>`)
+
+        document.write('<hr>')
+
+        const days = ['星期一', '星期二', '星期三', '星期四']
+        const times = ['時段一', '時段二', '時段三']
+
+
+        let max = data[0][0];
+        let maxday = 0
+        let maxtime = 0
+        let min = data[0][0];
+        let minday = 0
+        let mintime = 0
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 4; j++) {
+                let hot = data[i][j]
+                if (hot > max) {
+                    max = hot
+                    maxday = j
+                    maxtime = i
+                }
+                if (hot < min) {
+                    min = hot
+                    minday = j
+                    mintime = i
+                }
+            }
+        }
+        document.write(`溫度最高的日子與時段：${days[maxday]} 的${times[maxtime]}氣溫是${max}度`)
+        document.write('<br >')
+        document.write(`溫度最低的日子與時段：${days[minday]} 的${times[mintime]}氣溫是${min}度`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>區塊與行內元素</title>
+  <style>
+    .menu {
+      /* reset 掉 ul 的預設屬性 */
+      list-style: none;
+      padding: 0;
+      /* 有設定寬度，加上 margin:0 auto; 可以水平居中  */
+      margin: 0 auto;
+      background: dodgerblue;
+      width: 1000px;
+      /* 處理幽靈空白先在頂層設定 font-size:0; */
+      font-size: 0;
+      text-align: center;
+    }
+
+    .menu li {
+      /* 轉型 inline-block 讓 li 水平排列，並可以設定 box-model 屬性 */
+      display: inline-block;
+      background: darkmagenta;
+      width: 200px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      /* 將 a 轉型成 block 可以填滿 li 的空間
+      ，而且 padding 才能推擠 ul 背景顏色 */
+      display: block;
+    }
+
+    .menu a:hover {
+      background: darkorange;
+      text-decoration: underline;
+    }
+
+    .menu li+li {
+      border-left: 1px solid yellow;
+    }
+  </style>
+</head>
+
+<body style="padding-bottom: 300px;">
+  <h1>盒子類型與轉型</h1>
+  <p>CSS 是盒子的世界，分為區塊盒和行內盒兩種基本類型。</p>
+
+  <h2>1.區塊盒(block box)</h2>
+  <h3>請說出以下兩行的差異?</h3>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <span>Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h3>加上背景顏色</h3>
+  <div style="background:gold;">Lorem ipsum dolor sit amet.</div>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+
+  <hr>
+
+  <h3>區塊盒的特性</h3>
+  <p>例子：div、h1~h6、p、ul、li、table...</p>
+  <ul>
+    <li><b>預設情況</b>，會正常佔據父元素的空間，前、後會換行，無法與其他元素並排。</li>
+    <li>可以正常使用盒模型的 width、height、margin 與 padding 屬性，margin 對正常流向的其他元素有實質空間的推移特性。</li>
+    <li>不會被 vertical-align 屬性控制垂直對齊。</li>
+  </ul>
+  <div style="background:gold;">Lorem ipsum dolor sit amet.</div>
+  <div style="background:gold;">Lorem ipsum dolor sit amet.</div>
+  <div style="background:gold;width:300px;">Lorem ipsum dolor sit amet.</div>
+  <div style="background:gold;width:500px;">Lorem ipsum dolor sit amet.</div>
+
+  <h3>行內盒的特性</h3>
+  <p>例子：span、a、strong、em...</p>
+  <ul>
+    <li>前後不會斷行，內容有多少寬度就多少，設定 width 與 height 屬性無效，也不會強迫換行</li>
+    <li>會依據文件流向（normal flow）的特性由左而右，由上而下排列。</li>
+    <li>padding、border 可以正常顯示，但 top、bottom 沒有實質推擠空間的效果。</li>
+    <li>可以被 vertical-align 屬性控制垂直對齊。</li>
+  </ul>
+  <span style="background-color: deepskyblue; width:1000px;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+  <span style="background-color: deepskyblue;">Lorem ipsum dolor sit amet.</span>
+
+  <h3>轉型 display 屬性</h3>
+  <p>可以使用 display: inline-block; 將 li 轉換為行內區塊元素。</p>
+  <p>inline-block 取行內與區塊的優勢特性，行內可以橫向排列、區塊可以正常設定 box-model 屬性。</p>
+  <!-- ul.menu>li*5>a{Item$} -->
+  <ul class="menu">
+    <li><a href="#">Item1</a></li>
+    <li><a href="#">Item2</a></li>
+    <li><a href="#">Item3</a></li>
+    <li><a href="#">Item4</a></li>
+    <li><a href="#">Item5</a></li>
+  </ul>
+
+
+</body>
+
+</html>

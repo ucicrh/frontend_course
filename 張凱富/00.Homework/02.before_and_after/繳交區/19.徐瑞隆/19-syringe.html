@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        .bigbox {
+            font-size: 0;
+            text-align: center;
+            width: 100%;
+            /*絕對固定會有緊縮至內容寬度的特性，所以才要再設定width*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box1 {
+            width: 50px;
+            height: 100px;
+            background-image: linear-gradient(white 40%, gray 50%, white 100%);
+            border: 1px solid black;
+            display: inline-block;
+            border-radius: 10px;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .box2 {
+            width: 60px;
+            height: 80px;
+            background-image: linear-gradient(white 40%, gray 50%, white 100%);
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .box3 {
+            width: 200px;
+            height: 100px;
+            font-size: 1rem;
+            background-image: linear-gradient(white 40%, gray 50%, white 100%);
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            padding: 0 0 8px 8px;
+        }
+
+        .box3::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 10px;
+            background: repeating-linear-gradient(to right,
+                    black,
+                    black 2px,
+                    transparent 2px,
+                    transparent 10px);
+        }
+
+        .box3 span {
+            position: absolute;
+            left: 1px;
+            bottom: 1px;
+            color: gray;
+        }
+
+        .box4 {
+            width: 30px;
+            height: 100px;
+            background: black;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .box5 {
+            width: 200px;
+            height: 100px;
+            background-image: linear-gradient(lightyellow 40%, gray 50%, lightyellow 100%);
+            border: 1px solid black;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            z-index: 2;
+        }
+
+        .box5::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 10px;
+            background: repeating-linear-gradient(to right,
+                    black,
+                    black 2px,
+                    transparent 2px,
+                    transparent 10px);
+        }
+
+        .box6 {
+            width: 60px;
+            height: 80px;
+            background-image: linear-gradient(white 40%, gray 50%, white 100%);
+            border: 1px solid black;
+            display: inline-block;
+            border-radius: 10px;
+            vertical-align: middle;
+            position: relative;
+            left: -10px;
+            z-index: 1;
+        }
+
+        .box7 {
+            width: 100px;
+            height: 0px;
+            background-image: linear-gradient(white 30%, gray 50%, white 100%);
+            border: 1px solid black;
+            display: inline-block;
+            border-radius: 10px;
+            vertical-align: middle;
+            position: relative;
+            left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bigbox">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3 "><span>Made in Taiwan</span></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+    </div>
+</body>
+
+</html>

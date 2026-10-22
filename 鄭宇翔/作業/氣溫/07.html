@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+        const datas = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+
+        document.write('<table <table border="1">')
+
+        for (const data of datas) {
+            document.write('<tr>')
+            for (const dat of data) {
+                document.write(`<td>${dat}</td>`)
+            }
+            document.write('</tr>')
+        }
+
+        document.write('</table>')
+
+        document.write('<hr>')
+
+
+        //溫度
+        let temperature1 = 0
+        let temperature2 = 0
+        let temperature3 = 0
+        let temperature4 = 0
+
+        for (let i = 0; i < 3; i++) {
+            temperature1 += datas[i][0]
+        }
+        document.write(`星期1平均溫度 ${temperature1 / 3}<br>`)
+
+        for (let i = 0; i < 3; i++) {
+            temperature2 += datas[i][1]
+        }
+        document.write(`星期2平均溫度 ${temperature2 / 3}<br>`)
+
+        for (let i = 0; i < 3; i++) {
+            temperature3 += datas[i][2]
+        }
+        document.write(`星期3平均溫度 ${temperature3 / 3}<br>`)
+
+        for (let i = 0; i < 3; i++) {
+            temperature4 += datas[i][3]
+        }
+        document.write(`星期4平均溫度 ${temperature4 / 3}<br>`)
+
+        document.write('<hr>')
+
+        //時段
+        let time1 = 0
+        let time2 = 0
+        let time3 = 0
+
+        for (let i = 0; i < 4; i++) {
+            time1 += datas[0][i]
+        }
+        document.write(`時段1平均 ${time1 / 4}<br>`)
+
+        for (let i = 0; i < 4; i++) {
+            time2 += datas[1][i]
+        }
+        document.write(`時段2平均 ${time2 / 4}<br>`)
+
+        for (let i = 0; i < 4; i++) {
+            time3 += datas[2][i]
+        }
+        document.write(`時段3平均 ${time3 / 4}<br>`)
+
+        document.write('<hr>')
+
+        //預設比較值 datas[0][0]
+        let maxTemperature = datas[0][0]
+        //最大時段
+        let maxI = 0
+        //最大日期
+        let maxJ = 0
+
+        let minTemperature = datas[0][0]
+        //最小時段
+        let minI = 0
+        //最小日期
+        let minJ = 0
+
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 4; j++) {
+
+                // 檢查是否大於目前最大值
+                if (datas[i][j] > maxTemperature) {
+                    maxTemperature = datas[i][j]
+                    maxI = i
+                    maxJ = j
+                }
+                // 檢查是否小於目前最小值
+                if (datas[i][j] < minTemperature) {
+                    minTemperature = datas[i][j]
+                    minI = i
+                    minJ = j
+                }
+            }
+        }
+
+        document.write(`最高: 星期${maxJ + 1}，時段${maxI + 1}，${maxTemperature}<br>`)
+        document.write(`最低: 星期${minJ + 1}，時段${minI + 1}，${minTemperature}`)
+
+    </Script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = prompt('姓名:');
+        const month = prompt('出生月份:');
+        const date = prompt('出生日期');
+
+        // 最外層先粗略篩選合法值: month介於1~12之間，date介於1~31之間
+        if (((month >= 1) && (month <= 12)) && ((date >= 1) && (date <= 31))) {
+            if (month >= 12) {
+                if (date <= 21) {
+                    document.write(`<p>${name} 你好，你是 射手座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 摩羯座</p>`);
+                }
+            }
+            else if (month >= 11) {
+                if (date <= 22) {
+                    document.write(`<p>${name} 你好，你是 天蠍座</p>`);
+                }
+                else if (date <= 30) {
+                    document.write(`<p>${name} 你好，你是 射手座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你可能是 射手座 ，但是${month}月沒有${date}日</p>`);
+                }
+            }
+            else if (month >= 10) {
+                if (date <= 23) {
+                    document.write(`<p>${name} 你好，你是 天秤座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 天蠍座</p>`);
+                }
+            }
+            else if (month >= 9) {
+                if (date <= 22) {
+                    document.write(`<p>${name} 你好，你是 處女座</p>`);
+                }
+                else if (date <= 30) {
+                    document.write(`<p>${name} 你好，你是 天秤座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你可能是 天秤座，但${month}月沒有${date}日</p>`);
+                }
+            }
+            else if (month >= 8) {
+                if (date <= 22) {
+                    document.write(`<p>${name} 你好，你是 獅子座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 處女座</p>`);
+                }
+            }
+            else if (month >= 7) {
+                if (date <= 22) {
+                    document.write(`<p>${name} 你好，你是 巨蟹座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 獅子座</p>`);
+                }
+            }
+            else if (month >= 6) {
+                if (date <= 21) {
+                    document.write(`<p>${name} 你好，你是 雙子座</p>`);
+                }
+                else if (date <= 30) {
+                    document.write(`<p>${name} 你好，你是 巨蟹座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你可能是 巨蟹座，但是${month}月沒有${date}日</p>`);
+                }
+            }
+            else if (month >= 5) {
+                if (date <= 20) {
+                    document.write(`<p>${name} 你好，你是 金牛座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 雙子座</p>`);
+                }
+            }
+            else if (month >= 4) {
+                if (date <= 19) {
+                    document.write(`<p>${name} 你好，你是 牡羊座</p>`);
+                }
+                else if (date <= 30) {
+                    document.write(`<p>${name} 你好，你是 金牛座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你可能是 金牛座，但是${month}月沒有${date}日</p>`);
+                }
+            }
+            else if (month >= 3) {
+                if (date <= 20) {
+                    document.write(`<p>${name} 你好，你是 雙魚座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 牡羊座</p>`);
+                }
+            }
+            else if (month >= 2) {
+                if (date <= 18) {
+                    document.write(`<p>${name} 你好，你是 水瓶座</p>`);
+                }
+                else if (date <= 29) {          //  無法判斷是否閨年出生，故2/29一律接受
+                    document.write(`<p>${name} 你好，你是 雙魚座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你可能是 雙魚座，但是${month}月沒有${date}日</p>`);
+                }
+            }
+            else {
+                if (date <= 19) {
+                    document.write(`<p>${name} 你好，你是 摩羯座</p>`);
+                }
+                else {
+                    document.write(`<p>${name} 你好，你是 水瓶座</p>`);
+                }
+            }
+        }
+        else {
+            document.write(`<p>${name} 你好，請檢查你輸入的月份跟日期是否正確</p>`);
+        }
+    </script>
+</body>
+
+</html>

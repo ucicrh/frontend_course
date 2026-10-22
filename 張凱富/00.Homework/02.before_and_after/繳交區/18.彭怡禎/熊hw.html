@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .mainBody {
+         width: 350px;
+         height: 350px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%)
+      }
+
+      .mainBody::before {
+         content: "";
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 5%;
+         left: 20%;
+         transform: translate(-50%, -50%)
+      }
+
+      .mainBody::after {
+         content: "";
+         width: 60px;
+         height: 60px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 5%;
+         left: 80%;
+         transform: translate(-50%, -50%)
+      }
+
+      .cheek::after {
+         content: "";
+         width: 75px;
+         height: 75px;
+         border-radius: 50%;
+         background: red;
+         position: absolute;
+         top: 50%;
+         left: 5%;
+         transform: translate(-50%, -50%)
+      }
+
+      .cheek::before {
+         content: "";
+         width: 75px;
+         height: 75px;
+         border-radius: 50%;
+         background: red;
+         position: absolute;
+         top: 50%;
+         left: 95%;
+         transform: translate(-50%, -50%)
+      }
+
+      .ear::before {
+         content: "";
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #fff;
+         position: absolute;
+         top: 5%;
+         left: 20%;
+         transform: translate(-50%, -50%)
+      }
+
+      .ear::after {
+         z-index: 3;
+         content: "";
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         background: #fff;
+         position: absolute;
+         top: 5%;
+         left: 80%;
+         transform: translate(-50%, -50%)
+      }
+
+      .eyes::before {
+         z-index: 2;
+         content: "";
+         width: 85px;
+         height: 85px;
+         border-radius: 50%;
+         background: #fff;
+         position: absolute;
+         top: 30%;
+         left: 32%;
+         transform: translate(-50%, -50%)
+      }
+
+      .eyes::after {
+         z-index: 2;
+         content: "";
+         width: 85px;
+         height: 85px;
+         border-radius: 50%;
+         background: #fff;
+         position: absolute;
+         top: 30%;
+         left: 68%;
+         transform: translate(-50%, -50%)
+      }
+
+      .eyeballs::before {
+         z-index: 3;
+         content: "";
+         width: 65px;
+         height: 65px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 30%;
+         left: 32%;
+         transform: translate(-50%, -50%)
+      }
+
+      .eyeballs::after {
+         z-index: 3;
+         content: "";
+         width: 65px;
+         height: 65px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 30%;
+         left: 68%;
+         transform: translate(-50%, -50%)
+      }
+
+      .mouth {
+         width: 140px;
+         height: 100px;
+         border-radius: 50%;
+         background: #fff;
+         position: absolute;
+         top: 55%;
+         left: 50%;
+         transform: translate(-50%, -50%)
+      }
+
+      .mouth::before {
+         content: "";
+         width: 50px;
+         height: 30px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 20%;
+         left: 50%;
+         transform: translate(-50%, -50%)
+      }
+
+      .mouth::after {
+         content: "";
+         width: 80px;
+         height: 30px;
+         border-radius: 50%;
+         background: #000;
+         position: absolute;
+         top: 60%;
+         left: 50%;
+         transform: translate(-50%, -50%)
+      }
+
+      .scarf::after {
+         content: "";
+         width: 60px;
+         height: 70px;
+         background: white;
+         position: absolute;
+         top: 83%;
+         left: 40%;
+         transform: translate(-50%, -50%) skew(45deg, 0deg);
+      }
+
+      .scarf::before {
+         content: "";
+         width: 60px;
+         height: 70px;
+         background: white;
+         position: absolute;
+         top: 83%;
+         left: 60%;
+         transform: translate(-50%, -50%) skew(-45deg, 0deg);
+      }
+   </style>
+
+</head>
+
+<body>
+   <div class="mainBody">
+      <div class="ear"></div>
+      <div class="eyes">
+         <div class="eyeballs"></div>
+      </div>
+      <div class="mouth"></div>
+      <div class="cheek"></div>
+      <div class="scarf"></div>
+
+   </div>
+
+
+
+
+</body>
+
+</html>

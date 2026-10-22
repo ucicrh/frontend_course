@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const days = ["星期一", "星期二", "星期三", "星期四"];
+        const periods = ["時段一", "時段二", "時段三"];
+
+
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ];
+
+        // 將陣列內容印出成表格
+        let tableHTML = '<table border="1">'
+        for (let i = 0; i < data.length; i++) {
+
+            tableHTML += '<tr>';
+
+            for (let j = 0; j < data[i].length; j++) {
+                tableHTML += `<td>${data[i][j]}</td>`;
+
+            }
+            tableHTML += '</tr>';
+        }
+        tableHTML += '</table>';
+        document.write(tableHTML);
+
+        // 每日的平均溫度
+        for (let j = 0; j < 4; j++) {
+            let total = 0;
+
+            for (let i = 0; i < 3; i++) {
+                total += data[i][j];
+            }
+
+            let average = total / 3;
+            document.write(`星期${["一", "二", "三", "四"][j]}平均：${average.toFixed(2)}°C <br>`);
+        }
+
+        // 時段一、時段二、時段三的平均氣溫
+        for (let i = 0; i < data.length; i++) {
+            let sum = 0;
+
+            for (let j = 0; j < data[i].length; j++) {
+                sum += data[i][j];
+            }
+
+            let average = sum / data[i].length;
+
+            document.write(`${periods[i]}平均氣溫：${average.toFixed(2)} <br>`);
+        }
+
+        // 4. 最高溫度
+        let maxTemp = data[0][0];
+        let maxDay = 0;
+        let maxPeriod = 0;
+
+        // 5. 最低溫度
+        let minTemp = data[0][0];
+        let minDay = 0;
+        let minPeriod = 0;
+
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[i].length; j++) {
+                if (data[i][j] > maxTemp) {
+                    maxTemp = data[i][j];
+                    maxDay = j;
+                    maxPeriod = i;
+                }
+
+                if (data[i][j] < minTemp) {
+                    minTemp = data[i][j];
+                    minDay = j;
+                    minPeriod = i;
+                }
+            }
+        }
+
+        document.write(`\n最高溫度：${maxTemp}°C <br>`);
+        document.write(`日期：${days[maxDay]} <br>`);
+        document.write(`時段：${periods[maxPeriod]} <br>`);
+
+        document.write(`\n最低溫度：${minTemp}°C <br>`);
+        document.write(`日期：${days[minDay]} <br>`);
+        document.write(`時段：${periods[minPeriod]} <br>`);
+    </script>
+</body>
+
+</html>

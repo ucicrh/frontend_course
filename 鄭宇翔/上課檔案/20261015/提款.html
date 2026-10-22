@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const decrypt = (text) => {
+      let output = ''
+      for (let i = 0; i < text.length - 1; i++) {
+        // console.log(text[i], text[i + 1])
+        const a = text.charCodeAt(i)
+        const b = text.charCodeAt(i + 1)
+        // console.log(a, b)
+        let result = a - b
+        if (result < 0) {
+          result *= -1
+        }
+        // console.log(result)
+        output += result
+      }
+      return output
+    }
+
+    const input = 'TYPHOON'
+    console.log(decrypt(input))
+  </script>
+</body>
+</html>

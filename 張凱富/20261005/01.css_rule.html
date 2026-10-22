@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01.css_rule</title>
+  <!-- 第一種寫樣式：外部樣式表 -->
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- 第二種寫樣式：style 標籤是本文件的樣式 -->
+  <style>
+    /* 選擇器，有很多種類，可以依照需求選擇到目標 */
+    /* 標籤選擇器 */
+    h1 {
+      /* 屬性名稱: 屬性值; */
+      color: blue;
+      background-color: lightgoldenrodyellow;
+      font-size: 28px;
+    }
+
+    /* 標籤選擇器 */
+    p {
+      font-weight: bold;
+      font-family: "微軟正黑體";
+      color: blue;
+    }
+
+    /* 群組選擇器 */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: purple;
+    }
+
+    img {
+      border: 5px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>標題</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores non animi enim deserunt exercitationem maxime? Dolorem recusandae ab animi voluptatibus aperiam illo nobis laborum laboriosam adipisci molestias atque, odio cumque.</p>
+
+  <hr>
+
+  <h1>Lorem ipsum dolor sit amet.</h1>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <h3>Lorem ipsum dolor sit amet.</h3>
+  <h4>Lorem ipsum dolor sit amet.</h4>
+  <h5>Lorem ipsum dolor sit amet.</h5>
+  <h6>Lorem ipsum dolor sit amet.</h6>
+
+  <hr>
+
+  <!-- 第三種寫樣式：行內樣式 inline style，用標籤的 style 屬性 -->
+  <!-- picsum -->
+  <img src="https://picsum.photos/300/200/?random=1">
+  <img src="https://picsum.photos/300/200/?random=2">
+  <img src="https://picsum.photos/300/200/?random=3" style="border:5px solid green;">
+</body>
+
+</html>

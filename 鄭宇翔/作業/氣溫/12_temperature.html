@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const data = [
+            [18.2, 17.3, 15.0, 13.4],
+            [23.8, 25.1, 20.6, 17.8],
+            [20.6, 21.5, 18.4, 15.7]
+        ]
+        const num = ['一', '二', '三', '四']
+        document.write('<table border="1">')
+        for (let i = 0; i < data.length; i++) {
+            document.write('<tr>')
+            for (let j = 0; j < data[i].length; j++) {
+                document.write('<td>', data[i][j].toFixed(1), '</td>')
+            }
+            document.write('</tr>')
+        }
+        document.write('</table>')
+        document.write('<hr>')
+        // ================================================================================
+        let max = data[0][0]
+        let min = data[0][0]
+        let maxRow = 0, maxCol = 0, minRow = 0, minCol = 0
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data[i].length; j++) {
+                if (data[i][j] > max) {
+                    max = data[i][j]
+                    maxRow = i
+                    maxCol = j
+                }
+                if (data[i][j] < min) {
+                    min = data[i][j]
+                    minRow = i
+                    minCol = j
+                }
+            }
+        }
+        document.write(`最高溫：${max.toFixed(1)}°，發生在星期${num[maxCol]}的時段${num[maxRow]}<br>`)
+        document.write(`最低溫：${min.toFixed(1)}°，發生在星期${num[minCol]}的時段${num[minRow]}<hr>`)
+        // ================================================================================
+        const averageDaily = [0, 0, 0, 0]
+        const averageSection = [0, 0, 0]
+        // for (let i = 0; i < data.length; i++) {
+        // for (let j = 0; j < data[i].length; j++) {
+        // averageDaily[j] += data[i][j]
+        // averageSection[i] += data[i][j]
+        // }
+        // }
+        for (const [i, section] of data.entries()) {
+            for (const [j, daily] of section.entries()) {
+                averageSection[i] += daily
+                averageDaily[j] += daily
+            }
+        }
+
+
+
+
+        for (let i = 0; i < averageDaily.length; i++) {
+            averageDaily[i] /= data.length
+            document.write(`星期${num[i]}的平均溫度是 ${averageDaily[i].toFixed(1)}°<br>`)
+        }
+        document.write('<hr>')
+        for (let i = 0; i < averageSection.length; i++) {
+            averageSection[i] /= data[i].length
+            document.write(`時段${num[i]}的平均溫度是 ${averageSection[i].toFixed(1)}°<br>`)
+        }
+        console.log('每日平均：', averageDaily.map(value => value.toFixed(1)))
+        console.log('各區平均：', averageSection.map(value => value.toFixed(1)))
+        // ================================================================================
+    </script>
+</body>
+
+</html>

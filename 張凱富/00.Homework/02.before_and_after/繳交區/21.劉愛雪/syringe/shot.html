@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+
+        .barrel {
+            width: 30px;
+            height: 80px;
+            background: black;
+            margin: auto;
+            position: relative;
+            box-sizing: border-box;
+            top: 50%;
+            left: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+        }
+
+        .barrel::before {
+            content: "";
+            width: 500%;
+            height: 100%;
+            background: repeating-linear-gradient(to right,
+                    transparent 0px,
+                    transparent 9px,
+                    #555 9px,
+                    #555 10px), linear-gradient(rgba(255, 255, 0, 0.3), rgba(255, 255, 0, 0.3)), linear-gradient(to bottom, white, rgb(211, 211, 211) 49%, rgb(211, 211, 211)50%, white);
+            background-size: 100% 10px, auto, auto;
+            background-repeat: repeat-x, no-repeat, no-repeat;
+            background-position: top, center, center;
+            border: 1px solid rgb(184, 184, 184);
+            box-sizing: border-box;
+            position: absolute;
+            margin: auto;
+            left: 100%;
+            z-index: 3;
+        }
+
+        .barrel::after {
+            content: "";
+            width: 500%;
+            height: 100%;
+            background: repeating-linear-gradient(to right,
+                    transparent 0px,
+                    transparent 9px,
+                    #555 9px,
+                    #555 10px), linear-gradient(to bottom, white, rgb(211, 211, 211) 49%, rgb(211, 211, 211)50%, white);
+            background-size: 100% 10px, auto, auto;
+            background-repeat: repeat-x, no-repeat, no-repeat;
+            background-position: top, center, center;
+            border: 1px solid rgb(184, 184, 184);
+            box-sizing: border-box;
+            position: absolute;
+            margin: auto;
+            right: 100%;
+            z-index: 3;
+        }
+
+        .injector::before {
+            content: "";
+            width: 145%;
+            height: 70%;
+            background: linear-gradient(to bottom, white, rgb(211, 211, 211) 49%, rgb(211, 211, 211)50%, white);
+            border: 1px solid rgb(184, 184, 184);
+            box-sizing: border-box;
+            position: absolute;
+            box-sizing: border-box;
+            margin: auto;
+            top: 15%;
+            right: 596%;
+        }
+
+        .injector::after {
+            content: "";
+            width: 200%;
+            height: 70%;
+            background: linear-gradient(to bottom, white, rgb(211, 211, 211) 49%, rgb(211, 211, 211)50%, white);
+            border: 1px solid rgb(184, 184, 184);
+            box-sizing: border-box;
+            border-radius: 10%;
+            position: absolute;
+            box-sizing: border-box;
+            margin: auto;
+            top: 15%;
+            left: 530%;
+        }
+
+        .needle::before {
+            content: "";
+            width: 250%;
+            height: 0;
+            background: white;
+            border: 1px solid rgb(184, 184, 184);
+            box-sizing: border-box;
+            position: absolute;
+            margin: auto;
+            left: 733%;
+            top: 50%
+        }
+
+        .needle::after {
+            content: "";
+            width: 120%;
+            height: 100%;
+            background: linear-gradient(to bottom, white, rgb(211, 211, 211) 49%, rgb(211, 211, 211)50%, white);
+            border: 1px solid rgb(184, 184, 184);
+            border-radius: 6px;
+            box-sizing: border-box;
+            position: absolute;
+            box-sizing: border-box;
+            margin: auto;
+            top: 0%;
+            right: 740%;
+        }
+
+        .mtw {
+            position: absolute;
+            top: 85%;
+            left: -143px;
+            width: 100%;
+            transform: translateY(-50%);
+            color: gray;
+            font-size: 10px;
+            white-space: nowrap;
+
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="barrel">
+        <div class="injector"></div>
+        <div class="needle"></div>
+        <div class="mtw">Made in Taiwan</div>
+    </div>
+
+</body>
+
+</html>

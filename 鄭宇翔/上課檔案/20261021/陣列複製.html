@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const a = [1, 2, 3]
+    const b = a.slice(0)
+    a[0] += 10
+    console.log(a, b)
+
+    // 淺層複製
+    // 只會複製最外層的 []，內層的 {} 不會複製
+    const c = [
+      { text: 'aaa', num: 100 },
+      { text: 'bbb', num: 200 },
+    ]
+    const d = c.slice(0)
+    d[0].text = 'AAA'
+    d.push({ text: 'ccc', num: 300 })
+    console.log(c, d)
+    console.log(c === d)        // false
+    console.log(c[0] === d[0])  // true
+
+    // 深層複製
+    const e = [
+      { text: 'aaa', num: 100 },
+      { text: 'bbb', num: 200 },
+    ]
+    // 將陣列或物件轉成文字
+    const stringify = JSON.stringify(e)
+    console.log(stringify)
+    // 解析物件或陣列的文字
+    const parse = JSON.parse(stringify)
+    console.log(parse)
+    e[0].text = 'AAA'
+    e.push({ text: 'ccc', num: 300 })
+    console.log(e, parse)
+  </script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>盒模型</title>
+  <style>
+    body {
+      font-family: "微軟正黑體";
+      background: #f8f8f8;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 0;
+      border-top: 1px dashed #cbd5e1;
+    }
+
+    h2 {
+      color: #0369a1;
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .desc {
+      font-size: 16px;
+      color: #64748b;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .box1 {
+      width: 300px;
+      height: 150px;
+      background-color: #fbcfe8;
+    }
+
+    .box2 {
+      width: 300px;
+      background-color: lightgoldenrodyellow;
+      padding: 10px;
+    }
+
+    .box3 {
+      width: 300px;
+      height: 120px;
+      background-color: lightblue;
+      /*
+        auto 超出時由瀏覽器自動產生捲軸
+        hidden 超出時隱藏內容
+        scroll 強制永遠顯示捲軸
+      */
+      overflow: scroll;
+      padding: 10px;
+    }
+
+    .box4 {
+      width: 300px;
+      background-color: #fef08a;
+      /* margin */
+      margin-top: 50px;
+      margin-right: 50px;
+      margin-bottom: 50px;
+      margin-left: 50px;
+
+      /* 縮寫 */
+      /* 四值，順時針 top、right、bottom、left（trbl）  */
+      margin: 50px 50px 50px 50px;
+      /* 雙值，第一個數值為上、下，第二個數值為左、右 */
+      margin: 50px 50px;
+      /* 單值，四邊相同 */
+      margin: 50px;
+
+      /* padding */
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+
+      /* 縮寫 */
+      /* 四值，順時針 top、right、bottom、left（trbl）  */
+      padding: 20px 20px 20px 20px;
+      /* 雙值，第一個數值為上、下，第二個數值為左、右 */
+      padding: 20px 20px;
+      /* 單值，四邊相同 */
+      padding: 20px;
+
+      /* border */
+      /*
+        border-style 樣式種類
+        dotted、dashed、double、solid、groove、ridge、inset、outset、none...
+      */
+      border-top: 5px solid #333;
+      border-right: 10px solid #333;
+      border-bottom: 5px solid #333;
+      border-left: 10px solid #333;
+
+      /* 四邊相同 */
+      border: 10px solid #333;
+
+      /* outline */
+      outline: 10px dotted #f87171;
+    }
+
+    .box5 {
+      width: 300px;
+      height: 60px;
+      background-color: lightgreen;
+      margin-bottom: 100px;
+    }
+
+    .box6 {
+      width: 300px;
+      height: 60px;
+      background-color: lightpink;
+      margin-top: 30px;
+    }
+
+    .box7-traditional {
+      /* content-box 是預設，可以不寫 */
+      box-sizing: content-box;
+      /* 水平空間總共：300 + 40 + 10 + 20 = 370px */
+      width: 300px;
+      padding: 20px;
+      border: 5px solid #333;
+      margin: 10px;
+      background: lightgoldenrodyellow;
+    }
+
+    .box7-modern {
+      /* 將計算方式改為 border-box */
+      /* 在 border-box 模式下，width 和 height 會包含 padding 和 border */
+      /* 所以 300px 的 width 會包含 padding 和 border，真正放置內容區域只有 250px */
+      box-sizing: border-box;
+      width: 300px;
+      padding: 20px;
+      border: 5px solid #333;
+      margin: 10px;
+      background: lightgoldenrodyellow;
+    }
+
+    .box8 {
+      width: 300px;
+      height: 300px;
+      background: lightskyblue;
+      /* 畫圓角 */
+      /* 分為四個角：左上、右上、右下、左下 */
+      border-radius: 100px 30px 100px 30px;
+      /* 畫圓型，寬度、高度一定要相同才能畫出完美的圓 */
+      border-radius: 50%;
+      /* 讓一個有寬度的塊級(bolck)盒子，可以用 margin: auto 水平置中 */
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>盒模型</h1>
+  <h2>1.box1 畫一個盒子，設定寬、高、背景顏色</h2>
+  <p class="desc">寬度與高度是放置文字、圖片的容器(Content Area)</p>
+  <div class="box1">box1 的內容區域</div>
+
+  <hr>
+
+  <h2>2.box2不設定高度，高度會以內容高度為主</h2>
+  <p class="desc">height 預設 auto，盒子會隨著內容多寡像彈簧一樣自動向下撐高</p>
+  <div class="box2">
+    集中至於，著名市委搭配驅動臉色不喜歡當年灌水恐怖產權發佈完整二十，夫妻客戶鍵盤，條件暴力網頁班足夠，倒是相當鼓勵傳說完了奇蹟看過時刻結構決策本週到我我國，快樂引導不去讓他保密地方，分享壓力玩家網際將其民間交換予以第二次法律責任，秘密也有短信，建材重量，並。
+    線上進行計算機系列中間正好刪除供求，美國請在自身電子附近桃園全身這場相當加入時間研究所正確禮品，製作喜愛投資者那天姑娘感動推坑王看法上面，下面一種地方請在直到傳說提到你好，網絡事故傳說十分頓時感覺到，手段字體一致完善關鍵字不是開口劇情也可給他，右鍵所以你。
+  </div>
+
+  <hr>
+
+  <h2>3.box3 設定高度，當內容產生溢出，設定 overflow 解決</h2>
+  <p class="desc">設定高度塞入大量文字會造成溢出，設定 overflow:auto 讓瀏覽器產生卷軸。</p>
+  <div class="box3">
+    <p style="width:500px;">點擊另外，周圍不錯一樣一切實業工資四個享受球員，出席筆記本生物堅決身體，一身文明你也建立廣泛死了，可見也就是投票大眾小區容量臨床步驟下午，先進性早上把它下列笑着同時，溫州誠信顯得黑色黑色只能決定的是一年獎勵，動態整理麻煩編輯紡織證券留言，同學感覺圖書並非遇到基本行政金額認為引進和諧之一問道，成人廣大頻率收入清除屬於考試安徽真正他的壓縮在這個觀念歌曲，成功等級減肥主板律師沉默，另外監督好多每個人相。</p>
+  </div>
+
+  <hr>
+
+  <h2>4.box4 設定盒子 padding、border、margin</h2>
+  <p class="desc">margin 可以為負數，padding 不行。</p>
+  <p class="desc">outline 不參加盒模型空間的計算，只有外觀呈現。</p>
+  <div class="box4">下列意義出台也會花園革命電子，同一包含全新身邊聯繫電話另外贏得你自己不可以品質多少，母親開通欣賞看來新竹驅動痛苦神秘你知道名稱享受眼前挑戰，上升感興趣主持站在，高雄高度瘋狂鬱悶較大暴力網頁課程，風情思維請問，提升一隻設定，我說強化說什麼實行，渠道有很多還。</div>
+
+  <hr>
+
+  <h2>5.box5、box6 外距重疊現象（Margin Collapse）</h2>
+  <p class="desc">外距重疊現象只發生上、下，左右不會有，大的 margin 會吃掉小的 margin，並不會兩者相加的距離。</p>
+  <div class="box5"></div>
+  <div class="box6"></div>
+
+  <hr>
+
+  <h2>6.box7 計算盒子的空間</h2>
+  <p class="desc"></p>
+  <div class="box7-traditional"></div>
+  <div class="box7-modern"></div>
+
+  <hr>
+
+  <h2>7.box8 設定圓角、畫圓型、水平置中</h2>
+  <div class="box8"></div>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+mklink /J "C:\Users\USER\.gemini\antigravity-cli\skills\" "C:\Users\USER\.agents\skills\"

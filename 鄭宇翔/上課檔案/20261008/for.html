@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const alphabets = ['a', 'b', 'c', 'd']
+    //                  0    1    2    3
+
+    // for (變數宣告 of 陣列)
+    // 變數代表陣列裡的每一個值
+    for (const alphabet of alphabets) {
+      console.log(alphabet)
+    }
+
+    // for (變數宣告 in 陣列或物件)
+    // 變數代表陣列的索引或物件的 key，資料型態是文字
+    for (const index in alphabets) {
+      console.log(index*1+1, alphabets[index])
+    }
+
+    const f2e = {
+      name: '前端',
+      year: 115,
+      semester: 2,
+      classroom: 1114
+    }
+
+    for (const key in f2e) {
+      console.log(key, f2e[key])
+    }
+
+    // =============================
+
+    const numbers = [1, 2, 3]
+
+    // 只會改到回圈內的變數值，原始陣列值不會改，因為陣列值是數字，pass by value
+    for (let number of numbers) {
+      number += 10
+      console.log(number)
+    }
+    console.log(numbers)
+    
+    // 使用 for in 指定索引修改
+    for (const i in numbers) {
+      numbers[i] += 10
+    }
+    console.log(numbers)
+  </script>
+</body>
+</html>

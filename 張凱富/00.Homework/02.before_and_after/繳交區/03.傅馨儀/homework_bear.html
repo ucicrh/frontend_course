@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>homework_bear</title>
+  <style>
+    div.body{
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    div.body::before{
+      content: "";
+      width: 25%;
+      height: 25%;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: -5%;
+      transform: translateY(-50%);
+
+    }
+    div.body::after{
+      content: "";
+      width: 25%;
+      height: 25%;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+    }
+    div.body div.ear{
+      width: 20%;
+      height: 20%;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+    }
+    div.body div.ear.right{
+      right: 0;
+    }
+    div.body div.ear::after{
+      content: "";
+      width: 60%;
+      height: 60%;
+      background-color: #FFF;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    div.body div.eye{
+      width: 12%;
+      height: 12%;
+      border-radius: 50%;
+      border: 15px solid #FFF;
+      position: absolute;
+      top: 20%;
+      left: 18%;
+    }
+    div.body div.eye.right{
+      left: auto;
+      right: 18%;
+    }
+    div.body div.mouth{
+      width: 45%;
+      height: 30%;
+      border-radius: 50%;
+      background-color: #FFF;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    div.body div.mouth::before{
+      content: "";
+      width: 20%;
+      height: 20%;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    div.body div.mouth::after{
+      content: "";
+      width: 70%;
+      height: 30%;
+      border-radius: 50%;
+      background-color: #000;
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    div.body div.hair{
+      width: 50%;
+      height: 15%;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+    div.body div.hair::before{
+      content: "";
+      width: 180px;
+      height: 180px;
+      border: 40px solid #FFF;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="body">
+    <!-- 耳朵 -->
+    <div class="ear"></div>
+    <div class="ear right"></div>
+    <!-- 眼睛 -->
+    <div class="eye"></div>
+    <div class="eye right"></div>
+    <!-- 嘴-->
+    <div class="mouth"></div>
+    <!-- 胸毛 -->
+    <div class="hair"></div>
+  </div>
+</body>
+</html>

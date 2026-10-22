@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const name = prompt('您的姓名', '請輸入')
+        const month = prompt('出生月份(1~12)', '請輸入')
+        const date = prompt('出生日期(1~31，小月無31號)', '請輸入')
+        let constellation = "請確認輸入格式是否正確"
+
+        if (month === '01' || month === '1') {
+            if (date >= 1 && date <= 19) {
+                constellation = "魔羯座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./1.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：12月22日～1月19日</li>
+                <li>星座英文：Capricorn</li>
+                <li>摩羯：務實、嚴謹、有企圖心</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：土星</li>
+                </ul>`)
+            } else if (date >= 20 && date <= 31) {
+                constellation = "水瓶座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./2.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：1月20日～2月18日</li>
+                <li>星座英文：Aquarius</li>
+                <li>性格：獨立、創新、古靈精怪</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：天王星（傳統上也有說是土星）</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '02' || month === '2') {
+            if (date >= 1 && date <= 18) {
+                constellation = "水瓶座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./2.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：1月20日～2月18日</li>
+                <li>星座英文：Aquarius</li>
+                <li>性格：獨立、創新、古靈精怪</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：天王星（傳統上也有說是土星）</li>
+                </ul>`)
+            } else if (date >= 19 && date <= 30) {
+                constellation = "雙魚座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./3.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：2月19日～3月20日</li>
+                <li>星座英文：Pisces</li>
+                <li>性格：浪漫、感性、多情</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：海王星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '03' || month === '3') {
+            if (date >= 1 && date <= 20) {
+                constellation = "雙魚座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./3.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：2月19日～3月20日</li>
+                <li>星座英文：Pisces</li>
+                <li>性格：浪漫、感性、多情</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：海王星</li>
+                </ul>`)
+            } else if (date >= 21 && date <= 31) {
+                constellation = "白羊座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./4.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：3月21日～4月19日</li>
+                <li>星座英文：Aries</li>
+                <li>性格：衝動、熱情、果斷</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：火星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '04' || month === '4') {
+            if (date >= 1 && date <= 19) {
+                constellation = "白羊座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./4.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：3月21日～4月19日</li>
+                <li>星座英文：Aries</li>
+                <li>性格：衝動、熱情、果斷</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：火星</li>
+                </ul>`)
+            } else if (date >= 20 && date <= 30) {
+                constellation = "金牛座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./5.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：4月20日～5月20日</li>
+                <li>星座英文：Taurus</li>
+                <li>性格：穩重、固執、實際</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：金星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '05' || month === '5') {
+            if (date >= 1 && date <= 20) {
+                constellation = "金牛座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./5.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：4月20日～5月20日</li>
+                <li>星座英文：Taurus</li>
+                <li>性格：穩重、固執、實際</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：金星</li>
+                </ul>`)
+            } else if (date >= 21 && date <= 31) {
+                constellation = "雙子座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./6.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：5月21日～6月21日</li>
+                <li>星座英文：Gemini</li>
+                <li>性格：聰明、善變、好奇</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：水星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '06' || month === '6') {
+            if (date >= 1 && date <= 20) {
+                constellation = "雙子座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./6.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：5月21日～6月21日</li>
+                <li>星座英文：Gemini</li>
+                <li>性格：聰明、善變、好奇</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：水星</li>
+                </ul>`)
+            } else if (date >= 21 && date <= 30) {
+                constellation = "巨蟹座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./7.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：6月22日～7月22日</li>
+                <li>星座英文：Cancer</li>
+                <li>性格：溫柔、敏感、顧家</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：月亮</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '07' || month === '7') {
+            if (date >= 1 && date <= 22) {
+                constellation = "巨蟹座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./7.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：6月22日～7月22日</li>
+                <li>星座英文：Cancer</li>
+                <li>性格：溫柔、敏感、顧家</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：月亮</li>
+                </ul>`)
+            } else if (date >= 23 && date <= 31) {
+                constellation = "獅子座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./8.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：7月23日～8月22日</li>
+                <li>星座英文：Leo</li>
+                <li>性格：自信、熱情、愛面子</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：太陽</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '08' || month === '8') {
+            if (date >= 1 && date <= 22) {
+                constellation = "獅子座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./8.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：7月23日～8月22日</li>
+                <li>星座英文：Leo</li>
+                <li>性格：自信、熱情、愛面子</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：太陽</li>
+                </ul>`)
+            } else if (date >= 23 && date <= 31) {
+                constellation = "處女座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./9.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：8月23日～9月22日</li>
+                <li>星座英文：Virgo</li>
+                <li>性格：細心、挑剔、有責任感</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：水星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '09' || month === '9') {
+            if (date >= 1 && date <= 22) {
+                constellation = "處女座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./9.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：8月23日～9月22日</li>
+                <li>星座英文：Virgo</li>
+                <li>性格：細心、挑剔、有責任感</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：水星</li>
+                </ul>`)
+            } else if (date >= 23 && date <= 30) {
+                constellation = "天秤座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./10.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：9月23日～10月23日</li>
+                <li>星座英文：Libra</li>
+                <li>性格：優雅、公平、猶豫</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：金星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '10') {
+            if (date >= 1 && date <= 22) {
+                constellation = "天秤座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./10.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：9月23日～10月23日</li>
+                <li>星座英文：Libra</li>
+                <li>性格：優雅、公平、猶豫</li>
+                <li>元素：風象（聰明、善變、愛溝通）</li>
+                <li>守護星：金星</li>
+                </ul>`)
+            } else if (date >= 23 && date <= 31) {
+                constellation = "天蠍座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./11.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：10月24日～11月22日</li>
+                <li>星座英文：Scorpio</li>
+                <li>性格：神秘、專情、深沉</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：冥王星（傳統上也有說是火星）</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '11') {
+            if (date >= 1 && date <= 21) {
+                constellation = "天蠍座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./11.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：10月24日～11月22日</li>
+                <li>星座英文：Scorpio</li>
+                <li>性格：神秘、專情、深沉</li>
+                <li>元素：水象（感性、直覺強、情感豐富）</li>
+                <li>守護星：冥王星（傳統上也有說是火星）</li>
+                </ul>`)
+            } else if (date >= 22 && date <= 30) {
+                constellation = "射手座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./12.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：11月23日～12月21日</li>
+                <li>星座英文：Sagittarius</li>
+                <li>性格：樂觀、自由、坦率</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：木星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else if (month === '12') {
+            if (date >= 1 && date <= 21) {
+                constellation = "射手座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./12.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：11月23日～12月21日</li>
+                <li>星座英文：Sagittarius</li>
+                <li>性格：樂觀、自由、坦率</li>
+                <li>元素：火象（熱情、主動、充滿能量）</li>
+                <li>守護星：木星</li>
+                </ul>`)
+            } else if (date >= 22 && date <= 31) {
+                constellation = "魔羯座"
+                document.write(`<h2>${name} 是 ${constellation}</h2><br>`)
+                document.write(`
+                <img src="./1.webp" alt="圖片" width="500"><br>
+                <ul>
+                <li>出生日期：12月22日～1月19日</li>
+                <li>星座英文：Capricorn</li>
+                <li>摩羯：務實、嚴謹、有企圖心</li>
+                <li>元素：土象（實際、穩重、有耐心）</li>
+                <li>守護星：土星</li>
+                </ul>`)
+            } else {
+                document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+            }
+        } else {
+            document.write(`<h2>${constellation}</h2><br>
+            姓名:${name}<br>
+            月份(1~12):${month}<br>
+            日期(1~31，小月無31號):${date}
+        `)
+        }
+    </script>
+
+</body>
+
+</html>

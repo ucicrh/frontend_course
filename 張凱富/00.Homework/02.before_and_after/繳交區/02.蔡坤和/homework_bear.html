@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS 熊熊</title>
+
+  <style>
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+
+    }
+
+    /* 熊的頭部 */
+    .bear {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 376px;
+      height: 376px;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    /* 耳朵：利用 before、after */
+    .bear::before,
+    .bear::after {
+      content: "";
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border: 12px solid #000;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+    }
+
+    .bear::before {
+      left: 40px;
+    }
+
+    .bear::after {
+      right: 40px;
+    }
+
+    /* 眼睛 */
+    .eye::before,
+    .eye::after {
+      content: "";
+      width: 76px;
+      height: 76px;
+      border: 13px solid #fff;
+      border-radius: 50%;
+      background: #000;
+      position: absolute;
+      top: 74px;
+    }
+
+    .eye::before {
+      left: 76px;
+    }
+
+    .eye::after {
+      right: 76px;
+    }
+
+    /* 紅色臉頰 */
+    .cheek::before,
+    .cheek::after {
+      content: "";
+      width: 95px;
+      height: 95px;
+      background: #ff0000;
+      border-radius: 50%;
+      position: absolute;
+      top: 139px;
+    }
+
+    .cheek::before {
+      left: -20px;
+    }
+
+    .cheek::after {
+      right: -20px;
+    }
+
+    /* 白色嘴巴外框 */
+    .mouth {
+      width: 164px;
+      height: 115px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 143px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mouth::before,
+    .mouth::after {
+      content: "";
+    }
+
+    /* 鼻子 */
+    .mouth::before {
+      width: 38px;
+      height: 26px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* 嘴巴 */
+    .mouth::after {
+      content: "";
+      width: 100px;
+      height: 38px;
+      background: #000;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      bottom: 23px;
+      transform: translateX(-50%);
+    }
+
+    /* 下方白色 V 字 */
+    .collar {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(50%);
+    }
+
+    .collar::before,
+    .collar::after {
+      content: "";
+      background: white;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    .collar::before {
+      left: -55px;
+      transform: skew(50deg);
+    }
+
+    .collar::after {
+      background: white;
+      left: 5px;
+      transform: skew(-50deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bear">
+    <div class="eye"></div>
+
+    <div class="cheek"></div>
+
+    <div class="mouth"></div>
+
+    <div class="collar"></div>
+  </div>
+</body>
+
+</html>

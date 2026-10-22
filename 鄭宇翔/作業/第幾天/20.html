@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 作業
+
+使用者可以輸入西元年、月、日，三個 prompt()
+顯示使用者輸入的是該年的第幾天
+
+以 3/5 為例，將前兩個月的天數加起來，再加上 5 天即可
+需考慮閏年 +1
+某些月份的天數是 30，某些月份的天數是 31
+parseInt(變數或是數字的文字) 可以把文字轉數字 -->
+    <script>
+        let year = parseInt(prompt('請輸入西元年'))
+        let month = parseInt(prompt('請輸入月份'))
+        let day = parseInt(prompt('請輸入日期'))
+
+        let days = [31, 28, 31, 30, 31, 30,
+            31, 31, 30, 31, 30, 31];
+
+        let total = 0;
+
+        if (year % 400 === 0) {  // 是閏年
+
+            days[1] = 29;
+
+        } else if (year % 100 === 0) {  // 不是閏年
+
+        } else if (year % 4 === 0) {  // 是閏年
+
+            days[1] = 29;
+
+        } else {  // 不是閏年
+
+        }
+
+        for (let i = 0; i < month - 1; i++) {
+            total += days[i]
+        }
+        total += day
+
+        document.write(total);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 0 ~ 100
+    // for (let i = 0; i < 100; i++) {
+    //   const random = Math.round(Math.random() * 100)
+    //   document.write(random + '<br>')
+    //   if (random === 0 || random === 100) {
+    //     console.log(random)
+    //   }
+    // }
+    
+    const rand = (min, max) => {
+      return Math.round(Math.random() * (max - min)) + min
+    }
+    for (let i = 0; i < 100; i++) {
+      const random = rand(200, 300)
+      document.write(random + '<br>')
+      if (random === 200 || random === 300) {
+        console.log(random)
+      }
+    }
+    
+  </script>
+</body>
+</html>

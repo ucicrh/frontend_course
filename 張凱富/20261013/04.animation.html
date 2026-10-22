@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.animation</title>
+  <style>
+    .container {
+      width: 75%;
+      margin: auto;
+      padding: 1rem;
+      border: 1px solid #333;
+    }
+
+    .wrap {
+      border: 5px dashed #333;
+      margin: 50px;
+      padding: 50px 0;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    /* 定義動畫，my-animation 是自己定義的動畫名稱 */
+    @keyframes my-animation {
+
+      /* from = 0%，初始狀態，也可以寫 0% */
+      from {
+        background-color: red;
+        font-size: 1rem;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+      }
+
+      50% {
+        font-size: 5rem;
+        background-color: blue;
+        transform: translate(25vw, 0) rotate(900deg) scale(2);
+      }
+
+      /* to = 100% */
+      to {
+        font-size: 1rem;
+        background-color: green;
+        transform: translate(50vw, 0) rotate(1800deg) scale(1);
+      }
+    }
+
+    .animation {
+      /* 指定動畫名稱 */
+      animation-name: my-animation;
+
+      /* 持續時間 ms（1000ms = 1s） 或 s */
+      animation-duration: 1s;
+
+      /* 播放次數，可以寫數字或 infinite */
+      animation-iteration-count: 1;
+
+      /* 動畫速率 */
+      animation-timing-function: linear;
+
+      /* 播放方向 */
+      /* normal（預設） 正向播放 => 0% -> 100%
+         reverse 反向播放 => 100% -> 0%
+         alternate 交替播放 => 奇數次數正向，偶數次數反向
+         alternate-reverse 交替播放 => 奇數次數反向，偶數次數正向 */
+      animation-direction: normal;
+
+      /* 延遲時間 */
+      animation-delay: 2s;
+
+      /* 動畫一開始在第一幀（紅色），動畫結束後停留在最後一幀（綠色） */
+      animation-fill-mode: both;
+
+      /* 縮寫 */
+      animation: my-animation 2s 3s linear normal both infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>動畫</h1>
+    <h2>animation</h2>
+    <ul>
+      <li>可以設定關鍵影格(@keyframes) 控制動畫進度的狀態，產生更複雜的動畫</li>
+      <li>網頁載入時自動播放，也可以觸發用新增、刪除 classs 的方式</li>
+      <li>可以循環重複、來回播放</li>
+    </ul>
+    <div class="wrap">
+      <div class="box animation">Hello</div>
+    </div>
+  </div>
+</body>
+
+</html>

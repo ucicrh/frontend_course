@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        .bear-body {
+            width: 500px;
+            height: 500px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .bear-body::before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 0%;
+            top: 50%;
+            transform: translate(-25%, -50%);
+            border-radius: 50%;
+        }
+
+        .bear-body::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            right: 0%;
+            top: 50%;
+            transform: translate(25%, -50%);
+            border-radius: 50%;
+        }
+
+        .bear-left-eyes {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+            transform: translate(0%, -50%);
+        }
+
+        .bear-right-eyes {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            right: 20%;
+            transform: translate(0%, -50%);
+
+        }
+
+        .eyes-in {
+            width: 75px;
+            height: 75px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear-left-ears {
+            width: 75px;
+            height: 75px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            left: 10%;
+        }
+
+        .bear-right-ears {
+            width: 75px;
+            height: 75px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            right: 10%;
+        }
+
+        .ears-in {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear-nose {
+            width: 250px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2
+        }
+
+        .bear-nose::before {
+            content: "";
+            width: 50px;
+            height: 30px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear-nose::after {
+            content: "";
+            width: 150px;
+            height: 50px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bear-line-L {
+            width: 60px;
+            height: 90px;
+            background: white;
+            position: absolute;
+            transform: skew(35deg);
+            bottom: 7%;
+            left: 33%;
+
+        }
+
+        .bear-line-R {
+            width: 60px;
+            height: 90px;
+            background: white;
+            position: absolute;
+            transform: skew(-35deg);
+            bottom: 7%;
+            right: 33%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bear-body">
+        <div class="bear-left-eyes">
+            <div class="eyes-in"></div>
+        </div>
+        <div class="bear-right-eyes">
+            <div class="eyes-in"></div>
+        </div>
+        <div class="bear-left-ears">
+            <div class="ears-in"></div>
+        </div>
+        <div class="bear-right-ears">
+            <div class="ears-in"></div>
+        </div>
+        <div class="bear-nose"></div>
+        <div class="bear-line-L"></div>
+        <div class="bear-line-R"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const seconds = 10000
+    // 1. 算出不足一小時的秒數
+    const remaingSecAfterHours = seconds % 3600
+    // 2. 算出小時 = 總秒數 - 不足一小時的秒數再除 3600，一小時 3600 秒
+    const hours = (seconds - remaingSecAfterHours) / 3600
+    // 3. 算出不足一分鐘的秒數
+    const remaingSecs = remaingSecAfterHours % 60
+    // 4. 算出分鐘 = 不足一小時的秒數 - 不足一分鐘的秒數再除 60
+    const minutes = (remaingSecAfterHours - remaingSecs) / 60
+
+    document.write(`${seconds}秒是 ${hours} 小時 ${minutes} 分 ${remaingSecs} 秒`)
+  </script>
+</body>
+</html>

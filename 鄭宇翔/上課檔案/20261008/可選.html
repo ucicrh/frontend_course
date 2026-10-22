@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const users = [
+      {
+        name: 'aaa',
+        info: {
+          email: 'aaa@gmail.com'
+        }
+      },
+      {
+        name: 'bbb',
+        info: {
+          email: 'bbb@gmail.com',
+          address: {
+            city: '台北'
+          }
+        }
+      }
+    ]
+    console.log(users[1].info.address.city)
+
+    for (let i = 0; i < users.length; i++) {
+      document.write(`<p>${users[i].name} 住在 ${users[i].info.address?.city || '不知道'}</p>`)
+    }
+  </script>
+</body>
+</html>

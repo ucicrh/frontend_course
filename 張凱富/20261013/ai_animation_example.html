@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 極光動畫 (Aurora Borealis)</title>
+  <style>
+    /* ========================================================
+       CSS 極光動畫 (Aurora Borealis Animation)
+       技術核心：
+       1. 混合模式 (mix-blend-mode: screen) 疊加發光
+       2. 複合濾鏡 (filter: blur) 模擬大氣光暈
+       3. 遮罩效果 (mask-image) 製造光簾上下漸層消散
+       4. 動畫關鍵影格 (@keyframes) 帶動流體波動與波長擺動
+       ======================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #030712;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'PingFang TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 觀景視窗容器 */
+    .viewport {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at 50% 100%, #07192f 0%, #040d1a 45%, #02060d 85%, #010307 100%);
+      overflow: hidden;
+    }
+
+    /* ---------------------------------------------
+       1. 星空背景 (Starry Night Sky)
+       --------------------------------------------- */
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 18%, #ffffff, transparent),
+        radial-gradient(1px 1px at 28% 12%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 45% 22%, #ffffff, transparent),
+        radial-gradient(1px 1px at 62% 14%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1.8px 1.8px at 78% 28%, #ffffff, transparent),
+        radial-gradient(1px 1px at 88% 10%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1.2px 1.2px at 20% 42%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 38% 35%, #ffffff, transparent),
+        radial-gradient(1px 1px at 58% 38%, rgba(255, 255, 255, 0.7), transparent),
+        radial-gradient(1.5px 1.5px at 72% 46%, #ffffff, transparent),
+        radial-gradient(1px 1px at 85% 36%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1.5px 1.5px at 94% 22%, #ffffff, transparent),
+        radial-gradient(1px 1px at 8% 50%, rgba(255, 255, 255, 0.75), transparent),
+        radial-gradient(1.8px 1.8px at 52% 8%, #ffffff, transparent);
+      background-size: 550px 550px;
+      animation: starTwinkle 5s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes starTwinkle {
+      0% {
+        opacity: 0.55;
+      }
+
+      50% {
+        opacity: 0.95;
+      }
+
+      100% {
+        opacity: 0.7;
+      }
+    }
+
+    /* ---------------------------------------------
+       2. 極光舞台容器 (Aurora Sky Stage)
+       --------------------------------------------- */
+    .aurora-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 75%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* 極光公共基底光束 */
+    .aurora-layer {
+      position: absolute;
+      width: 140%;
+      left: -20%;
+      transform-origin: center bottom;
+      mix-blend-mode: screen;
+      will-change: transform, filter, opacity;
+    }
+
+    /* [極光第一層：翠綠翡翠光波 - 主流束] */
+    .aurora-green {
+      top: 8%;
+      height: 65%;
+      background: radial-gradient(ellipse 65% 55% at 50% 60%,
+          rgba(0, 255, 136, 0.85) 0%,
+          rgba(0, 230, 195, 0.6) 30%,
+          rgba(5, 150, 105, 0.3) 65%,
+          transparent 80%);
+      filter: blur(55px);
+      animation: auroraFlow1 13s ease-in-out infinite alternate;
+    }
+
+    /* [極光第二層：紫羅蘭與霓虹桃紅 - 高空電子激發光] */
+    .aurora-purple {
+      top: 2%;
+      height: 70%;
+      background: radial-gradient(ellipse 70% 50% at 48% 45%,
+          rgba(192, 38, 211, 0.75) 0%,
+          rgba(147, 51, 234, 0.65) 25%,
+          rgba(59, 130, 246, 0.4) 60%,
+          transparent 80%);
+      filter: blur(65px);
+      animation: auroraFlow2 17s ease-in-out infinite alternate;
+    }
+
+    /* [極光第三層：冰藍與青綠光帶 - 波動細部] */
+    .aurora-cyan {
+      top: 15%;
+      height: 55%;
+      background: radial-gradient(ellipse 60% 45% at 55% 50%,
+          rgba(6, 182, 212, 0.75) 0%,
+          rgba(52, 211, 153, 0.6) 35%,
+          rgba(16, 185, 129, 0.25) 70%,
+          transparent 85%);
+      filter: blur(48px);
+      animation: auroraFlow3 11s ease-in-out infinite alternate;
+    }
+
+    /* [極光光柱簾幕 (Vertical Rays Curtain) - 條紋垂直光束質感] */
+    .aurora-rays {
+      position: absolute;
+      top: 0;
+      left: -20%;
+      width: 140%;
+      height: 72%;
+      background: repeating-linear-gradient(90deg,
+          rgba(0, 255, 170, 0.45) 0px,
+          rgba(0, 255, 170, 0) 18px,
+          rgba(56, 189, 248, 0.4) 30px,
+          rgba(0, 0, 0, 0) 48px,
+          rgba(168, 85, 247, 0.35) 65px,
+          rgba(0, 0, 0, 0) 88px,
+          rgba(52, 211, 153, 0.45) 105px,
+          rgba(0, 0, 0, 0) 130px);
+      /* 上下羽化漸隱遮罩 */
+      mask-image: linear-gradient(to bottom,
+          transparent 0%,
+          rgba(0, 0, 0, 0.8) 25%,
+          rgba(0, 0, 0, 0.9) 65%,
+          transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom,
+          transparent 0%,
+          rgba(0, 0, 0, 0.8) 25%,
+          rgba(0, 0, 0, 0.9) 65%,
+          transparent 100%);
+      filter: blur(16px);
+      mix-blend-mode: screen;
+      transform-origin: 50% 100%;
+      animation: curtainSway 15s ease-in-out infinite alternate;
+    }
+
+    /* [極光地平線環境暈光] */
+    .aurora-horizon-glow {
+      position: absolute;
+      bottom: 24%;
+      left: 0;
+      width: 100%;
+      height: 25%;
+      background: linear-gradient(to top,
+          rgba(0, 255, 160, 0.28) 0%,
+          rgba(6, 182, 212, 0.15) 50%,
+          transparent 100%);
+      filter: blur(40px);
+      mix-blend-mode: screen;
+      animation: glowBreathe 8s ease-in-out infinite alternate;
+    }
+
+    /* ---------------------------------------------
+       3. 動畫關鍵影格 (@keyframes)
+       --------------------------------------------- */
+    @keyframes auroraFlow1 {
+      0% {
+        transform: translateY(0) skewX(-12deg) scaleY(0.95);
+        opacity: 0.75;
+      }
+
+      50% {
+        transform: translateY(-25px) skewX(8deg) scaleY(1.15) scaleX(1.05);
+        opacity: 0.95;
+      }
+
+      100% {
+        transform: translateY(15px) skewX(-6deg) scaleY(1.05);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes auroraFlow2 {
+      0% {
+        transform: translateY(20px) skewX(10deg) scaleX(1.1);
+        opacity: 0.6;
+      }
+
+      50% {
+        transform: translateY(-20px) skewX(-14deg) scaleX(0.95) scaleY(1.2);
+        opacity: 0.88;
+      }
+
+      100% {
+        transform: translateY(10px) skewX(6deg) scaleX(1.05);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes auroraFlow3 {
+      0% {
+        transform: translateY(-10px) skewX(-8deg) scale(0.98);
+        opacity: 0.65;
+      }
+
+      50% {
+        transform: translateY(30px) skewX(12deg) scale(1.1);
+        opacity: 0.92;
+      }
+
+      100% {
+        transform: translateY(-20px) skewX(-4deg) scale(1.02);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes curtainSway {
+      0% {
+        transform: skewX(-16deg) translateX(-4%) scaleY(0.9);
+        opacity: 0.6;
+      }
+
+      33% {
+        transform: skewX(8deg) translateX(3%) scaleY(1.15);
+        opacity: 0.9;
+      }
+
+      66% {
+        transform: skewX(-10deg) translateX(-1%) scaleY(1.05);
+        opacity: 0.75;
+      }
+
+      100% {
+        transform: skewX(14deg) translateX(4%) scaleY(1.2);
+        opacity: 0.85;
+      }
+    }
+
+    @keyframes glowBreathe {
+      0% {
+        opacity: 0.45;
+        transform: scaleY(0.9);
+      }
+
+      100% {
+        opacity: 0.85;
+        transform: scaleY(1.15);
+      }
+    }
+
+    /* ---------------------------------------------
+       4. 前景剪影地景 (Mountain Silhouettes & Lake)
+       --------------------------------------------- */
+    .landscape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 38%;
+      z-index: 5;
+    }
+
+    /* 遠山剪影 */
+    .mountains-far {
+      position: absolute;
+      bottom: 28%;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      fill: #060e1b;
+      opacity: 0.95;
+    }
+
+    /* 近山與針葉林剪影 */
+    .mountains-near {
+      position: absolute;
+      bottom: 25%;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      fill: #02060c;
+    }
+
+    /* 靜謐冰湖水面倒影區 */
+    .lake-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 26%;
+      background: linear-gradient(to bottom, #030811 0%, #010408 100%);
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 255, 170, 0.15);
+    }
+
+    /* 水面極光倒影 */
+    .lake-reflection {
+      position: absolute;
+      top: -120%;
+      left: -10%;
+      width: 120%;
+      height: 250%;
+      background: radial-gradient(ellipse at 50% 20%,
+          rgba(0, 255, 160, 0.45) 0%,
+          rgba(147, 51, 234, 0.3) 35%,
+          transparent 75%);
+      filter: blur(35px);
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      transform: scaleY(-1);
+      animation: waterRipple 9s ease-in-out infinite alternate;
+    }
+
+    /* 水面波光微動紋理 */
+    .lake-waves {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(0, 0, 0, 0.25) 3px,
+          rgba(0, 255, 170, 0.04) 6px,
+          transparent 9px);
+      mix-blend-mode: overlay;
+    }
+
+    @keyframes waterRipple {
+      0% {
+        transform: scaleY(-1) scaleX(0.98) skewX(-2deg);
+        opacity: 0.45;
+      }
+
+      50% {
+        transform: scaleY(-1.08) scaleX(1.03) skewX(3deg);
+        opacity: 0.65;
+      }
+
+      100% {
+        transform: scaleY(-0.95) scaleX(1.01) skewX(-1deg);
+        opacity: 0.5;
+      }
+    }
+
+    /* ---------------------------------------------
+       5. 說明卡片與控制面板 (Glassmorphism Info Card)
+       --------------------------------------------- */
+    .info-card {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 22px 26px;
+      max-width: 360px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(0, 255, 136, 0.15);
+      color: #00ff88;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 30%, #a7f3d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin-bottom: 14px;
+    }
+
+    .feature-list {
+      list-style: none;
+      font-size: 12px;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list li span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 8px #00ff88;
+    }
+
+    /* 響應式優化 */
+    @media (max-width: 768px) {
+      .info-card {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        max-width: none;
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="viewport">
+    <!-- 1. 繁星背景 -->
+    <div class="stars"></div>
+
+    <!-- 2. 極光特效核心 -->
+    <div class="aurora-container">
+      <!-- 垂直光柱簾幕 (Ray Curtains) -->
+      <div class="aurora-rays"></div>
+
+      <!-- 流動主光波層 (Flowing Waves) -->
+      <div class="aurora-layer aurora-green"></div>
+      <div class="aurora-layer aurora-purple"></div>
+      <div class="aurora-layer aurora-cyan"></div>
+
+      <!-- 地平線環境泛光 -->
+      <div class="aurora-horizon-glow"></div>
+    </div>
+
+    <!-- 3. 前景山脈剪影與水面倒影 -->
+    <div class="landscape">
+      <!-- 遠山 SVG -->
+      <svg class="mountains-far" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,224L80,208C160,192,320,160,480,186.7C640,213,800,299,960,288C1120,277,1280,171,1360,117.3L1440,64L1440,320L0,320Z"></path>
+      </svg>
+
+      <!-- 近山與山脊剪影 SVG -->
+      <svg class="mountains-near" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path d="M0,192L60,176C120,160,240,128,360,149.3C480,171,600,245,720,240C840,235,960,149,1080,138.7C1200,128,1320,192,1380,224L1440,256L1440,320L0,320Z"></path>
+      </svg>
+
+      <!-- 靜謐湖泊與倒影 -->
+      <div class="lake-container">
+        <div class="lake-reflection"></div>
+        <div class="lake-waves"></div>
+      </div>
+    </div>
+
+    <!-- 4. 說明資訊小卡 -->
+    <aside class="info-card">
+      <div class="badge">Pure CSS Animation</div>
+      <h1>CSS 極光動畫</h1>
+      <p>模擬北極圈夜空中的歐若拉 (Aurora Borealis)，利用純 CSS 漸層與混合模式呈現自然飄逸的流體光帶。</p>
+      <ul class="feature-list">
+        <li><span class="dot"></span><code>mix-blend-mode: screen</code> 光源疊加自然發光</li>
+        <li><span class="dot"></span><code>repeating-linear-gradient</code> 模擬垂直簾幕光束</li>
+        <li><span class="dot"></span><code>filter: blur()</code> 與 <code>mask-image</code> 邊緣羽化</li>
+        <li><span class="dot"></span>複合 <code>@keyframes</code> (skew / scale / translate) 流動波動</li>
+      </ul>
+    </aside>
+  </div>
+</body>
+
+</html>

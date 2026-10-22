@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CSS Gradient Patterns</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      background: #222;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+    }
+
+    header p {
+      margin: 0;
+      color: #ccc;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 40px auto;
+    }
+
+    .patterns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .pattern {
+      height: 250px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pattern h2 {
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+
+    /* =========================
+       1. 條紋 Pattern
+       ========================= */
+
+    .stripe {
+      background:
+        repeating-linear-gradient(45deg,
+          #3498db 0 10px,
+          #ecf0f1 10px 20px);
+    }
+
+
+    /* =========================
+       2. 格線 Pattern
+       ========================= */
+
+    .grid {
+      background:
+        linear-gradient(#bbb 1px, transparent 1px),
+        linear-gradient(90deg, #bbb 1px, transparent 1px);
+
+      background-size: 30px 30px;
+      background-color: white;
+    }
+
+
+    /* =========================
+       3. 圓點 Pattern
+       ========================= */
+
+    .dot {
+      background:
+        radial-gradient(circle,
+          #3498db 4px,
+          transparent 5px);
+
+      background-size: 30px 30px;
+      background-color: #ecf0f1;
+    }
+
+
+    /* =========================
+       4. 棋盤格 Pattern
+       ========================= */
+
+    .checker {
+      background:
+        conic-gradient(#333 25%,
+          #fff 0 50%,
+          #333 0 75%,
+          #fff 0);
+
+      background-size: 60px 60px;
+    }
+
+
+    /* =========================
+       5. 彩色波浪 Pattern
+       ========================= */
+
+    .wave {
+      background:
+        repeating-radial-gradient(ellipse at 0 0,
+          #3498db 0 10px,
+          #9b59b6 10px 20px,
+          #e74c3c 20px 30px,
+          #f1c40f 30px 40px);
+
+      background-size: 120px 120px;
+    }
+
+
+    /* RWD */
+
+    @media (max-width: 700px) {
+      .patterns {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CSS Gradient Patterns</h1>
+    <p>利用 CSS Gradient 製作背景圖案</p>
+  </header>
+
+
+  <main class="container">
+
+    <div class="patterns">
+
+      <!-- 1. 條紋 -->
+      <div class="pattern stripe">
+        <h2>Stripe</h2>
+      </div>
+
+
+      <!-- 2. 格線 -->
+      <div class="pattern grid">
+        <h2>Grid</h2>
+      </div>
+
+
+      <!-- 3. 圓點 -->
+      <div class="pattern dot">
+        <h2>Dot</h2>
+      </div>
+
+
+      <!-- 4. 棋盤格 -->
+      <div class="pattern checker">
+        <h2>Checker</h2>
+      </div>
+
+
+      <!-- 5. 波浪 -->
+      <div class="pattern wave">
+        <h2>Wave</h2>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+
+</html>

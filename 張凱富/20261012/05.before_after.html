@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    /* 暴力版重置樣式 */
+    /* 全域選擇器 */
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      color: white;
+      background: darkorange;
+      margin: 20px auto;
+      /* 將偽元素鎖在容器內 */
+      position: relative;
+    }
+
+    .box::before {
+      /* 一定要有 content 屬性，"" 可以填文字進去顯示，但通常是 "" */
+      /* 偽元素一開始是 inline */
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: red;
+      /* absolute 會將偽元素由 inline 轉為 block，就可以設定寬、高 */
+      position: absolute;
+      left: -100%;
+      transition: 0.5s;
+    }
+
+    .box::after {
+      content: "";
+      width: 100px;
+      height: 100px;
+      background: blue;
+      position: absolute;
+      right: -100%;
+      top: 0;
+      transition: 0.5s;
+    }
+
+    .box:hover::before {
+      left: 200%;
+      transform: rotate(360deg);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .box:hover::after {
+      right: 200%;
+      transform: rotate(360deg);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>偽元素</h1>
+  <p>偽元素主要用於裝飾或清除浮動，讓主元素擁有兩個分身來做事情。</p>
+  <div class="box">
+    <!-- before -->
+    <div class="content">lorem</div>
+    <!-- after -->
+  </div>
+</body>
+
+</html>

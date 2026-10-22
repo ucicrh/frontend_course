@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // common-year[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        // leap-year[31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+        const year = parseInt(prompt('幾年'))
+        const month = parseInt(prompt('幾月'))
+        const day = parseInt(prompt('幾日'))
+        let days = 0
+        let Y = year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)
+
+        for (let i = 1; i < month; i++) {
+            if (i == 1 || i == 3 || i == 5 || i == 7 || i == 8 || i == 10 || i == 12) {
+                days += 31
+            } else if (i != 2) {
+                days += 30
+            } else if (Y) {
+                days += 29
+            } else {
+                days += 28
+            }
+        }
+
+        document.write(`那是該年的第${days + day}天`)
+
+
+    </script>
+</body>
+
+</html>

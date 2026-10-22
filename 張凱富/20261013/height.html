@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 實際高度指的是沒有設定 px、vh... -->
+
+<body style="height:100vh;">
+  <!-- 父元素要有實際的高度，子元素的百分比才會有作用 -->
+  <!-- 高度一直都是 CSS 探討的問題，寬度百分比是沒問題的 -->
+  <div style="width:800px;height:800px;background-color:blue;">
+    <div style="height:50%;background: darkgreen;"></div>
+  </div>
+
+  <!-- 因為 body 有實際高度，所以子元素的高度百分比才會有作用 -->
+  <div style="width:50%;height:100%;background:red;">1</div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const f2e = {
+      name: '前端',
+      year: 115,
+      semester: 2,
+      classroom: 1114
+    }
+
+    // 直接指定欄位名稱
+    document.write(`<p>班級名稱: ${f2e.name}</p>`)
+    document.write(`<p>班級年分: ${f2e['year']}</p>`)
+    
+    // 用變數指定欄位名稱
+    const key = 'classroom'
+    // 相當於上面第二種寫法
+    document.write(`<p>教室: ${f2e[key]}</p>`)
+    // undefined，因為物件裡沒有叫 key 的欄位
+    document.write(`<p>教室: ${f2e.key}</p>`)
+
+    // Object.keys   將物件所有的 key 取出變成陣列
+    // Object.values 將物件所有的值取出變成陣列
+    console.log( Object.keys(f2e) )
+    console.log( Object.values(f2e) )
+    
+    // in
+    // 檢查物件裡面有沒有指定的 key
+    console.log('abc' in f2e)
+  </script>
+</body>
+</html>

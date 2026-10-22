@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>star</title>
+</head>
+
+<body>
+
+    <script>
+        const yes = confirm('你想知道你的星座嗎?')
+        if (yes) {
+            const month = prompt('請問你的生日月份?', '1')
+            const day = prompt('請問你的生日幾號?', '1')
+
+            if (month == 1 && day >= 20 || month == 2 && day <= 18) { document.write('水瓶座') } else if (month == 2 && day >= 19 ||
+                month == 3 && day <= 20) { document.write('雙魚座') } else if (month == 3 && day >= 21 || month == 4 && day <= 19) {
+                    document.write('牡羊座')
+                } else if (month == 4 && day >= 20 || month == 5 && day <= 20) {
+                    document.write('金牛座')
+                } else if (month == 5 && day >= 21 || month == 6 && day <= 20) {
+                    document.write('雙子座')
+                } else if (month == 6 && day >= 21 || month == 7 && day <= 22) {
+                    document.write('巨蟹座')
+                } else if (month == 7 && day >= 23 || month == 8 && day <= 22) {
+                    document.write('獅子座')
+                } else if (month == 8 && day >= 23 || month == 9 && day <= 22) {
+                    document.write('處女座')
+                } else if (month == 9 && day >= 23 || month == 10 && day <= 22) {
+                    document.write('天秤座')
+                } else if (month == 10 && day >= 23 || month == 11 && day <=
+                    21) { document.write('天蠍座') } else if (month == 11 && day >= 22 || month == 12
+                        && day <= 21) { document.write('射手座') } else if (month == 12 && day >= 22 ||
+                            month == 1 && day <= 19) { document.write('摩羯座') }
+
+        } else {
+            document.write('那就算了')
+        }
+
+    </script>
+</body>
+
+</html>

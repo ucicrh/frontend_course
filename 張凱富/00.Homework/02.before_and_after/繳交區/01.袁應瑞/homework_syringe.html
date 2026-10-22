@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-注射器</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /* 注射器  syninge */
+        .syninge {
+            width: 600px;
+            height: 100px;
+            background-color: lightblue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 針筒 / 外套 (Barrel) */
+        .barrel {
+            width: 70%;
+            height: 100%;
+            background-color: #635959;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .barrel::before {
+            content: "|||||||||||";
+            letter-spacing: 15px;
+            color: gray;
+            width: 45%;
+            height: 100%;
+            background-color: lightgray;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(#fff, lightgray, white);
+        }
+
+        .barrel::after {
+            content: "||||||||||| ";
+            letter-spacing: 15px;
+            text-align: right;
+            width: 45%;
+            height: 100%;
+            background-color: #fafaa7;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-image: linear-gradient(lightyellow, #d3d38d, lightyellow);
+        }
+
+        /* 芯杆與活塞 (Plunger & Piston) */
+        .plunger {
+
+            width: 15%;
+            height: 100%;
+            background-color: #fff;
+            /* border: 1px solid gray; */
+
+            position: absolute;
+        }
+
+        .plunger::before {
+            content: "";
+            width: 40%;
+            height: 90%;
+            background-color: lightgray;
+            border: 1px solid lightgray;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translatey(-50%);
+            z-index: 2;
+            background-image: linear-gradient(#fff, lightgray, white);
+        }
+
+        .plunger::after {
+            content: "";
+            width: 60%;
+            height: 60%;
+            background-color: lightgray;
+            /* border: 1px solid lightgray; */
+            box-shadow: 0 0 1px lightgray;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translatey(-50%);
+            z-index: 2;
+            background-image: linear-gradient(#fff, lightgray, white);
+        }
+
+        /* 針頭 (Needle) */
+        .needle {
+            width: 15%;
+            height: 100%;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .needle::before {
+            content: "";
+            width: 40%;
+            height: 50%;
+            background-color: lightgray;
+            position: absolute;
+            transform: translatey(50%);
+            background-image: linear-gradient(#fff, lightgray, white);
+        }
+
+        .needle::after {
+            content: "";
+            width: 60%;
+            height: 2%;
+            background-color: gray;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translatey(-50%);
+        }
+
+        /* 產地  origin */
+        .origin {
+            width: 100%;
+            height: 10%;
+            position: absolute;
+            bottom: 5px;
+            color: gray;
+
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="syninge">
+        <div class="barrel">
+            <div class="origin">Made In Taiwan</div>
+        </div>
+        <div class="plunger"></div>
+        <div class="needle"></div>
+
+    </div>
+
+</body>
+
+</html>

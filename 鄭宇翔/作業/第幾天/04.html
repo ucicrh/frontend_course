@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let yaer = prompt('請輸入年')
+
+        let maer = prompt('請輸入月')
+
+        let daer = prompt('請輸入日')
+
+        let dnum = 0
+
+        document.write(yaer + '年' + maer + '月' + daer + '日')
+
+        const monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+        // switch (true) {
+        //     case (maer <= 2):
+        // dnum = parseInt(maer - 1) * 31 + parseInt(daer)
+        // break
+        //     case (maer <= 4):
+        // dnum = 31 + 28 + parseInt(maer - 3) * 31 + parseInt(daer)
+        // break
+        //     case (maer <= 6):
+        // dnum = 31 + 28 + 30 + 31 + parseInt(maer - 5) * 31 + parseInt(daer)
+        // break
+        //     case (maer <= 9):
+        // dnum = 31 + 28 + 30 + 31 + 30 + 31 + parseInt(maer - 7) * 31 + parseInt(daer)
+        // break
+        //     case (maer <= 11):
+        // dnum = 31 + 28 + 30 + 31 + 30 + 31 + 31 + 31 + 30 + parseInt(maer - 10) * 31 + parseInt(daer)
+        // break
+        //     case (maer == 12):
+        // dnum = parseInt(365) - parseInt(31) + parseInt(daer)
+        // // dnum = 365 - 31 + parseInt(daer)
+        // break
+        // }
+
+        for (let i = 0; i < maer - 1; i++) {
+            dnum = parseInt(dnum) + parseInt(monthDay[i])
+        }
+        dnum = parseInt(dnum) + parseInt(daer)
+
+        console.log(dnum)
+
+        if (maer > 2) {
+            if (yaer % 4 == 0 && yaer % 100 != 0 || yaer % 400 == 0) {
+
+                document.write('是第' + (parseInt(dnum) + 1) + '天，因為閏年')
+            }
+        } else {
+            document.write('是第' + parseInt(dnum) + '天')
+        }
+
+
+    </script>
+</body>
+
+</html>

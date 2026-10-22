@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 閉包
+    // 私有變數，外部不能直接修改，只能呼叫 return function 改，變數比較安全不會不小心改到
+    // a b 獨立紀錄各自的資料
+    function player () {
+      // 第一層 function 宣告變數
+      let score = 0
+      return function () {
+        // return 出的 function 可以存取第一層宣告的變數
+        score++
+        console.log(score)
+      }
+    }
+
+    const aaa = player()
+    aaa() // 1
+    aaa() // 2
+    aaa() // 3
+
+    const bbb = player()
+    bbb() // 1
+    bbb() // 2
+    bbb() // 3
+  </script>
+</body>
+</html>

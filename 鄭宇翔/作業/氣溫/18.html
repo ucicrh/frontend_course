@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <Script>
+      document.write(`<table border="1">`)
+      const data = [
+         [18.2, 17.3, 15.0, 13.4],
+         [23.8, 25.1, 20.6, 17.8],
+         [20.6, 21.5, 18.4, 15.7]
+      ]
+      for (let i = 0; i < data.length; i++) {
+         document.write(`<tr>`)
+         for (let j = 0; j < data[i].length; j++) {
+            document.write(`<td>${data[i][j]}</td>`)
+         }
+         document.write(`</tr>`)
+      }
+      document.write(`</table>`)
+
+      // =======================================
+      document.write(`<hr>`)
+
+      let day = 0
+      for (let i = 0; i < 3; i++) {
+         day += data[i][0] / 3
+      }
+      document.write(`星期一平均溫度${day}<br>`)
+
+      day = 0
+      for (let i = 0; i < 3; i++) {
+         day += data[i][1] / 3
+      }
+      document.write(`星期二平均溫度${day}<br>`)
+
+      day = 0
+      for (let i = 0; i < 3; i++) {
+         day += data[i][2] / 3
+      }
+      document.write(`星期三平均溫度${day}<br>`)
+
+      day = 0
+      for (let i = 0; i < 3; i++) {
+         day += data[i][3] / 3
+      }
+      document.write(`星期四平均溫度${day}<br>`)
+
+      // =======================================
+      document.write(`<hr>`)
+
+      let period = 0
+      for (let i = 0; i < 4; i++) {
+         period += data[0][i] / 4
+      }
+      document.write(`第一時段平均溫度${period}<br>`)
+
+      period = 0
+      for (let i = 0; i < 4; i++) {
+         period += data[1][i] / 4
+      }
+      document.write(`第二時段平均溫度${period}<br>`)
+
+      period = 0
+      for (let i = 0; i < 4; i++) {
+         period += data[2][i] / 4
+      }
+      document.write(`第三時段平均溫度${period}<br>`)
+
+      // =======================================
+
+      document.write(`<hr>`)
+
+      const rowNames = ["時段一", "時段二", "時段三"];
+      const colNames = ["星期一", "星期二", "星期三", "星期四"];
+
+      // AI解題
+      let maxTemp = data[0][0]
+      let maxRow = 0
+      let maxCol = 0
+
+      let minTemp = data[0][0]
+      let minRow = 0
+      let minCol = 0
+
+      for (let i = 0; i < data.length; i++) {
+         for (let j = 0; j < data[i].length; j++) {
+            let currentTemp = data[i][j]
+
+            if (currentTemp > maxTemp) {
+               maxTemp = currentTemp
+               maxRow = i
+               maxCol = j
+            } else if (currentTemp < minTemp) {
+               minTemp = currentTemp
+               minRow = i
+               minCol = j
+            }
+         }
+      }
+      document.write(`最高的日子是：${colNames[maxCol]} 的 ${rowNames[maxRow]}，為 ${maxTemp} 度<br>`)
+      document.write(`最低的日子是：${colNames[minCol]} 的 ${rowNames[minRow]}，為 ${minTemp} 度<br>`)
+   </Script>
+</body>
+
+</html>

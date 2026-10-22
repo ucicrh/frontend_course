@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 直接使用沒有宣告的變數會出錯
+    // Uncaught ReferenceError: aaa is not defined
+    // console.log(aaa)
+
+    // let 不能先用再宣告
+    // Uncaught ReferenceError: Cannot access 'aaa' before initialization
+    // console.log(aaa)
+    // let aaa
+
+    // var 可以先用再宣告，但是宣告前是 undefined
+    // 程式執行的時候，會自動把宣告動作提升到使用之前，但初始值不會
+    console.log(aaa)
+    var aaa = 123
+
+    // function 定義也會提升，而且可以正常執行
+    hi(123)
+    function hi (name) {
+      console.log('hi', name)
+    }
+  </script>
+</body>
+</html>

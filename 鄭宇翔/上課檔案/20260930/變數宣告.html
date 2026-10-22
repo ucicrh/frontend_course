@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var 全域變數
+    // 可以重複宣告，新的會覆蓋舊的
+    var a = 1
+    console.log(a)
+    // 修改數值不用重複宣告，用 = 修改
+    a = 2
+    console.log(a)
+    var a = 3
+    console.log(a)
+
+    // let 區域變數
+    // {} 區域內不能重複
+    let b = 1
+    console.log(b)
+    b = 2
+    console.log(b)
+    // 重複宣告會錯誤
+    // let b = 3
+
+    // const 區域常數
+    const c = 1
+    console.log(c)
+    // 宣告後修改會錯誤
+    // c = 2
+  </script>
+</body>
+</html>

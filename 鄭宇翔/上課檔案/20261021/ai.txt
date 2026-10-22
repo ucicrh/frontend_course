@@ -1,0 +1,13 @@
+https://www.skills.sh/upstash/context7/find-docs
+https://www.skills.sh/github/awesome-copilot/excalidraw-diagram-generator
+https://www.skills.sh/raymondhou0917/speak-human-tw/speak-human-tw
+https://www.skills.sh/chromedevtools/chrome-devtools-mcp/chrome-devtools
+https://www.skills.sh/dietrichgebert/ponytail/ponytail
+
+
+"mcpServers": {
+  "chrome-devtools": {
+    "command": "npx",
+    "args": ["-y", "chrome-devtools-mcp@latest"]
+  }
+},

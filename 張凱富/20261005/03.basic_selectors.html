@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.css' integrity='sha512-zylce7fP6h4usg536JBTRj2rt7q22Z0qicHSlgSK53Irtfkz37ate3KCQ59du+aXZV6R3yyL2X1LyGKBEUMZaw==' crossorigin='anonymous' />
+  <title>03.basic_selectors</title>
+  <style>
+    /*
+      class 的命名規則
+      1.以 . 句點開始命名
+      2.只允許使用英文、數字、連字號 - 和 底線 _
+      3.不可以數字開頭
+      4.可以使用中文命名，但實務上不要這樣做
+      5.有區分大小寫
+    */
+    .mycolor {
+      color: red;
+    }
+
+    .abc {
+      color: blue;
+      font-family: "微軟正黑體";
+      background: yellow;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    #kaifu {
+      width: 300px;
+      height: 300px;
+      border: 5px solid #333;
+    }
+
+    /* 後代選擇器，用半形空白表示 */
+    nav p {
+      color: blue;
+    }
+
+    /* 子代選擇器，用 > 表示 */
+    nav>p {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="mycolor">class 選擇器</h1>
+  <p>class 具有重複使用的特性，也是使用率最高的選擇器。</p>
+
+  <h2 class="abc">重複使用</h2>
+  <p class="abc">操作校長，緩緩堅決。</p>
+
+  <hr>
+
+  <h3 class="text-center">Lorem ipsum dolor sit amet.</h3>
+  <p class="text-center">Lorem ipsum, dolor sit amet consectetur</p>
+  <p class="text-center">
+    <img src="https://picsum.photos/300/200/?random=10">
+  </p>
+
+  <hr>
+
+  <h1>ID 選擇器</h1>
+  <ul>
+    <li>一份文件裡面，只允許一個獨一無二的 id 名稱，具有唯一性，就像身分證一樣。</li>
+    <li>對程式來說，id 最簡單、最快速、最直接的選擇方式。</li>
+  </ul>
+
+  <div id="kaifu">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam iusto repellendus similique sunt architecto quia ut atque, doloribus ipsum unde modi molestias, libero maiores placeat, reiciendis totam aut nulla. Ipsum.</p>
+  </div>
+
+  <hr>
+
+  <h2>id 很適合為網頁區塊來命名</h2>
+  <div id="header">Header</div>
+  <div id="main">Main</div>
+  <div id="sidebar">Sidebar</div>
+  <div id="footer">Footer</div>
+
+  <hr>
+
+  <h1>後代、子代選擇器</h1>
+  <nav>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <div>
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </nav>
+  <script>
+    // 用 getElementById 抓到 id 叫 kaifu 的區塊
+    const kaifu = document.getElementById("kaifu")
+    // 改變它的文字顏色
+    kaifu.style.color = "red"
+  </script>
+</body>
+
+</html>

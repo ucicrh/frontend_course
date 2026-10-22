@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const month = Number(prompt('請輸入月份'));
+        const day = Number(prompt('請輸入日期'));
+
+        if (month < 1 || month > 12) {
+            document.write('月份無效');
+        } else if (month === 12) {
+            if (day >= 22 && day <= 31) {
+                document.write('摩羯座');
+            } else if (day >= 1 && day <= 21) {
+                document.write('射手座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 11) {
+            if (day >= 22 && day <= 30) {
+                document.write('射手座');
+            } else if (day >= 1 && day <= 21) {
+                document.write('天蠍座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 10) {
+            if (day >= 24 && day <= 31) {
+                document.write('天蠍座');
+            } else if (day >= 1 && day <= 23) {
+                document.write('天秤座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 9) {
+            if (day >= 23 && day <= 30) {
+                document.write('天秤座');
+            } else if (day >= 1 && day <= 22) {
+                document.write('處女座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 8) {
+            if (day >= 23 && day <= 31) {
+                document.write('處女座');
+            } else if (day >= 1 && day <= 22) {
+                document.write('獅子座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 7) {
+            if (day >= 23 && day <= 31) {
+                document.write('獅子座');
+            } else if (day >= 1 && day <= 22) {
+                document.write('巨蟹座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 6) {
+            if (day >= 22 && day <= 30) {
+                document.write('巨蟹座');
+            } else if (day >= 1 && day <= 21) {
+                document.write('雙子座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 5) {
+            if (day >= 21 && day <= 31) {
+                document.write('雙子座');
+            } else if (day >= 1 && day <= 20) {
+                document.write('金牛座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 4) {
+            if (day >= 20 && day <= 30) {
+                document.write('金牛座');
+            } else if (day >= 1 && day <= 19) {
+                document.write('牡羊座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 3) {
+            if (day >= 21 && day <= 31) {
+                document.write('牡羊座');
+            } else if (day >= 1 && day <= 20) {
+                document.write('雙魚座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 2) {
+            if (day >= 19 && day <= 28) {
+                document.write('雙魚座');
+            } else if (day >= 1 && day <= 18) {
+                document.write('水瓶座');
+            } else {
+                document.write('日期無效');
+            }
+        } else if (month === 1) {
+            if (day >= 20 && day <= 31) {
+                document.write('水瓶座');
+            } else if (day >= 1 && day <= 19) {
+                document.write('摩羯座');
+            } else {
+                document.write('日期無效');
+            }
+        }
+
+    </script>
+</body>
+
+</html>

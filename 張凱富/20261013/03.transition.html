@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition 過渡(轉場)動畫</title>
+
+  <style>
+    .hover {
+      /* 起始樣式 */
+      width: 100px;
+      height: 100px;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      font-size: 2rem;
+      background: #000;
+      /* transform: rotate(0deg); */
+      /* 設定要被過渡的屬性 */
+      /* transition-property: width, background-color, transform, font-size, box-shadow, border-radius; */
+      transition-property: all;
+      /* 持續時間 */
+      transition-duration: 2s;
+      /* 轉場速率 */
+      /* ease、linear、ease-in、ease-out、ease-in-out */
+      /* cubic-bezier(x1, y1, x2, y2) */
+      /* https://easings.net/ */
+      transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+      /* 延遲時間 */
+      transition-delay: 2s;
+
+      /* 縮寫 */
+      /* 第一個時間是 duration，第二個是 delay */
+      transition: all 1s 3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+      /* 縮寫只設定 duration，剩下都是預設值，all、ease */
+      transition: 0.5s;
+    }
+
+    /* 觸發狀態 */
+    .hover:hover {
+      /* 結束樣式 */
+      width: 300px;
+      font-size: 10rem;
+      background-color: blueviolet;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+      /* transform: rotate(360deg); */
+    }
+
+    .btn {
+      padding: 0.5rem 2rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+      transition: 0.5s;
+    }
+
+    .btn:hover {
+      background-color: deepskyblue;
+      font-size: 1.5rem;
+      color: white;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    label {
+      background: darkblue;
+      color: white;
+      padding: .5rem .75rem;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .sidebar {
+      width: 150px;
+      color: white;
+      background: darkmagenta;
+      padding: 1rem;
+      margin-left: -200px;
+      transition: 1s;
+    }
+
+    #checked-me {
+      /* inline-block、block、none、flex... */
+      /* none 消失於瀏覽器畫面上，但是結構還存在 */
+      display: none;
+    }
+
+    /*
+       當 #checked-me 呈現 checked 狀態時，
+       相鄰的 .sidebar
+       會有 margin-left: 0px 的效果
+       -200px => 0px
+    */
+    #checked-me:checked+.sidebar {
+      margin-left: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>轉場動畫</h1>
+  <ul>
+    <li>轉場是有兩組樣式之間的漸進式轉換的過程，起始樣式、結束樣式，瀏覽器會將兩組樣式形成補間動畫(Tween)。</li>
+    <li>必須要有觸發狀態（狀態有很多種），最常見 :hover，或是 media query 媒體查詢尺寸的變化也可以造成轉場。</li>
+    <li>transition 寫在觸發前才會有來回的效果，寫在觸發後只有轉場過去的效果，但回來的時候不會有動畫效果。</li>
+  </ul>
+
+  <h1>hover 狀態</h1>
+  <div class="hover">
+    <span>hover</span>
+  </div>
+
+  <h2>練習:按鈕，滑鼠 hover 時，背景顏色、文字顏色、按鈕放大的轉場效果</h2>
+  <button class="btn">按鈕</button>
+
+  <hr>
+
+  <h1>checked 狀態</h1>
+  <label for="checked-me">點擊我</label>
+  <input id="checked-me" type="checkbox">
+  <aside class="sidebar">聯繫電話臺東促銷臺灣人最好不再反對可以說，美好目標掌握瞬間文章還沒民主人物預測，都要估計下載次數一道無門認識動態靈魂傳輸進口市場應該人氣，退出發揮大門農村，看不到最初進入液晶瀏覽次數引起歌手投資會員淡淡，此刻晚上手指夥伴無關實用告訴我，一是類別如有，人大。</aside>
+</body>
+
+</html>

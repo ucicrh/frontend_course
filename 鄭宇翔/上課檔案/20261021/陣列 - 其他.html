@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const data = [
+      { text: 'aaa', num: 100 },
+      { text: 'bbb', num: 200 },
+      { text: 'ccc', num: 300 }
+    ]
+
+    const map = data.map(value => {
+      return value.num * 2
+    })
+    console.log('map', map)
+
+    // total = 累計值
+    // value = 現在的值
+    const reduce = data.reduce((total, value) => {
+      console.log(total, value)
+      return total + value.num
+    }, 0)
+    console.log('reduce', reduce)
+
+    const numbers = [100, 50, 200, 150, 20261021, 1121, 114514, 12345678]
+    // .sort      排序原始陣列
+    // .toSorted  產生新的排序後的陣列
+    const sort = numbers.toSorted((a, b) => {
+      console.log(a, b)
+      return b - a
+    })
+    console.log('sort', sort, numbers)
+
+    const text = ['一', 'b', '二', '三', 'AA', '四', '五', '9', '10', '11,', '1', 'a']
+    const sortText = text.toSorted((a, b) => {
+      // a.localeCompare(b, 語言代碼)
+      // 0  --> 一樣
+      // 1  --> b 文字編碼在前
+      // -1 --> a 文字編碼在前
+      return a.localeCompare(b, 'zh-TW')
+    })
+    console.log('sortText', sortText)
+  </script>
+</body>
+</html>
