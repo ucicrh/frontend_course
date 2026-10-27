@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勞動部勞動力發展署─運動廣場連結網</title>
+  <style>
+    body {
+      background-color: #42413C;
+    }
+
+    table {
+      width: 100%;
+      /* 讓儲存格內容水平置中 */
+      text-align: center;
+      /* 合併儲存格 */
+      border-collapse: collapse;
+    }
+
+    /* 不計分，防止圖片多出空間 */
+    td {
+      padding: 0;
+    }
+
+    /* 有寬度的塊級元素 + margin:auto => 水平置中 */
+    #main {
+      width: 1024px;
+      height: 768px;
+      margin: auto;
+      background: #fff;
+    }
+
+    #top {
+      width: 1024px;
+      height: 90px;
+      background: #00B0F0;
+    }
+
+    .logo {
+      width: 180px;
+      height: 90px;
+    }
+
+    .title {
+      font-size: 52px;
+      color: #fff;
+      font-family: "標楷體";
+      text-shadow: 10px 10px 15px #333;
+    }
+
+    #menu {
+      width: 1024px;
+      height: 25px;
+    }
+
+    #menu a {
+      color: #000;
+      background: #eee;
+      text-decoration: none;
+      /* 佔滿 td 空間點選 */
+      display: block;
+      /* height: 25px;
+      line-height: 27px; */
+    }
+
+    #menu a:hover {
+      background: #ff0;
+      color: #f00;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #content {
+      width: 1024px;
+      height: calc(768px - 90px - 25px - 45px);
+      padding: 20px;
+      /* padding 會計算在 width 和 height 內 */
+      box-sizing: border-box;
+    }
+
+    /* 因為 content 有設定 padding:20px; 所以 iframe 寬、高要再扣 40px */
+    iframe {
+      width: calc(1024px - 40px);
+      height: calc(768px - 90px - 25px - 45px - 40px);
+    }
+
+    #footer {
+      width: 1024px;
+      height: 45px;
+      background: #CCCCCC;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- #main>#top+#menu+#content+#footer -->
+  <div id="main">
+    <div id="top">
+      <table>
+        <tr>
+          <td class="logo">
+            <a href="./index.html">
+              <img src="./images/logo.png" alt="運動廣場連結網-回首頁" title="運動廣場連結網-回首頁">
+            </a>
+          </td>
+          <td class="title">運動廣場連結網</td>
+        </tr>
+      </table>
+    </div>
+    <div id="menu">
+      <!-- table-layout: fixed; 表格寬度固定，內容不影響欄寬 -->
+      <table style="table-layout: fixed;">
+        <tr>
+          <!-- width="1" 讓儲存格寬度一致 -->
+          <td width="1"><a href="./index.html">首頁</a></td>
+          <td width="1"><a href="./results/health.html" target="iframe">健康天地</a></td>
+          <td width="1"><a href="./results/basketball.html" target="iframe">籃球介紹</a></td>
+          <td width="1"><a href="./results/baseball.html" target="iframe">棒球介紹</a></td>
+          <td width="1"><a href="./results/swimming.html" target="iframe">游泳介紹</a></td>
+          <td width="1"><a href="./results/msgboard.html" target="iframe">訪客留言</a></td>
+          <td width="1"><a href="./results/reference.html" target="iframe">資料來源</a></td>
+        </tr>
+      </table>
+    </div>
+    <div id="content">
+      <iframe id="iframe" src="./results/main.html" frameborder="0" name="iframe"></iframe>
+    </div>
+    <div id="footer">
+      網頁設計及維護：00張凱富<br>
+      最近更新日期：2026/11/27
+    </div>
+  </div>
+</body>
+
+</html>
