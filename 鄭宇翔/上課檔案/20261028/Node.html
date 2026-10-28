@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">
+    123456
+    <p id="p"><!--註解-->ABCD</p>
+  </div>
+  <script>
+    const div = document.getElementById('div')
+    console.log(div.firstChild)
+    console.log(div.firstElementChild)
+
+    const p = document.getElementById('p')
+    console.log(p.firstChild)
+    console.log(p.firstChild.nodeType == Node.COMMENT_NODE)
+    console.log(p.firstElementChild)
+  </script>
+</body>
+</html>

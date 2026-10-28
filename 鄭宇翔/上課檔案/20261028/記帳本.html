@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list"></ul>
+  <p id="total"></p>
+  <script>
+    const list = document.getElementById('list')
+    const total = document.getElementById('total')
+    
+    const costs = []
+
+    while(true) {
+      const input = prompt()
+      if (input === null || input === '0') {
+        break
+      }
+      costs.push(input * 1)
+      const li = document.createElement('li')
+      li.innerText = input
+      if (input * 1 >= 500) {
+        li.style.color = 'red'
+      }
+      list.append(li)
+    }
+
+    let sum = costs.reduce((total, value) => {
+      return total + value
+    })
+    total.innerText = `總金額: ${sum}`
+  </script>
+</body>
+</html>
