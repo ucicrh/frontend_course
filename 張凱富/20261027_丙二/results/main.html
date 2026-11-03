@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    /* 最新消息區 */
+    #news {
+      width: 280px;
+      height: 460px;
+      border: 1px solid #999;
+      float: left;
+    }
+
+    #news h1 {
+      text-align: left;
+      font-weight: bolder;
+      font-size: 16px;
+    }
+
+    #news th {
+      background: #3399FF;
+      font-size: 14px;
+      color: white;
+    }
+
+    .odd {
+      font-size: 12px;
+      line-height: 2;
+      background: #FFFFCC;
+    }
+
+    .even {
+      font-size: 12px;
+      line-height: 2;
+      background: #DDDDDD;
+    }
+
+    /* 圖片展示區 */
+    #photos {
+      width: 590px;
+      height: 460px;
+      border: 1px solid #999;
+      float: right;
+      background: #333;
+      color: #ff0;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* 寫程式所以要取名 id，會比較好抓取 */
+    #big {
+      /*寬、高要自己記，紙本沒跟我們說尺寸 */
+      width: 570px;
+      height: 340px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="news">
+    <h1>最新消息</h1>
+    <!-- table>tr*5>td*2 -->
+    <table>
+      <tr>
+        <!-- 改為 th，會自帶水平置中，且在選取樣式時比較方便 -->
+        <th>主題</th>
+        <th>發布日期</th>
+      </tr>
+      <tr class="odd">
+        <td><img src="../images/0201.png">公告全國技能競賽相關事宜</td>
+        <td align="center">115/11/27</td>
+      </tr>
+      <tr class="even">
+        <td><img src="../images/0201.png">公告即測即評及發證相關事宜</td>
+        <td align="center">115/11/27</td>
+      </tr>
+      <tr class="odd">
+        <td><img src="../images/0201.png">公告網頁設計修題相關事宜</td>
+        <td align="center">115/11/27</td>
+      </tr>
+      <tr class="even">
+        <td><img src="../images/0201.png">公告網路架設應檢相關事宜</td>
+        <td align="center">115/11/27</td>
+      </tr>
+    </table>
+  </div>
+  <div id="photos">
+    <!-- table>tr*3>td*4 -->
+    <table>
+      <tr>
+        <td colspan="4">
+          <img id="big" src="../images/0202A.png">
+        </td>
+      </tr>
+      <tr>
+        <td><img class="small" src="../images/0202B.png"></td>
+        <td><img class="small" src="../images/0203B.png"></td>
+        <td><img class="small" src="../images/0204B.png"></td>
+        <td><img class="small" src="../images/0205B.png"></td>
+      </tr>
+      <tr>
+        <td>第30屆倫敦奧運</td>
+        <td>許淑淨奪舉重銀牌</td>
+        <td>第26屆深圳世大運</td>
+        <td>第27屆喀山世大運</td>
+      </tr>
+    </table>
+  </div>
+  <!-- 引入 jQuery 函式庫，就可以用 JQ 的語法 -->
+  <script src="../others/jquery-2.1.4.min.js"></script>
+  <script>
+    // jQuery
+    // $() => 起手式，一個叫 $() 的函式
+    // $() 裡面可以放 CSS 選取器，會回傳一個物件，裡面有所有符合的元素
+    // 任務：點擊小圖，換大圖
+    // 1. 先抓到所有小圖，並進行 each() 的迴圈逐一拜訪
+    // $('.small').each(function (index, img) {
+    //   // index 當下小圖的索引值，從 0 開始，img 當下小圖的元素
+    //   // console.log(index, img)
+    //   // 2. 替每張小圖加上點擊事件，注意 img 是沒有單引、雙引號
+    //   $(img).on('click', function () {
+    //     console.log(index)
+    //     // attr 是 attribute 的縮寫
+    //     // index 是 0、1、2、3，那怎麼將檔名變成 2、3、4、5 呢？
+    //     $('#big').attr('src', `../images/020${index + 2}A.png`)
+    //   })
+    // })
+
+    // 另一種做法
+    $('.small').click(function () {
+      // 一個參數叫取值
+      // this 是當下小圖的元素
+      // 取得當下小圖的 src 屬性值，並存到 small_pic 變數
+      // 例如：../images/0202B.png
+      console.log($(this))
+      let small_pic = $(this).attr('src')
+      // 將 small_pic 的 B 改成 A，存到 big_pic 變數
+      // 例如：../images/0202B.png => ../images/0202A.png
+      let big_pic = small_pic.replace('B', 'A')
+      // 兩個參數叫設定值
+      // 最後再將 big_pic 設定給大圖的 src 屬性
+      $('#big').attr('src', big_pic)
+    })
+
+    /*
+      物件會有自己的屬性與方法
+      例如
+      字串的屬性是 length、方法是 replace()...
+      陣列也是一種物件，屬性是 length、方法是 push()、pop()、filter()、map()、forEach()...
+    */
+  </script>
+</body>
+
+</html>
