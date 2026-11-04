@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <input type="range" class="range" min="0" max="255" step="1" value="0">
+    <input type="button" class="random" value="隨機"><br>
+    <input type="range" class="range" min="0" max="255" step="1" value="0">
+    <input type="button" class="random" value="隨機"><br>
+    <input type="range" class="range" min="0" max="255" step="1" value="0">
+    <input type="button" class="random" value="隨機">
+    <script>
+        const range = document.getElementsByClassName('range')
+        const box = document.getElementsByClassName('box')
+        const random = document.getElementsByClassName('random')
+
+        const update = () => {
+            const [r, g, b] = Array.from(range, (el) => el.value)
+            box[0].style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+        }
+
+        Array.from(range).forEach((el, i) => {
+            el.oninput = () => {
+                console.log(`第 ${i + 1} 行：${el.value}`)
+                update()
+            }
+        })
+
+        Array.from(random).forEach((btn, i) => {
+            btn.onclick = () => {
+                range[i].value = Math.floor(Math.random() * 256)
+                update()
+            }
+        })
+
+    </script>
+</body>
+
+</html>

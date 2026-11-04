@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業-樂透.html</title>
+</head>
+
+<body>
+    <script>
+        // ================================================================ //
+        // A區，隨機取6個數字1~38，且不重複
+        // ================================================================ //
+        // 建立一個抽球箱，裡面有38個球，初始值都為true
+        const number1box = [];
+        for (let i = 0; i < 38; i++) {
+            number1box[i] = true;
+        }
+        // 隨機取6個數字，且不重複
+        const numbers1 = [];
+        for (let i = 0; i < 6; i++) {
+            let rand = 0;
+            do {
+                rand = Math.round(Math.random() * 37);
+            } while (number1box[rand] === false);
+            // 將抽到的球設為false，表示已經抽過了
+            number1box[rand] = false;
+            // 0~37 => 1~38
+            numbers1.push(rand + 1);
+        }
+        console.log(numbers1);
+        // 驗證是否重複
+        const uniqueNumbers1 = [...new Set(numbers1)];
+        if (uniqueNumbers1.length !== numbers1.length) {
+            console.error("A區有重複的數字");
+        }
+
+        // ================================================================ //
+        // B區，隨機取1個數字1~8
+        // ================================================================ //
+        // 0~7 => 1~8
+        const number2 = Math.round(Math.random() * 7) + 1;
+        console.log(number2);
+    </script>
+</body>
+
+</html>

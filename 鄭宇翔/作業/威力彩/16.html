@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const rand = (min, max) => {
+            return Math.round(
+                Math.random() * (max - min)
+            ) + min;
+        }
+
+        document.write(`A 區 1~38 取 6 個數字：<br>`)
+
+        for (let i = 1; i < 7; i++) {
+            const random = rand(1, 38)
+            document.write(random + '<br>')
+            if (random === 1 || random === 38) {
+                console.log(random)
+            }
+        }
+
+        document.write(`B 區 1~8 取 1 個數字：<br>`)
+
+        for (let i = 1; i < 2; i++) {
+            const random = rand(1, 8)
+            document.write(random + '<br>')
+            if (random === 1 || random === 8) {
+                console.log(random)
+            }
+        } 
+    </script>
+</body>
+
+</html>

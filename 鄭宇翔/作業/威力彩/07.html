@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //A區
+        const rand_a = []
+        //1~38 取 6
+        let a
+
+        while (rand_a.length < 6) {
+            //1~38
+            a = Math.ceil(Math.random() * 38)
+            // 有重複不放，沒重複放
+            rand_a.includes(a) ? console.log('號碼重複:', a) : rand_a.push(a)
+        }
+        document.write('A區 : ', rand_a, '<br>')
+        //B區
+        //1~8 取 1
+        const rand_b = () => document.write('B區 : ', Math.ceil(Math.random() * 8))
+        rand_b()
+
+    </script>
+</body>
+
+</html>

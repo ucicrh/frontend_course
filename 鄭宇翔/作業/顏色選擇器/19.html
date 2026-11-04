@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+    <input type="range" id="rad" min="0" max="255" step="1" value="0">
+
+    <input type="button" value="隨機">
+    <br>
+    <input type="range" id="green" min="0" max="255" step="1" value="0">
+    <input type="button" value="隨機">
+    <br>
+    <input type="range" id="blue" min="0" max="255" step="1" value="0">
+    <input type="button" value="隨機">
+    <script>
+        const rad = document.getElementById('rad')
+        const green = document.getElementById('green')
+        const blue = document.getElementById('blue')
+        const box = document.getElementById('div')
+
+        function newcolor() {
+            box.style.background = `rgb(${rad.value}, ${green.value}, ${blue.value})`
+        }
+        rad.oninput = newcolor;
+        green.oninput = newcolor;
+        blue.oninput = newcolor;
+    </script>
+</body>
+
+</html>

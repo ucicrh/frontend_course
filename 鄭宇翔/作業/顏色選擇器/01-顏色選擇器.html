@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #colorArea {
+        width: 300px;
+        height: 300px;
+        background: rgb(155, 155, 155);
+    }
+</style>
+
+<body>
+    <pre>
+    作業
+
+    製作有隨機功能的顏色選擇器
+   </pre>
+    <hr>
+    <div id="colorArea"></div>
+    紅色<input type="range" id="red" min="0" max="255" value="155" step="1">
+    <span id="valR">155</span>
+    <input type="button" id="btnR" value="随機"><br>
+    綠色<input type="range" id="green" min="0" max="255" value="155" step="1">
+    <span id="valG">155</span>
+    <input type="button" id="btnG" value="随機"><br>
+    藍色<input type="range" id="blue" min="0" max="255" value="155" step="1">
+    <span id="valB">155</span>
+    <input type="button" id="btnB" value="随機"><br>
+    <script>
+        let colorArea = document.getElementById('colorArea');
+        let colorR = 0;
+        let colorG = 0;
+        let colorB = 0;
+        let valR = document.getElementById('valR');
+        let valG = document.getElementById('valG');
+        let valB = document.getElementById('valB');
+        let red = document.getElementById('red');
+        let green = document.getElementById('green');
+        let blue = document.getElementById('blue');
+        let btnR = document.getElementById('btnR');
+        let btnG = document.getElementById('btnG');
+        let btnB = document.getElementById('btnB');
+        let showColor = (r, g, b) => {
+            colorArea.style.background = `rgb(${colorR},${colorG},${colorB})`;
+        }
+        btnR.onclick = () => {
+            colorR = Math.round(Math.random() * 255);
+            valR.innerText = colorR;
+            red.value = colorR;
+            showColor(colorR, colorG, colorB);
+
+        }
+        btnG.onclick = () => {
+            colorG = Math.round(Math.random() * 255);
+            valG.innerText = colorG;
+            green.value = colorG;
+            showColor(colorR, colorG, colorB);
+
+        }
+        btnB.onclick = () => {
+            colorB = Math.round(Math.random() * 255);
+            valB.innerText = colorB;
+            blue.value = colorB;
+            showColor(colorR, colorG, colorB);
+
+        }
+        red.oninput = () => {
+            colorR = red.value;
+            valR.innerText = colorR;
+            // console.log('vb', colorR);
+            showColor(colorR, colorG, colorB);
+            red.style.color = `rgb(${colorR},0,0)`;
+        }
+
+        green.oninput = () => {
+            colorG = green.value;
+            valG.innerText = colorG;
+            console.log('vb', colorG);
+            showColor(colorR, colorG, colorB);
+        }
+        blue.oninput = () => {
+            colorB = blue.value;
+            valB.innerText = colorB;
+            console.log('vb', colorB);
+            showColor(colorR, colorG, colorB);
+        }
+    </script>
+</body>
+
+</html>

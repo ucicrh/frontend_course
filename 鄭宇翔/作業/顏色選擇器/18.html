@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      div {
+         width: 100px;
+         height: 100px;
+         background: rgb(0, 0, 0);
+         border: 1px solid black;
+      }
+   </style>
+
+</head>
+
+<body>
+   <div id="color"></div>
+   <input type="range" id="red" min="0" max="255" step="1" value="0">
+   <span id="r">0</span>
+   <input type="button" id="buttonR" value="隨機"><br>
+   <input type="range" id="green" min="0" max="255" step="1" value="0">
+   <span id="g">0</span>
+   <input type="button" id="buttonG" value="隨機"><br>
+   <input type="range" id="blue" min="0" max="255" step="1" value="0">
+   <span id="b">0</span>
+   <input type="button" id="buttonB" value="隨機"><br>
+
+
+   <script>
+      const color = document.getElementById('color')
+
+      const red = document.getElementById('red')
+      const r = document.getElementById('r')
+      const buttonR = document.getElementById('buttonR')
+
+      const green = document.getElementById('green')
+      const g = document.getElementById('g')
+      const buttonG = document.getElementById('buttonG')
+
+      const blue = document.getElementById('blue')
+      const b = document.getElementById('b')
+      const buttonB = document.getElementById('buttonB')
+
+      const update = () => {
+         color.style.background = `rgb(${red.value}, ${green.value}, ${blue.value})`
+         r.innerText = red.value
+         g.innerText = green.value
+         b.innerText = blue.value
+      }
+
+      red.oninput = () => {
+         update()
+      }
+      green.oninput = () => {
+         update()
+      }
+      blue.oninput = () => {
+         update()
+      }
+
+      buttonR.onclick = () => {
+         red.value = Math.floor(Math.random() * 256)
+         update()
+      }
+      buttonG.onclick = () => {
+         green.value = Math.floor(Math.random() * 256)
+         update()
+      }
+      buttonB.onclick = () => {
+         blue.value = Math.floor(Math.random() * 256)
+         update()
+      }
+
+      update()
+   </script>
+</body>
+
+</html>

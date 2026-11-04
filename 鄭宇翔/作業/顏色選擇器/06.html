@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業-顏色選擇器</title>
+
+    <style>
+        #colorBlock {
+            display: inline-block;
+            margin: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            background-color: rgb(67, 91, 254);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorBlock"></div>
+    <br>
+    <span>紅色</span>
+    <input class="scrollColor" id="scrollRed" type="range" min="0" max="255" step="1" value="67"><span
+        id="valRed">67</span>
+    <input id="randRed" type="button" value="隨機">
+    <br>
+    <span>綠色</span>
+    <input class="scrollColor" id="scrollGreen" type="range" min="0" max="255" step="1" value="91"><span
+        id="valGreen">91</span>
+    <input id="randGreen" type="button" value="隨機">
+    <br>
+    <span>藍色</span>
+    <input class="scrollColor" id="scrollBlue" type="range" min="0" max="255" step="1" value="254"><span
+        id="valBlue">254</span>
+    <input id="randBlue" type="button" value="隨機">
+
+    <script>
+
+        const colorBlock = document.getElementById('colorBlock');
+        const scrollColor = document.getElementsByClassName('scrollColor');
+        const scrollRed = document.getElementById('scrollRed');
+        const scrollGreen = document.getElementById('scrollGreen');
+        const scrollBlue = document.getElementById('scrollBlue');
+        const randRed = document.getElementById('randRed');
+        const randGreen = document.getElementById('randGreen');
+        const randBlue = document.getElementById('randBlue');
+
+        function updateColor() {
+            colorBlock.style.backgroundColor = `rgb(${scrollRed.value}, ${scrollGreen.value}, ${scrollBlue.value})`;
+
+            // 同步更新旁邊顯示數值的 span 文字
+            document.getElementById('valRed').textContent = scrollRed.value;
+            document.getElementById('valGreen').textContent = scrollGreen.value;
+            document.getElementById('valBlue').textContent = scrollBlue.value;
+        }
+
+        scrollRed.oninput = () => {
+            updateColor();
+        }
+        scrollGreen.oninput = () => {
+            updateColor();
+        }
+        scrollBlue.oninput = () => {
+            updateColor();
+        }
+
+        randRed.onclick = () => {
+            const value = Math.round(Math.random() * 255);
+            scrollRed.value = value;
+            updateColor();
+        }
+        randGreen.onclick = () => {
+            const value = Math.round(Math.random() * 255);
+            scrollGreen.value = value;
+            updateColor();
+        }
+        randBlue.onclick = () => {
+            const value = Math.round(Math.random() * 255);
+            scrollBlue.value = value;
+            updateColor();
+        }
+
+        scrollColor.oninput = () => {
+            colorBlock.style.backgroundColor = `rgb(${scrollRed.value}, ${scrollGreen.value}, ${scrollBlue.value})`;
+            console.log(scrollRed.value);
+        }
+
+    </script>
+
+</body>
+
+</html>

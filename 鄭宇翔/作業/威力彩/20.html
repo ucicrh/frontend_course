@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min)) + min
+        }
+
+        const groupA = []
+
+        while (groupA.length < 6) {
+            const num = rand(1, 38)
+            if (!groupA.includes(num)) {
+                groupA.push(num)
+            }
+        }
+
+        const groupB = []
+        while (groupB.length < 1) {
+            const num = rand(1, 8)
+            if (!groupB.includes(num)) {
+                groupB.push(num)
+            }
+        }
+        document.write("A區:", groupA, "<br>")
+
+        document.write("B區:", groupB)
+    </script>
+</body>
+
+</html>

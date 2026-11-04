@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>網路行銷購物網</title>
+  <style>
+    #main {
+      width: 1024px;
+      height: 768px;
+      margin: auto;
+    }
+
+    #top {
+      width: 1024px;
+      height: 120px;
+      background: url("./images/0401.jpg");
+    }
+
+    #top a {
+      font-size: 52px;
+      font-family: "標楷體";
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 10px 10px 15px #333;
+      /* 水平居中 */
+      text-align: center;
+      /* 垂直居中，單行文字或行內元素可以搭配 line-height 並設定父元素容器高度完成 */
+      line-height: 120px;
+      /* 讓 a 元素佔據整個父元素的寬度 */
+      display: block;
+    }
+
+    #marquee {
+      width: 1024px;
+      height: 30px;
+      background: url("./images/0402.jpg");
+
+      font-size: 19px;
+      font-family: "標楷體";
+      color: blue;
+      /* 一行垂直居中 */
+      line-height: 30px;
+
+    }
+
+    #content {
+      width: 1024px;
+      height: calc(768px - 120px - 30px - 78px);
+      background: url("./images/0402.jpg");
+    }
+
+    /* iframe 如果太小表示沒有設定寬高，就要記得回來這裡設定 */
+    #content iframe {
+      width: 1024px;
+      height: calc(768px - 120px - 30px - 78px);
+    }
+
+    #footer {
+      width: 1024px;
+      height: 78px;
+      background: #666600;
+      /* 倍數不用加單位 */
+      line-height: 2;
+      font-family: "標楷體";
+      color: #fff;
+      /* 文字本來就靠左也可不加 */
+      text-align: left;
+    }
+
+    /* 用 a 直接取代 a:link 來表示一般狀態 */
+    #footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* 已拜訪過狀態 */
+    #footer a:visited {
+      color: #f99;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 記得加上 autoplay，對回首頁點一下（chrome），才會播放 -->
+  <audio src="./music/0401.mp3" autoplay></audio>
+  <div id="main">
+    <div id="top"><a href="./index.html">流行精品購物網站</a></div>
+    <div id="marquee">
+      <marquee>大家來購物網！精品商品特價大拍賣！要買要快！</marquee>
+    </div>
+    <div id="content">
+      <iframe src="./main.html" frameborder="0" name="iframe"></iframe>
+    </div>
+    <div id="footer">
+      <a href="./results/message.html" target="iframe">訪客留言版</a><br>
+      <span>網頁設計及維護：00張凱富、最近更新日期：2026/11/27</span>
+    </div>
+  </div>
+</body>
+
+</html>

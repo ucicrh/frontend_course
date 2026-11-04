@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        // 練習：從 0 到 100 隨機取一個整數
+        const random = Math.round(Math.random() * 100);
+        console.log(random)
+
+        練習：製作隨機數字 function，提供最小整數和最大整數，回傳一個區間內的隨機整數
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min)) + min;
+        }
+        const random = rand(200, 300);
+        document.write(random)
+
+        作業：用上面練習完成的 function 製作威力彩號碼產生器
+        將隨機出的數字用 document.write() 顯示在網頁上
+        威力彩規則
+        
+        A 區 1~38 取 6 個數字
+        B 區 1~8 取 1 個數字
+        */
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min)) + min;
+        }
+        document.write(`A 區：`)
+        const numbers = []
+        for (let i = 1; i <= 6; i++) {
+            const random = rand(1, 38);
+            if (numbers.includes(random)) {
+                i--
+            } else {
+                numbers.push(random)
+            }
+        }
+        numbers.sort((a, b) => { return a - b })
+        document.write(numbers.join('、') + '<br>')
+
+        const random2 = rand(1, 8);
+        document.write(`B 區：${random2}`)
+
+
+
+    </script>
+</body>
+
+</html>

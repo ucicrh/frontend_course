@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      margin: auto;
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid #333;
+    }
+
+    /* 兩個表格欄位寬度、列高都是一樣 */
+    td:nth-child(1) {
+      width: 150px;
+    }
+
+    td:nth-child(2) {
+      width: 350px;
+    }
+
+    tr {
+      height: 32px;
+    }
+
+    .t1 {
+      background: #fdd;
+    }
+
+    .t2 {
+      background: #ff9;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .t2 td:nth-child(2) {
+      text-align: left;
+    }
+
+    /* 消除底部空白，達到垂直對齊 */
+    input,
+    textarea {
+      vertical-align: middle
+    }
+  </style>
+</head>
+
+<body>
+  <table class="t1">
+    <tr>
+      <td>公司名稱</td>
+      <td>大家來購物有限公司</td>
+    </tr>
+    <tr>
+      <td>公司電子信箱</td>
+      <td>service@test.labor.gov.tw</td>
+    </tr>
+    <tr>
+      <td>服務項目</td>
+      <td>網路購物服務</td>
+    </tr>
+  </table>
+
+  <!-- 題目有要求兩個表格之間要空白，用 br -->
+  <br>
+
+  <form>
+    <table class="t2">
+      <tr>
+        <td>客戶姓名</td>
+        <td style="text-align:left;"><input type="text" size="20"></td>
+      </tr>
+      <tr>
+        <td>電子信箱</td>
+        <td style="text-align:left;"><input type="text" size="30"></td>
+      </tr>
+      <tr>
+        <td>意見留言</td>
+        <td style="text-align:left;"><textarea rows="5" cols="30"></textarea></td>
+      </tr>
+    </table>
+    <p>
+      <!-- 如果屬性值裡面有程式，HTML屬性值用雙引，程式裡面的字串用單引 -->
+      <input type="submit" value="送出" onclick="alert('歡迎蒞臨本網站，您的寶貴意見我們會儘速處理與回覆，謝謝！')">
+      <input type="reset" value="重置">
+    </p>
+  </form>
+
+</body>
+
+</html>

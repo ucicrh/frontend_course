@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #colorbox {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="colorbox"></div>
+    <table>
+        <tr>
+            <td><input id="red-slider" type="range" min="0" max="255" oninput="updateRed(this.value)"></td>
+            <td><span id="red-value">0</span></td>
+            <td><button onclick="randomRed()">隨機</button></td>
+        </tr>
+        <tr>
+            <td><input id="green-slider" type="range" min="0" max="255" oninput="updateGreen(this.value)"></td>
+            <td><span id="green-value">0</span></td>
+            <td><button onclick="randomGreen()">隨機</button></td>
+        </tr>
+        <tr>
+            <td><input id="blue-slider" type="range" min="0" max="255" oninput="updateBlue(this.value)"></td>
+            <td><span id="blue-value">0</span></td>
+            <td><button onclick="randomBlue()">隨機</button></td>
+        </tr>
+    </table>
+    <script>
+        function updateRed(value) {
+            document.getElementById("red-value").textContent = value;
+        }
+
+        function randomRed() {
+            let num = Math.floor(Math.random() * 256)
+            document.getElementById("red-slider").value = num
+            updateRed(num)
+        }
+
+        function updateGreen(value) {
+            document.getElementById("green-value").textContent = value;
+        }
+
+        function randomGreen() {
+            let num = Math.floor(Math.random() * 256)
+            document.getElementById("green-slider").value = num
+            updateGreen(num)
+        }
+
+        function updateBlue(value) {
+            document.getElementById("blue-value").textContent = value;
+        }
+
+        function randomBlue() {
+            let num = Math.floor(Math.random() * 256)
+            document.getElementById("blue-slider").value = num
+            updateBlue(num)
+        }
+
+        function updateColor() {
+            document.getElementById("red-slider").value('r')
+            document.getElementById("green-slider").value('g')
+            document.getElementById("blue-slider").value('b')
+            document.getElementById("colorbox").style.backgroundColor
+        }
+    </script>
+</body>
+
+</html>

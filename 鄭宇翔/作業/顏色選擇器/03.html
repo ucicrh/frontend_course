@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    #color{
+      width: 300px;
+      height: 300px;
+      border: 1px solid #aaa;
+    }
+    #range{
+      width: 300px;
+      font-size: 0;
+    }
+    label{
+      display: inline-block;
+      width: 10%;
+      font-size: 1rem;
+    }
+    span{
+      display: inline-block;
+      width:  5%;
+      margin: 1rem 0 0;
+      font-size: 1rem;
+    }
+    .range{
+      display: inline-block;
+      width:  65%;
+      margin: 1rem 0 0;
+      font-size: 1rem;
+    }
+    .random-color{
+      display: inline-block;
+      width:  calc(20% - 1rem);
+      margin: 1rem 0 0 1rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="color"></div>
+
+  <div id="range">
+    <label for="red">R：</label>
+    <input type="range" class="range" name="red" id="red" min="0" max="255" step="1">
+    <span></span>
+    <input type="button" class="random-color" value="隨機">
+    <label for="green">G：</label>
+    <input type="range" class="range" name="green" id="green" min="0" max="255" step="1">
+    <span></span>
+    <input type="button" class="random-color" value="隨機">
+    <label for="blue">B：</label>
+    <input type="range" class="range" name="blue" id="blue" min="0" max="255" step="1">
+    <span></span>
+    <input type="button" class="random-color" value="隨機">
+  </div>
+
+  <script>
+    const color = document.getElementById('color');
+    const range = document.querySelectorAll('.range');
+    const random_color = document.querySelectorAll('.random-color');
+    const span = document.getElementsByTagName('span');
+    const rgb = [];
+
+    function randomColor(index){
+      let num = Math.round(Math.random()*255);
+      rgb[index] = num;
+      range[index].value = num;
+      span[index].innerText = num;
+      color.style.backgroundColor = `rgb(${rgb.join(',')})`;
+    }
+    
+    for(let i = 0; i < 3; i++){
+      randomColor(i);
+
+      range[i].addEventListener('input', () => {
+        rgb[i] = (range[i].value)*1;
+        span[i].innerText = (range[i].value)*1
+        color.style.backgroundColor = `rgb(${rgb.join(',')})`;
+      });
+
+      random_color[i].addEventListener('click', () => {
+        randomColor(i);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+
+    作業
+
+    用上面練習完成的 function 製作威力彩號碼產生器
+    將隨機出的數字用 document.write() 顯示在網頁上
+    威力彩規則
+
+    A 區 1~38 取 6 個數字
+    B 區 1~8 取 1 個數字
+</pre>
+    <script>
+
+
+        // for (i = 0; i < 100; i++) {
+        //     const random = Math.round(Math.random() * 100)
+        //     document.write(random + '<br>')
+        //     if (random === 0 || random === 100) {
+        //         console.log(random)
+        //     }
+        // }
+        // const rand = (min, max) => {
+        //     return Math.round(Math.random() * (max - min)) + min
+        // }
+        // for (let i = 0; i < 100; i++) {
+        //     const random = rand(200, 300)
+        //     document.write(random + '<br>')
+        //     if (random === 200 || random === 300) {
+        //         console.log(random)
+        //     }
+        // }
+
+        const rand = (min, max, cnt) => {
+            let tmpArr = []
+            while (tmpArr.length < cnt) {
+                let r = Math.round(Math.random() * (max - min)) + min
+                // document.write(`${tmpArr.length} <br>`)
+                if (tmpArr.indexOf(r) < 0) {
+                    tmpArr.push(r)
+                }
+            }
+            return tmpArr
+        }
+        let min = 1;
+        let max = 38;
+        let count = 6;
+        document.write('<hr>A 區：')
+        document.write(rand(min, max, count))
+        document.write('<br><hr>')
+
+        document.write('B 區：')
+        max = 8;
+        count = 1;
+        document.write(rand(min, max, count))
+        document.write('<br><hr>')
+
+    </script>
+</body>
+
+</html>

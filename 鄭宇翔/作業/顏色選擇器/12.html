@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有隨機功能的顏色選擇器</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #color-box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: rgb(0 0 0);
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            line-height: 2;
+
+            li {
+                list-style: none;
+                display: flex;
+                align-items: center;
+
+                span {
+                    width: 1.5em;
+                    text-align: center;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="color-box">
+    </div>
+    <ul>
+        <li>
+            <span>R</span><input id="red-slider" type="range" min="0" max="255" step="1" value="0">
+            <input id="randR" type="button" value="隨機">
+        </li>
+        <li>
+            <span>G</span><input id="green-slider" type="range" min="0" max="255" step="1" value="0">
+            <input id="randG" type="button" value="隨機">
+        </li>
+        <li>
+            <span>B</span><input id="blue-slider" type="range" min="0" max="255" step="1" value="0">
+            <input id="randB" type="button" value="隨機">
+        </li>
+    </ul>
+    <script>
+        const r = document.getElementById('red-slider')
+        const g = document.getElementById('green-slider')
+        const b = document.getElementById('blue-slider')
+        const colorBox = document.getElementById('color-box')
+        const rand = () => Math.floor(Math.random() * 256)
+        const updateColor = () => {
+            colorBox.style.backgroundColor = `rgb(${r.value} ${g.value} ${b.value})`
+        }
+        r.oninput = updateColor
+        g.oninput = updateColor
+        b.oninput = updateColor
+        randR.onclick = () => {
+            r.value = rand()
+            updateColor()
+        }
+        randG.onclick = () => {
+            g.value = rand()
+            updateColor()
+        }
+        randB.onclick = () => {
+            b.value = rand()
+            updateColor()
+        }
+    </script>
+</body>
+
+</html>

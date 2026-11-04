@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="box"></div>
+    <br>
+    <input type="range" id="red" min="0" max="255" step="1" value="0">
+    <span id="red-num">000</span><input type="button" id="red-btn" value="隨機"> <br>
+    <input type="range" id="green" min="0" max="255" step="1" value="0">
+    <span id="green-num">000</span><input type="button" id="green-btn" value="隨機"> <br>
+    <input type="range" id="blue" min="0" max="255" step="1" value="0">
+    <span id="blue-num">000</span><input type="button" id="blue-btn" value="隨機"> <br>
+
+    <script>
+        function randomChannel(sliderId, numId) {
+            const value = Math.floor(Math.random() * 256)
+            const sliderEl = document.getElementById(sliderId)
+            const numEl = document.getElementById(numId)
+            sliderEl.value = value
+            numEl.textContent = value
+            updateBox()
+        }
+
+        const redBtn = document.getElementById('red-btn')
+        const greenBtn = document.getElementById('green-btn')
+        const blueBtn = document.getElementById('blue-btn')
+
+        redBtn.onclick = () => randomChannel('red', 'red-num')
+        greenBtn.onclick = () => randomChannel('green', 'green-num')
+        blueBtn.onclick = () => randomChannel('blue', 'blue-num')
+
+        function updateBox() {
+            const redRange = document.getElementById('red')
+            const r = redRange.value
+            const greenRange = document.getElementById('green')
+            const g = greenRange.value
+            const blueRange = document.getElementById('blue')
+            const b = blueRange.value
+            const box = document.getElementById('box')
+            box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+            document.getElementById('red-num').textContent = r
+            document.getElementById('green-num').textContent = g
+            document.getElementById('blue-num').textContent = b
+        }
+
+        document.getElementById('red').oninput = updateBox
+        document.getElementById('green').oninput = updateBox
+        document.getElementById('blue').oninput = updateBox
+
+
+    </script>
+</body>
+
+</html>

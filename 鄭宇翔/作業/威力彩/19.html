@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a_black = []
+        while (a_black.length < 6) {
+            const a = Math.floor(Math.random() * 38) + 1;
+            if (!a_black.includes(a)) a_black.push(a)
+        }
+        const b_black = Math.floor(Math.random() * 8) + 1;
+        console.log(a_black, b_black)
+
+        document.write(`A區${a_black}`)
+        document.write(`<br>`)
+        document.write(`B區${b_black}`)
+    </script>
+</body>
+
+</html>

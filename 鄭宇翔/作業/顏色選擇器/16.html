@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>隨機顏色選擇器</title>
+    <style>
+        .preview {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview"></div>
+
+    <p>
+        <input type="range" id="red" min="0" max="255" value="0" oninput="update()">
+        <span id="red-num">0</span>
+        <input type="button" value="隨機" onclick="randomize('red')">
+    </p>
+    <p>
+        <input type="range" id="green" min="0" max="255" value="0" oninput="update()">
+        <span id="green-num">0</span>
+        <input type="button" value="隨機" onclick="randomize('green')">
+    </p>
+    <p>
+        <input type="range" id="blue" min="0" max="255" value="0" oninput="update()">
+        <span id="blue-num">0</span>
+        <input type="button" value="隨機" onclick="randomize('blue')">
+    </p>
+
+    <script>
+        const preview = document.querySelector('.preview')
+        const red = document.getElementById('red')
+        const green = document.getElementById('green')
+        const blue = document.getElementById('blue')
+
+        // 更新預覽與數字
+        function update() {
+            preview.style.backgroundColor = `rgb(${red.value}, ${green.value}, ${blue.value})`
+            document.getElementById('red-num').textContent = red.value
+            document.getElementById('green-num').textContent = green.value
+            document.getElementById('blue-num').textContent = blue.value
+        }
+
+        // 隨機改指定的滑桿，然後更新畫面
+        function randomize(color) {
+            document.getElementById(color).value = Math.floor(Math.random() * 256)
+            update()
+        }
+
+        update()
+    </script>
+</body>
+
+</html>

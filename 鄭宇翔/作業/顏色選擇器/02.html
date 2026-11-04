@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #color-box {
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+        }
+
+        .value {
+            display: inline-block;
+            width: 30px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="color-box"></div>
+
+    <div class="color-row">紅色
+        <input type="range" id="range-r" min="0" max="255" step="1" value="255">
+        <span class="value"></span>
+        <input type="button" id="random-r" value="隨機">
+    </div>
+
+    <div class="color-row">綠色
+        <input type="range" id="range-g" min="0" max="255" step="1" value="255">
+        <span class="value"></span>
+        <input type="button" id="random-g" value="隨機">
+    </div>
+
+    <div class="color-row">藍色
+        <input type="range" id="range-b" min="0" max="255" step="1" value="255">
+        <span class="value"></span>
+        <input type="button" id="random-b" value="隨機">
+    </div>
+
+    <script>
+        const colorBox = document.getElementById('color-box')
+        const rangeR = document.getElementById('range-r')
+        const rangeG = document.getElementById('range-g')
+        const rangeB = document.getElementById('range-b')
+        const randomR = document.getElementById('random-r')
+        const randomG = document.getElementById('random-g')
+        const randomB = document.getElementById('random-b')
+        const ranges = [rangeR, rangeG, rangeB]
+        const randoms = [randomR, randomG, randomB]
+
+        const value = document.querySelectorAll('.value')
+
+
+        const render = () => {
+            ranges.forEach((item, index) => {
+                value[index].textContent = item.value
+            })
+            // value[0].textContent = rangeR.value
+
+            colorBox.style.backgroundColor = `rgb(${ranges[0].value}, ${ranges[1].value}, ${ranges[2].value})`
+        }
+
+        ranges.forEach((item, index) => {
+            item.addEventListener('input', render)
+        })
+        // rangeR.addEventListener('input', render)
+
+        const randomValue = () => Math.floor(Math.random() * 256)
+             
+        randoms.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                ranges[index].value = randomValue()
+                render()
+            })
+        })
+
+        // randomR.addEventListener('click', () => {
+        //     rangeR.value = randomValue()
+        //     render()
+        // })
+
+        render()
+
+    </script>
+
+</body>
+
+</html>

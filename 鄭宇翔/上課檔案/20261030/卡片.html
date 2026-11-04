@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .card {
+      display: inline-block;
+      padding: 10px;
+      margin: 10px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      border: 1px solid black;
+      width: 200px;
+      text-align: center;
+    }
+    .card > img {
+      width: 180px;
+      height: 180px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://www.diverse.direct/wp/wp-content/uploads/470_Digitaljacket-SP7.jpg" alt="">
+    <h2>Stream Palette 7</h2>
+    <p>3300</p>
+    <input type="button" value="加入購物車" data-name="Stream Palette 7" data-price="3300">
+  </div>
+  <div class="card">
+    <img src="https://www.diverse.direct/wp/wp-content/uploads/470_MRX-201_FG06_4000_fix.jpg" alt="">
+    <h2>FUGENE 06</h2>
+    <p>2990</p>
+    <input type="button" value="加入購物車" data-name="FUGENE 06" data-price="2990">
+  </div>
+  <ul id="list"></ul>
+  <script>
+    const list = document.getElementById('list')
+    const btn = document.querySelectorAll('.card input')
+
+    for (const el of btn) {
+      el.onclick = () => {
+        const name = el.dataset.name
+        const price = el.dataset.price
+        const li = document.createElement('li')
+        li.innerText = `${name}: ${price}`
+        list.append(li)
+      }
+    }
+  </script>
+</body>
+</html>

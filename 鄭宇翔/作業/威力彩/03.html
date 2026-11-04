@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const rand = (min, max) => {
+      let random = Math.random();
+      random = Math.round(random * ( max - min )) + min;
+      return random;
+    }
+
+    let num1 = prompt('請輸入最小整數');
+    let num2 = prompt('請輸入最大整數');
+    let num3 = prompt('請輸入數字數量');
+
+    const arr_num = [];
+
+    while(arr_num.length !== (num3*1)){
+      let num = rand((num1*1), (num2*1));
+      if(!arr_num.includes(num)) arr_num.push(num);
+    }
+    
+    document.write(`威力彩數字為 ${arr_num.join('、')}`);    
+  </script> 
+</body>
+</html>
